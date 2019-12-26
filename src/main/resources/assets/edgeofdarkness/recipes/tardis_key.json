@@ -2,8 +2,8 @@
 
 "pattern":
 [
-         "I"
-        "III"
+         "I",
+        "III",
         "III"
 
 ],
@@ -14,5 +14,6 @@
 
 },
 
-"result": { "item": "edgeofdarkness:tardis_key"}
+"result": { "item": "edgeofdarkness:tardis_key"},
+"count": 1
 
