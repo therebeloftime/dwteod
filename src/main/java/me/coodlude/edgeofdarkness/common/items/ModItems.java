@@ -18,19 +18,19 @@ public class ModItems {
     public static final List<Item> ITEM_LIST = new ArrayList<>();
 
 
-    public static Item temp;
+    public static Item tardis_key;
 
     public static void init() {
-
+        tardis_key = registerItem(new ItemTardisKey(), "tardis_key", false);
     }
 
     public static void registerRenders() {
-      //  registerRender(temp);
+        registerRender(tardis_key);
     }
 
-    public static Item registerItem(Item item, boolean tab) {
-        if (tab)
-            System.out.println("No Tab Defined");
+    public static Item registerItem(Item item, String name,boolean tab) {
+        item.setRegistryName(name);
+        item.setTranslationKey(name);
         ITEM_LIST.add(item);
         return item;
     }

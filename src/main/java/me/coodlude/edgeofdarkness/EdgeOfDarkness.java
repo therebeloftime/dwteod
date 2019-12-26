@@ -1,5 +1,6 @@
 package me.coodlude.edgeofdarkness;
 
+import me.coodlude.edgeofdarkness.common.items.ModItems;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -28,6 +29,7 @@ public class EdgeOfDarkness
     public void preInit(FMLPreInitializationEvent event)
     {
         logger = event.getModLog();
+        ModItems.init();
     }
 
     @EventHandler
