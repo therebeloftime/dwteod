@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["Cooldude", "Josia50"],
   "credits": "Thanks to Josia50 for helping",
-  "logoFile": "",
+  "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": []
 }
