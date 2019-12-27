@@ -28,6 +28,7 @@ public class EdgeOfDarkness
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        proxy.preInit();
         logger = event.getModLog();
         ModItems.init();
     }
@@ -35,5 +36,6 @@ public class EdgeOfDarkness
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+        proxy.init();
     }
 }
