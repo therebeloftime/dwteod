@@ -23,7 +23,7 @@ public class ModBlocks {
         ModBlocks.BLOCK_LIST.add(block);
 
         if (block instanceof IHaveItem) {
-            if(((IHaveItem) block).hasItem()) {
+            if (((IHaveItem) block).hasItem()) {
                 ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(name);
 
                 if (tab) {
