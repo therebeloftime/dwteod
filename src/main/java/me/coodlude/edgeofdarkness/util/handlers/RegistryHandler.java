@@ -1,8 +1,8 @@
 package me.coodlude.edgeofdarkness.util.handlers;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
-import me.coodlude.edgeofdarkness.common.blocks.ModBlocks;
-import me.coodlude.edgeofdarkness.common.items.ModItems;
+import me.coodlude.edgeofdarkness.common.init.ModBlocks;
+import me.coodlude.edgeofdarkness.common.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

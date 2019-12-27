@@ -1,6 +1,7 @@
-package me.coodlude.edgeofdarkness.common.items;
+package me.coodlude.edgeofdarkness.common.init;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
+import me.coodlude.edgeofdarkness.common.items.ItemTardisKey;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -21,14 +22,14 @@ public class ModItems {
     public static Item tardis_key;
 
     public static void init() {
-        tardis_key = registerItem(new ItemTardisKey(), "tardis_key", false);
+        tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
     }
 
     public static void registerRenders() {
         registerRender(tardis_key);
     }
 
-    public static Item registerItem(Item item, String name,boolean tab) {
+    public static Item registerItem(Item item, String name) {
         item.setRegistryName(name);
         item.setTranslationKey(name);
         ITEM_LIST.add(item);

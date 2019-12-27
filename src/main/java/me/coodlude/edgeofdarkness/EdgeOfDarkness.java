@@ -1,6 +1,6 @@
 package me.coodlude.edgeofdarkness;
 
-import me.coodlude.edgeofdarkness.common.items.ModItems;
+import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;

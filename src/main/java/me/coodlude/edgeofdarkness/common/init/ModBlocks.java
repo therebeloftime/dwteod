@@ -1,7 +1,6 @@
-package me.coodlude.edgeofdarkness.common.blocks;
+package me.coodlude.edgeofdarkness.common.init;
 
 
-import me.coodlude.edgeofdarkness.common.items.ModItems;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
