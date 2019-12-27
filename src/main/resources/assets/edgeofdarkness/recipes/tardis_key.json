@@ -1,19 +1,18 @@
-"type": "minecraft:crafting_shaped",
-
-"pattern":
-[
-         "I",
-        "III",
-        "III"
-
-],
-
-"key":
 {
-    "I": { "item": "minecraft:iron_ingot" },
+    "type": "minecraft:crafting_shapeless",
+    "ingredients":
+    [
+        {
+            "item": "minecraft:iron_nugget"
+        },
+        {
+            "item": "minecraft:iron_ingot"
+        }
+    ],
+    "result":
+    {
+       "item": "edgeofdarkness:tardis_key",
+       "count": 1
 
-},
-
-"result": { "item": "edgeofdarkness:tardis_key"},
-"count": 1
-
+    }
+}
