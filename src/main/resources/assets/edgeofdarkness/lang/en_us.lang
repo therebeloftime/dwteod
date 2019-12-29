@@ -1,8 +1,8 @@
 // Items
-item.tardis_key.name=Tardis Key
+item.tardis_key.name=TARDIS Key
 
 //Blocks
-tile.tardis.name=Tardis
+tile.tardis.name=The TARDIS
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
