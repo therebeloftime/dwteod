@@ -2,13 +2,13 @@
 {
   "modid": "edgeofdarkness",
   "name": "Doctor Who: The Edge Of Darkness",
-  "description": "EdgeOfDarkness Mod",
+  "description": "Info will be shortly made.",
   "version": "0.0.1",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["CoolDude145/TheRebelOfTime", "Josia50"],
-  "credits": "Thanks to Josia50 for helping",
+  "authorList": ["TheRebelOfTime", "Josia50"],
+  "credits": "Josia50 - Developer, Mod Setup and TARDIS Model, TheGingerDoctor - TARDIS Key",
   "logoFile": "DWTEOD.png",
   "screenshots": [],
   "dependencies": []
