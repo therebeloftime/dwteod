@@ -1,7 +1,7 @@
 {
-	"credit": "Made with Blockbench by TheGingerDoctor",
+	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "item/tardis_key.png"
+		"1": "edgeofdarkness:item/tardis_key"
 	},
 	"elements": [
 		{
