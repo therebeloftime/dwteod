@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients":
+    [
+        {
+            "item": "edgeofdarkness:tardis_key"
+        },
+        {
+            "item": "minecraft:blaze_powder"
+        }
+    ],
+    "result":
+    {
+       "item": "edgeofdarkness:tardis",
+       "count": 1
+
+    }
+}
