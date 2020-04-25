@@ -8,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class PacketDemat implements IMessage {
 
@@ -38,8 +39,10 @@ public class PacketDemat implements IMessage {
 
         @Override
         public IMessage onMessage(PacketDemat mes, MessageContext ctx) {
-            Minecraft.getMinecraft().addScheduledTask(() -> {
+         //   Minecraft.getMinecraft().addScheduledTask(() -> {
                 TileEntity te = Minecraft.getMinecraft().world.getTileEntity(mes.pos);
+System.out.println(te);
+
                 if (te != null && te instanceof TileEntityTardis) {
 
                     if (mes.isDemat) {
@@ -47,8 +50,9 @@ public class PacketDemat implements IMessage {
                     } else {
                         ((TileEntityTardis) te).setRemat(true);
                     }
+
                 }
-            });
+           // });
             return null;
         }
     }

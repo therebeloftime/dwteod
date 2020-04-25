@@ -1,7 +1,8 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
-import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
+import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
+import me.coodlude.edgeofdarkness.util.helper.TeleportUtils;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -28,7 +29,12 @@ public class BlockTardis extends BlockTileBase implements IHaveItem {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        ((TileEntityTardis) worldIn.getTileEntity(pos)).setDemat(true);
+
+        if (!worldIn.isRemote) {
+            // ((TileEntityTardis) worldIn.getTileEntity(pos)).setDemat(true);
+            TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 1, 0);
+        }
+
         return true;
     }
 
