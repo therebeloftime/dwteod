@@ -6,5 +6,55 @@
         "stream": true
       }
     ]
+  },
+  "basiclanding": {
+    "category": "master",
+    "subtitle": "edgeofdarkness.basicremat",
+    "sounds": [
+      {
+        "name": "edgeofdarkness:basiclanding",
+        "stream": false
+      }
+    ]
+  },
+  "demat": {
+    "category": "master",
+    "subtitle": "edgeofdarkness.demat",
+    "sounds": [
+      {
+        "name": "edgeofdarkness:demat",
+        "stream": false
+      }
+    ]
+  },
+  "fly": {
+    "category": "master",
+    "subtitle": "edgeofdarkness.fly",
+    "sounds": [
+      {
+        "name": "edgeofdarkness:fly",
+        "stream": false
+      }
+    ]
+  },
+  "cloister": {
+    "category": "master",
+    "subtitle": "edgeofdarkness.cloister",
+    "sounds": [
+      {
+        "name": "edgeofdarkness:cloister",
+        "stream": false
+      }
+    ]
+  },
+  "denied": {
+    "category": "master",
+    "subtitle": "edgeofdarkness.denied",
+    "sounds": [
+      {
+        "name": "edgeofdarkness:denied",
+        "stream": false
+      }
+    ]
   }
 }

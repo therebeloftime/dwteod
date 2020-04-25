@@ -22,7 +22,7 @@ public class ModBlocks {
 
     public static final List<Block> BLOCK_LIST = new ArrayList<>();
 
-    public static Block tardis = registerBlock(new BlockTardis(Material.BARRIER, TileEntityTardis::new), "tardis").setCreativeTab(ModTabs.edgeofdarkness);
+    public static Block tardis = registerBlock(new BlockTardis(TileEntityTardis::new), "tardis").setCreativeTab(ModTabs.edgeofdarkness);
 
     public static Block registerBlock(Block block, String name) {
         block.setRegistryName(name);
