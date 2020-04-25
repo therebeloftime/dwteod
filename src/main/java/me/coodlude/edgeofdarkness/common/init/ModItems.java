@@ -28,7 +28,7 @@ public class ModItems {
     public static void init() {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
         jammy_dodgers = registerItem(new ItemFood(1, 0.5f, false), "jammy_dodgers").setCreativeTab(ModTabs.edgeofdarkness);
-        sonic_screwdriver = registerItem(new ItemSonicScrewdriver()"sonic_screwdriver").setCreativeTab(ModTabs.edgeofdarkness);
+        sonic_screwdriver = registerItem(new ItemSonicScrewdriver(), "sonic_screwdriver").setCreativeTab(ModTabs.edgeofdarkness);
     }
 
     public static Item registerItem(Item item, String name) {
