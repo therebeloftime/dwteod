@@ -42,7 +42,6 @@ public class PacketDemat implements IMessage {
                 TileEntity te = Minecraft.getMinecraft().world.getTileEntity(mes.pos);
                 if (te != null && te instanceof TileEntityTardis) {
 
-
                     if (mes.isDemat) {
                         ((TileEntityTardis) te).setDemat(true);
                     } else {
