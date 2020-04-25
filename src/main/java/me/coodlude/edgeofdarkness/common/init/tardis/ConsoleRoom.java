@@ -34,5 +34,6 @@ public class ConsoleRoom {
 
     public static void init() {
         ConsoleRoom.registerConsoleRoom( "stone_platform", new BlockPos(16, 1, 16));
+        ConsoleRoom.registerConsoleRoom("tardis_int", new BlockPos(10,5,4));
     }
 }

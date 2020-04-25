@@ -18,11 +18,11 @@ import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
-public class BlockTardis extends BlockTileBase implements IHaveItem {
+public class BlockDoor extends BlockTileBase implements IHaveItem {
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
-    public BlockTardis(Supplier<TileEntity> tileEntitySupplier) {
+    public BlockDoor(Supplier<TileEntity> tileEntitySupplier) {
         super(tileEntitySupplier);
     }
 
@@ -32,17 +32,10 @@ public class BlockTardis extends BlockTileBase implements IHaveItem {
 
         if (!worldIn.isRemote) {
             // ((TileEntityTardis) worldIn.getTileEntity(pos)).setDemat(true);
-            TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0,0);
-
-
+          //  TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0,0);
         }
 
         return true;
-    }
-
-    @Override
-    public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
-        return false;
     }
 
     @Override
@@ -87,6 +80,6 @@ public class BlockTardis extends BlockTileBase implements IHaveItem {
 
     @Override
     public boolean hasItem() {
-        return false;
+        return true;
     }
 }

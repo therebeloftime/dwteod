@@ -1,8 +1,10 @@
 package me.coodlude.edgeofdarkness.common.init;
 
 
+import me.coodlude.edgeofdarkness.common.blocks.BlockDoor;
 import me.coodlude.edgeofdarkness.common.blocks.BlockTardis;
 import me.coodlude.edgeofdarkness.common.blocks.BlockTileBase;
+import me.coodlude.edgeofdarkness.common.tileentity.TileEntityDoor;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.util.handlers.RegistryHandler;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
@@ -23,6 +25,7 @@ public class ModBlocks {
     public static final List<Block> BLOCK_LIST = new ArrayList<>();
 
     public static Block tardis = registerBlock(new BlockTardis(TileEntityTardis::new), "tardis").setCreativeTab(ModTabs.edgeofdarkness);
+    public static Block door = registerBlock(new BlockDoor(TileEntityDoor::new), "tardis_door").setCreativeTab(ModTabs.edgeofdarkness);
 
     public static Block registerBlock(Block block, String name) {
         block.setRegistryName(name);

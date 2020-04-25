@@ -33,7 +33,7 @@ public class ItemTardisKey extends Item {
                 TileEntityTardis tileEntityTardis = (TileEntityTardis) worldIn.getTileEntity(pos.up());
 
                 if (tileEntityTardis != null) {
-                    ConsoleRoom.ROOM_LIST.get(0).generate((WorldServer) world, new BlockPos(0, 1, 0));
+                    ConsoleRoom.ROOM_LIST.get(1).generate((WorldServer) world, new BlockPos(0, 50, 0));
                 }
 
 

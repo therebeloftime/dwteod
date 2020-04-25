@@ -31,7 +31,7 @@ public class TeleportUtils extends Teleporter {
             entity.motionZ = 0.0f;
         }
 
-        public static void teleportToDimension(EntityPlayer player, int dimension, double x, double y, double z) {
+        public static void teleportToDimension(EntityPlayer player, int dimension, double x, double y, double z, float pitch, float yaw) {
             int oldDimension = player.getEntityWorld().provider.getDimension();
             EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
             MinecraftServer server = player.getEntityWorld().getMinecraftServer();
@@ -43,6 +43,7 @@ public class TeleportUtils extends Teleporter {
             }
 
             worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension, new TeleportUtils(worldServer, x, y, z));
-            player.setPositionAndUpdate(x, y, z);
+           // player.setPositionAndUpdate(x, y, z);
+           ((EntityPlayerMP) player).connection.setPlayerLocation(x, y, z, yaw, pitch);
         }
     }
