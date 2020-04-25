@@ -1,7 +1,9 @@
 package me.coodlude.edgeofdarkness;
 
+import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
+import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
 import net.minecraftforge.fml.common.Mod;
@@ -10,6 +12,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
+
+import java.io.Console;
 
 @Mod(modid = EdgeOfDarkness.MODID, name = EdgeOfDarkness.NAME, version = EdgeOfDarkness.VERSION)
 public class EdgeOfDarkness
@@ -35,11 +39,13 @@ public class EdgeOfDarkness
         NetworkHandler.init();
         ModSounds.registerSounds();
         ModItems.init();
+        ConsoleRoom.init();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
         proxy.init();
+        ModDimension.Register();
     }
 }
