@@ -1,6 +1,6 @@
 {
   "a_good_man": {
-    "category" : "ambient",
+    "category" : "record",
     "sounds": [{
         "name": "edgeofdarkness:a_good_man",
         "stream": true
