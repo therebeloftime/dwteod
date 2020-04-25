@@ -25,10 +25,6 @@ public class ModItems {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
     }
 
-    public static void registerRenders() {
-        registerRender(tardis_key);
-    }
-
     public static Item registerItem(Item item, String name) {
         item.setRegistryName(name);
         item.setTranslationKey(name);

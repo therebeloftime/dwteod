@@ -20,7 +20,11 @@ public class RegistryHandler {
 
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event) {
-        ModItems.registerRenders();
+        for(int i = 0; i < ModItems.ITEM_LIST.size(); i++) {
+            Item item = ModItems.ITEM_LIST.get(i);
+            ModItems.registerRender(item);
+        }
+
         for(int x = 0; x < ModBlocks.BLOCK_LIST.size(); x++) {
             Block block = ModBlocks.BLOCK_LIST.get(x);
             ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "normal"));
