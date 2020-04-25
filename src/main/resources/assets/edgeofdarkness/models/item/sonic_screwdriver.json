@@ -4,7 +4,7 @@
 		"0": "edgeofdarkness:items/sonic_screwdriver_main",
 		"1": "edgeofdarkness:items/sonic_screwdriver_stripe",
 		"2": "edgeofdarkness:items/sonic_screwdriver_bullet",
-		"particle": "edgeofdarkness:items/sonic_screwdriver_main"
+		"particle": "edgeofdarkness:items/sonic_screwdriver"
 	},
 	"elements": [
 		{
