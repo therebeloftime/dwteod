@@ -1,6 +1,8 @@
 package me.coodlude.edgeofdarkness;
 
 import me.coodlude.edgeofdarkness.common.init.ModItems;
+import me.coodlude.edgeofdarkness.common.init.ModSounds;
+import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -30,6 +32,8 @@ public class EdgeOfDarkness
     {
         proxy.preInit();
         logger = event.getModLog();
+        NetworkHandler.init();
+        ModSounds.registerSounds();
         ModItems.init();
     }
 

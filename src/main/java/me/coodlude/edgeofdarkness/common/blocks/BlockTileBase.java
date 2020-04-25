@@ -14,8 +14,8 @@ public class BlockTileBase extends Block {
 
    public Supplier<TileEntity> tileEntitySupplier;
 
-    public BlockTileBase(Material blockMaterialIn, Supplier<TileEntity> tileEntitySupplier) {
-        super(blockMaterialIn);
+    public BlockTileBase(Supplier<TileEntity> tileEntitySupplier) {
+        super(Material.BARRIER);
         this.tileEntitySupplier = tileEntitySupplier;
     }
 
