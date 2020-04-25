@@ -1,0 +1,34 @@
+{
+  "a_good_man": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:a_good_man",
+      "stream": true
+    }
+    ]
+  },
+  "maintheme": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:maintheme",
+      "stream": true
+    }
+    ]
+  },
+  "secondarytheme": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:secondarytheme",
+      "stream": true
+    }
+    ]
+  },
+  "secondarytheme3": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:secondarytheme3",
+      "stream": true
+    }
+    ]
+  }
+}
