@@ -1,6 +1,7 @@
 package me.coodlude.edgeofdarkness.common.init;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
+import me.coodlude.edgeofdarkness.common.items.ItemSonicScrewdriver;
 import me.coodlude.edgeofdarkness.common.items.ItemTardisKey;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -22,10 +23,12 @@ public class ModItems {
 
     public static Item tardis_key;
     public static Item jammy_dodgers;
+    public static Item sonic_screwdriver;
 
     public static void init() {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
         jammy_dodgers = registerItem(new ItemFood(1, 0.5f, false), "jammy_dodgers").setCreativeTab(ModTabs.edgeofdarkness);
+        sonic_screwdriver = registerItem(new ItemSonicScrewdriver()"sonic_screwdriver").setCreativeTab(ModTabs.edgeofdarkness);
     }
 
     public static Item registerItem(Item item, String name) {
