@@ -20,11 +20,6 @@ public class TileEntityTardis extends TileEntity implements ITickable {
     @Override
     public void update() {
 
-
-        if(world.isRemote) {
-            System.out.println(isRemat + " " + isDemat);
-        }
-
         if (isRemat || isDemat) {
 
 
