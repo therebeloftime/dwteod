@@ -2,6 +2,9 @@
 item.tardis_key.name=TARDIS Key
 item.sonic_screwdriver.name=Sonic Screwdriver
 item.jammy_dodgers.name=Jammy Dodgers
+item.emerald_sword.name=Emerald Sword
+item.emerald_pickaxe.name=Emerald Pickaxe
+item.emerald_axe.name=Emerald Axe
 
 //Blocks
 tile.tardis.name=The TARDIS
