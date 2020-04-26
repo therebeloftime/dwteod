@@ -3,7 +3,9 @@ package me.coodlude.edgeofdarkness.common.items;
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
+import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
@@ -27,12 +29,14 @@ public class ItemTardisKey extends Item {
 
             worldIn.setBlockState(pos.up(), ModBlocks.tardis.getDefaultState());
 
-            if (!worldIn.isRemote) {
+            if (!worldIn.isRemote && !(worldIn.provider instanceof WorldProviderTardis)) {
 
                 World world = worldIn.getMinecraftServer().getWorld(ModDimension.TARDISID);
                 TileEntityTardis tileEntityTardis = (TileEntityTardis) worldIn.getTileEntity(pos.up());
 
                 if (tileEntityTardis != null) {
+                    TardisHandler.tardises.clear(); // Temp
+                    tileEntityTardis.tardisID = TardisHandler.addTardis();
                     ConsoleRoom.ROOM_LIST.get(1).generate((WorldServer) world, new BlockPos(0, 50, 0));
                 }
 
