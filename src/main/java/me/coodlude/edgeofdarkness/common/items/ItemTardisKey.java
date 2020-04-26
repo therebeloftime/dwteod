@@ -6,7 +6,6 @@ import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
@@ -27,23 +26,24 @@ public class ItemTardisKey extends Item {
 
         if (!player.isSneaking()) {
 
+            if (!(worldIn.provider instanceof WorldProviderTardis)) {
 
-            worldIn.setBlockState(pos.up(), ModBlocks.tardis.getDefaultState());
+                worldIn.setBlockState(pos.up(), ModBlocks.tardis.getDefaultState());
 
-            if (!worldIn.isRemote && !(worldIn.provider instanceof WorldProviderTardis)) {
+                if (!worldIn.isRemote) {
 
-                World world = worldIn.getMinecraftServer().getWorld(ModDimension.TARDISID);
-                TileEntityTardis tileEntityTardis = (TileEntityTardis) worldIn.getTileEntity(pos.up());
+                    World world = worldIn.getMinecraftServer().getWorld(ModDimension.TARDISID);
+                    TileEntityTardis tileEntityTardis = (TileEntityTardis) worldIn.getTileEntity(pos.up());
 
-                if (tileEntityTardis != null) {
-                    TardisHandler.tardises.clear(); // Temp
-                    tileEntityTardis.tardisID = TardisHandler.addTardis();
-                    ConsoleRoom.ROOM_LIST.get(1).generate((WorldServer) world, new BlockPos(0, 50, 0));
+                    if (tileEntityTardis != null) {
+                        TardisHandler.tardises.clear(); // Temp
+                        tileEntityTardis.tardisID = TardisHandler.addTardis();
+                        ConsoleRoom.ROOM_LIST.get(1).generate((WorldServer) world, new BlockPos(0, 50, 0));
+                    }
+
+                    tileEntityTardis.setRemat(true);
                 }
-
-                tileEntityTardis.setRemat(true);
             }
-
         }
 
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
