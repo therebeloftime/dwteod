@@ -14,7 +14,7 @@ import net.minecraft.util.SoundCategory;
 
 import javax.annotation.Nullable;
 
-public class TileEntityTardis extends TileEntity implements ITickable {
+public class TileEntityTardis extends TileEntityBase implements ITickable {
 
     public int tardisID = 0;
     public int circuitID = 0;
@@ -114,29 +114,6 @@ public class TileEntityTardis extends TileEntity implements ITickable {
         compound.setInteger("circuitID", circuitID);
 
         return compound;
-    }
-
-    @Override
-    @Nullable
-    public SPacketUpdateTileEntity getUpdatePacket() {
-        return new SPacketUpdateTileEntity(this.pos, 4, this.getUpdateTag());
-    }
-
-    @Override
-    public NBTTagCompound getUpdateTag() {
-        return this.writeToNBT(new NBTTagCompound());
-    }
-
-    @Override
-    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
-        readFromNBT(packet.getNbtCompound());
-    }
-
-    public void sendUpdates() {
-        world.markBlockRangeForRenderUpdate(pos, pos);
-        world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
-        world.scheduleBlockUpdate(pos, getBlockType(), 0, 0);
-        markDirty();
     }
 
     public void setTardisID(int tardisID) {

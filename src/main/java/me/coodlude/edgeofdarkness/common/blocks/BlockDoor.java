@@ -4,6 +4,8 @@ import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
+import me.coodlude.edgeofdarkness.common.tileentity.TileEntityDoor;
+import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import me.coodlude.edgeofdarkness.util.helper.TeleportUtils;
 import net.minecraft.block.properties.PropertyDirection;
@@ -38,10 +40,13 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
             ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
 
 
-            if(TardisHandler.doesTardisExist(capability.getTardisID())) {
+            if (TardisHandler.doesTardisExist(capability.getTardisID())) {
                 TardisInfo info = TardisHandler.tardises.get(capability.getTardisID());
-                if (!info.isInFlight()) {
-                    TeleportUtils.teleportToDimension(playerIn, info.getExteriorDim(), info.getExtereriorPos().getX(), info.getExtereriorPos().getY(), info.getExtereriorPos().getZ(), 0, 0);
+                TileEntityTardis tileEntityTardis = TardisHandler.getTardisTile(capability.getTardisID());
+
+                if (!info.isInFlight() && tileEntityTardis != null) {
+                    BlockPos leavePos = TardisHandler.getExitPosition(capability.getTardisID());
+                    TeleportUtils.teleportToDimension(playerIn, info.getExteriorDim(), leavePos.getX(), leavePos.getY(), leavePos.getZ(), 0, tileEntityTardis.rotation);
                 } else {
                     playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.inflight"), true);
                 }

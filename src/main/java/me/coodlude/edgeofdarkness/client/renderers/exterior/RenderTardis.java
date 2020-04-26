@@ -17,8 +17,9 @@ public class RenderTardis extends TileEntitySpecialRenderer<TileEntityTardis> {
         GlStateManager.enableBlend();
 
         GlStateManager.translate(x, y, z);
-        IBlockState state = te.getWorld().getBlockState(te.getPos());
-        GlStateManager.rotate(Helper.getAngleFromFacing(state.getValue(BlockTardis.FACING)), 0, 1, 0);
+        //IBlockState state = te.getWorld().getBlockState(te.getPos());
+        //Helper.getAngleFromFacing(state.getValue(BlockTardis.FACING))
+        GlStateManager.rotate(te.rotation, 0, 1, 0);
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 
         if (te.alpha < 1) {

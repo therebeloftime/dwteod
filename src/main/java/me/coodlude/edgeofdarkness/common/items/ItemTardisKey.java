@@ -14,7 +14,6 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -42,6 +41,8 @@ public class ItemTardisKey extends Item {
                     if (tileEntityTardis != null) {
                         TardisHandler.tardises.clear(); // Temp
                         tileEntityTardis.tardisID = TardisHandler.addTardis();
+                        tileEntityTardis.rotation = (-player.rotationYaw) - 180;
+                        tileEntityTardis.sendUpdates();
                         ConsoleRoom.ROOM_LIST.get(1).generate((WorldServer) world, new BlockPos(0, 50, 0));
                     }
 

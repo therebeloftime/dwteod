@@ -4,6 +4,7 @@ import me.coodlude.edgeofdarkness.common.init.ModBlocks;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -80,6 +81,21 @@ public class TardisHandler {
         }
 
         return (TileEntityTardis) tileEntity;
+    }
+
+    public static BlockPos getExitPosition(int id) {
+        if (doesTardisExist(id)) {
+            TardisInfo info = getTardis(id);
+
+            Vec3d look = Vec3d.fromPitchYaw(45, (-getTardisTile(id).rotation));
+            float distance = 0.5F;
+            double x = info.getExtereriorPos().getX() + (look.x * distance);
+            double y = (info.getExtereriorPos().getY() > 0) ? info.getExtereriorPos().getY() : 128;
+            double z = info.getExtereriorPos().getZ() + (look.z * distance);
+            return new BlockPos(x, y, z);
+        }
+
+        return BlockPos.ORIGIN;
     }
 
     public static TardisInfo getTardis(int id) {
