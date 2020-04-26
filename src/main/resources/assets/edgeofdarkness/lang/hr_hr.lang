@@ -14,6 +14,6 @@ tile.tardis_door.name=TARDIS Vrata
 itemGroup.edgeofdarkness_items=Doktor Who: Rub Mraka
 
 //Messages
-msg.tardis.locked=The Tardis je zaključan
+msg.tardis.locked=Tardis je zaključan
 msg.tardis.lock=Zaključao Tardis
 msg.tardis.unlock=Odključao Tardis
