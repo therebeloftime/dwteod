@@ -1,6 +1,8 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import me.coodlude.edgeofdarkness.util.helper.TeleportUtils;
 import net.minecraft.block.properties.PropertyDirection;
@@ -31,7 +33,8 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
 
 
         if (!worldIn.isRemote) {
-          //  TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0,0);
+            TardisInfo info =  TardisHandler.tardises.get(1);
+            TeleportUtils.teleportToDimension(playerIn, info.getExteriorDim(), info.getExtereriorPos().getX(), info.getExtereriorPos().getY(), info.getExtereriorPos().getZ(),0, 0);
         }
 
         return true;

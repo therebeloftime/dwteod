@@ -1,6 +1,7 @@
 package me.coodlude.edgeofdarkness.common.tileentity;
 
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
+import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.network.packets.PacketDemat;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,6 +15,7 @@ import javax.annotation.Nullable;
 
 public class TileEntityTardis extends TileEntity implements ITickable {
 
+    public int tardisID = 0;
     public int circuitID = 0;
     public float alpha = 0;
     public boolean isRemat = false, isDemat = false;
@@ -44,6 +46,10 @@ public class TileEntityTardis extends TileEntity implements ITickable {
             if (isRemat && isDemat) isDemat = false;
         }
 
+
+        if(world.provider instanceof WorldProviderTardis) {
+            if(!world.isRemote) world.setBlockToAir(pos);
+        }
     }
 
     public void setRemat(boolean remat) {
@@ -93,6 +99,7 @@ public class TileEntityTardis extends TileEntity implements ITickable {
         isRemat = compound.getBoolean("isRemat");
         isDemat = compound.getBoolean("isDemat");
         alpha = compound.getFloat("alpha");
+        tardisID = compound.getInteger("tardisID");
     }
 
     @Override
@@ -101,6 +108,7 @@ public class TileEntityTardis extends TileEntity implements ITickable {
         compound.setBoolean("isRemat", isRemat);
         compound.setBoolean("isDemat", isDemat);
         compound.setFloat("alpha", alpha);
+        compound.setInteger("tardisID", tardisID);
 
         return compound;
     }

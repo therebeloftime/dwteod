@@ -6,6 +6,7 @@ import me.coodlude.edgeofdarkness.common.items.ItemTardisKey;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemSword;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
