@@ -9,10 +9,8 @@ import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.util.handlers.RegistryHandler;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -32,15 +30,15 @@ public class ModBlocks {
         block.setTranslationKey(name);
         ModBlocks.BLOCK_LIST.add(block);
 
-        if(block instanceof BlockTileBase) {
+        if (block instanceof BlockTileBase) {
             BlockTileBase tileBase = (BlockTileBase) block;
             RegistryHandler.registerTileEntity(tileBase.tileEntitySupplier.get().getClass(), tileBase.tileEntitySupplier.get().getClass().getSimpleName());
         }
 
         if (block instanceof IHaveItem) {
-                ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(name);
-                ModItems.registerRender(itemBlock);
-                ModItems.ITEM_LIST.add(itemBlock);
+            ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(name);
+            ModItems.registerRender(itemBlock);
+            ModItems.ITEM_LIST.add(itemBlock);
         }
         return block;
     }

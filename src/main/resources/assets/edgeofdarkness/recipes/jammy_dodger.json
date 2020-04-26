@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "ingredients":
-  [
+  "ingredients": [
     {
       "item": "minecraft:spider_eye"
     },
@@ -9,10 +8,8 @@
       "item": "minecraft:cookie"
     }
   ],
-  "result":
-  {
+  "result": {
     "item": "edgeofdarkness:jammy_dodgers",
     "count": 6
-
   }
 }

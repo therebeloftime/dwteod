@@ -1,18 +1,15 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients":
-    [
-        {
-            "item": "minecraft:iron_nugget"
-        },
-        {
-            "item": "minecraft:iron_ingot"
-        }
-    ],
-    "result":
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
     {
-       "item": "edgeofdarkness:tardis_key",
-       "count": 1
-
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "item": "minecraft:iron_ingot"
     }
+  ],
+  "result": {
+    "item": "edgeofdarkness:tardis_key",
+    "count": 1
+  }
 }

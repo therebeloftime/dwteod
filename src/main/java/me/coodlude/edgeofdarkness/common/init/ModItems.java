@@ -1,6 +1,8 @@
 package me.coodlude.edgeofdarkness.common.init;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
+import me.coodlude.edgeofdarkness.common.items.ItemAxe;
+import me.coodlude.edgeofdarkness.common.items.ItemPickAxe;
 import me.coodlude.edgeofdarkness.common.items.ItemSonicScrewdriver;
 import me.coodlude.edgeofdarkness.common.items.ItemTardisKey;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -32,7 +34,7 @@ public class ModItems {
         jammy_dodgers = registerItem(new ItemFood(1, 0.5f, false), "jammy_dodgers").setCreativeTab(ModTabs.edgeofdarkness);
         sonic_screwdriver = registerItem(new ItemSonicScrewdriver(), "sonic_screwdriver").setCreativeTab(ModTabs.edgeofdarkness);
         emerald_sword = registerItem(new ItemSword(Item.ToolMaterial.DIAMOND),  "emerald_sword").setCreativeTab(ModTabs.edgeofdarkness);
-        emerald_pickaxe = registerItem(new ItemPickaxe(Item.ToolMaterial.DIAMOND),  "emerald_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
+        emerald_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.DIAMOND),  "emerald_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
         emerald_axe = registerItem(new ItemAxe(Item.ToolMaterial.DIAMOND), "emerald_axe").setCreativeTab(ModTabs.edgeofdarkness);
 
     }
