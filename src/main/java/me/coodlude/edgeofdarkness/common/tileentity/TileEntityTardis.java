@@ -48,14 +48,22 @@ public class TileEntityTardis extends TileEntity implements ITickable {
 
     public void setRemat(boolean remat) {
         isRemat = remat;
-        world.playSound(null, pos, ModSounds.SHORT_REMAT, SoundCategory.BLOCKS, 1, 1);
-        if (remat) sendDemat(false);
+
+        if (remat) {
+            setDemat(false);
+            world.playSound(null, pos, ModSounds.SHORT_REMAT, SoundCategory.BLOCKS, 1, 1);
+            sendDemat(false);
+        }
     }
 
     public void setDemat(boolean demat) {
         isDemat = demat;
-        world.playSound(null, pos, ModSounds.DEMAT, SoundCategory.BLOCKS, 1, 1);
-        if (demat) sendDemat(true);
+
+        if (demat) {
+            setRemat(false);
+            world.playSound(null, pos, ModSounds.DEMAT, SoundCategory.BLOCKS, 1, 1);
+            sendDemat(true);
+        }
     }
 
     public void setAlpha(float alpha) {
@@ -84,13 +92,15 @@ public class TileEntityTardis extends TileEntity implements ITickable {
         super.readFromNBT(compound);
         isRemat = compound.getBoolean("isRemat");
         isDemat = compound.getBoolean("isDemat");
+        alpha = compound.getFloat("alpha");
     }
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
         compound.setBoolean("isRemat", isRemat);
-        compound.setBoolean("isRemat", isDemat);
+        compound.setBoolean("isDemat", isDemat);
+        compound.setFloat("alpha", alpha);
 
         return compound;
     }

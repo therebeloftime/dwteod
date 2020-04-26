@@ -31,7 +31,6 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
 
 
         if (!worldIn.isRemote) {
-            // ((TileEntityTardis) worldIn.getTileEntity(pos)).setDemat(true);
           //  TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0,0);
         }
 
