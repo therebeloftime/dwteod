@@ -79,9 +79,4 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING);
     }
-
-    @Override
-    public boolean hasItem() {
-        return true;
-    }
 }

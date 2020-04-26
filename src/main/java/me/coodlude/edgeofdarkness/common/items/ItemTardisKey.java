@@ -6,6 +6,7 @@ import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
@@ -39,7 +40,6 @@ public class ItemTardisKey extends Item {
                     tileEntityTardis.tardisID = TardisHandler.addTardis();
                     ConsoleRoom.ROOM_LIST.get(1).generate((WorldServer) world, new BlockPos(0, 50, 0));
                 }
-
 
                 tileEntityTardis.setRemat(true);
             }

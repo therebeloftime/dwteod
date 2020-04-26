@@ -42,7 +42,6 @@ public class BlockTardis extends BlockTileBase implements IHaveItem {
                 TardisInfo info = TardisHandler.tardises.get(tileEntityTardis.tardisID);
                 info.setExtereriorPos(tileEntityTardis.getPos());
                 info.setExteriorDim(worldIn.provider.getDimension());
-                System.out.println(TardisHandler.tardises.get(tileEntityTardis.tardisID).getExtereriorPos());
 
                 TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0, info.interiorSpawnRotation);
             }
@@ -53,7 +52,7 @@ public class BlockTardis extends BlockTileBase implements IHaveItem {
 
     @Override
     public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
-        return false;
+        return true;
     }
 
     @Override
@@ -94,10 +93,5 @@ public class BlockTardis extends BlockTileBase implements IHaveItem {
     @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING);
-    }
-
-    @Override
-    public boolean hasItem() {
-        return false;
     }
 }
