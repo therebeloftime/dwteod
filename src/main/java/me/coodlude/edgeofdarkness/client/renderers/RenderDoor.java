@@ -25,6 +25,9 @@ public class RenderDoor extends TileEntitySpecialRenderer<TileEntityDoor> {
         GlStateManager.pushMatrix();
         GlStateManager.translate(x, y, z);
         IBlockState state = te.getWorld().getBlockState(te.getPos());
+        GlStateManager.rotate(180,1,0,0);
+        GlStateManager.rotate(90,0,1,0);
+        GlStateManager.translate(0.5,-1.4,0.5);
         GlStateManager.rotate(Helper.getAngleFromFacing(state.getValue(BlockDoor.FACING)), 0, 1, 0);
         Minecraft.getMinecraft().getTextureManager().bindTexture(location);
         door.render(null, 0,0,0,0,0,0.0625f);

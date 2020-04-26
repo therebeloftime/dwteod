@@ -6,5 +6,6 @@ public class ItemSonicScrewdriver extends Item {
 
     public ItemSonicScrewdriver() {
         super();
+        setMaxStackSize(1);
     }
 }

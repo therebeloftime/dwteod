@@ -39,9 +39,8 @@ public class PacketDemat implements IMessage {
 
         @Override
         public IMessage onMessage(PacketDemat mes, MessageContext ctx) {
-         //   Minecraft.getMinecraft().addScheduledTask(() -> {
+            Minecraft.getMinecraft().addScheduledTask(() -> {
                 TileEntity te = Minecraft.getMinecraft().world.getTileEntity(mes.pos);
-System.out.println(te);
 
                 if (te != null && te instanceof TileEntityTardis) {
 
@@ -52,7 +51,7 @@ System.out.println(te);
                     }
 
                 }
-           // });
+            });
             return null;
         }
     }
