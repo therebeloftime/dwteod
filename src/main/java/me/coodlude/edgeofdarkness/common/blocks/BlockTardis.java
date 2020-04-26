@@ -1,10 +1,10 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
+import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
-import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import me.coodlude.edgeofdarkness.util.helper.TeleportUtils;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
@@ -16,6 +16,8 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -36,14 +38,18 @@ public class BlockTardis extends BlockTileBase {
         if (!worldIn.isRemote) {
             TileEntity te = worldIn.getTileEntity(pos);
 
-            if(te != null && te instanceof TileEntityTardis) {
+            if (te != null && te instanceof TileEntityTardis) {
                 TileEntityTardis tileEntityTardis = (TileEntityTardis) te;
-
                 TardisInfo info = TardisHandler.tardises.get(tileEntityTardis.tardisID);
-                info.setExtereriorPos(tileEntityTardis.getPos());
-                info.setExteriorDim(worldIn.provider.getDimension());
 
-                TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0, info.interiorSpawnRotation);
+                if (!playerIn.isSneaking() && !info.isLocked()) {
+                    info.setExtereriorPos(tileEntityTardis.getPos());
+                    info.setExteriorDim(worldIn.provider.getDimension());
+
+                    TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0, info.interiorSpawnRotation);
+                }else if(info.isLocked()) {
+                    playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.locked"), true);
+                }
             }
         }
 

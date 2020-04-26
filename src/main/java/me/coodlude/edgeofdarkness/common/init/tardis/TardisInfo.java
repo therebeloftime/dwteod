@@ -12,6 +12,8 @@ public class TardisInfo {
     public BlockPos interiorPos = BlockPos.ORIGIN;
     public float interiorSpawnRotation = 0;
 
+    public boolean locked;
+
 
     public void setTardisID(int tardisID) {
         this.tardisID = tardisID;
@@ -35,6 +37,14 @@ public class TardisInfo {
 
     public int getExteriorDim() {
         return exteriorDim;
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
     }
 
     public void setInteriorPos(BlockPos interiorPos) {

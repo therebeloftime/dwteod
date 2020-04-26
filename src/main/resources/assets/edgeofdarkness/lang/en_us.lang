@@ -11,3 +11,8 @@ tile.tardis.name=The TARDIS
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
+
+//Messages
+msg.tardis.locked=The Tardis is locked
+msg.tardis.lock=Locked Tardis
+msg.tardis.unlock=Unlocked Tardis
