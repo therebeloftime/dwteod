@@ -1,5 +1,7 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
+import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
+import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
@@ -33,11 +35,16 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
 
 
         if (!worldIn.isRemote) {
-            TardisInfo info = TardisHandler.tardises.get(1);
-            if (!info.isInFlight()) {
-                TeleportUtils.teleportToDimension(playerIn, info.getExteriorDim(), info.getExtereriorPos().getX(), info.getExtereriorPos().getY(), info.getExtereriorPos().getZ(), 0, 0);
-            }else{
-                playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.inflight"), true);
+            ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
+
+
+            if(TardisHandler.doesTardisExist(capability.getTardisID())) {
+                TardisInfo info = TardisHandler.tardises.get(capability.getTardisID());
+                if (!info.isInFlight()) {
+                    TeleportUtils.teleportToDimension(playerIn, info.getExteriorDim(), info.getExtereriorPos().getX(), info.getExtereriorPos().getY(), info.getExtereriorPos().getZ(), 0, 0);
+                } else {
+                    playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.inflight"), true);
+                }
             }
         }
 

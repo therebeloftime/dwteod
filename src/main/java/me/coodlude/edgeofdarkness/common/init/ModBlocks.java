@@ -42,7 +42,7 @@ public class ModBlocks {
 
         if (block instanceof IHaveItem) {
             ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(name);
-            ModItems.registerRender(itemBlock);
+            //ModItems.registerRender(itemBlock);
             ModItems.ITEM_LIST.add(itemBlock);
         }
         return block;

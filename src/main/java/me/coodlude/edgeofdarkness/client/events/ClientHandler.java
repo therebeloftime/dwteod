@@ -1,14 +1,12 @@
 package me.coodlude.edgeofdarkness.client.events;
 
 import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
-import me.coodlude.edgeofdarkness.common.capability.CapabilityTardis;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisSkinRegistry;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -32,12 +30,12 @@ public class ClientHandler {
                 GlStateManager.rotate(event.getEntityPlayer().world.getWorldTime() * 12, 0, 1, 0);
             }
 
-            if(player.world.getWorldTime() % 60 == 0 && !sound) {
-                player.playSound(ModSounds.FLY, 1,1);
+            if (player.world.getWorldTime() % 60 == 0 && !sound) {
+                player.playSound(ModSounds.FLY, 1, 1);
                 sound = true;
             }
 
-            if(player.world.getWorldTime() % 61 == 0) {
+            if (player.world.getWorldTime() % 61 == 0) {
                 sound = false;
             }
 

@@ -1,6 +1,7 @@
 package me.coodlude.edgeofdarkness.common.tileentity;
 
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.network.packets.PacketDemat;
@@ -26,7 +27,6 @@ public class TileEntityTardis extends TileEntity implements ITickable {
 
     @Override
     public void update() {
-
         if (isRemat || isDemat) {
 
             if (isRemat && alpha < 1) {
@@ -46,9 +46,10 @@ public class TileEntityTardis extends TileEntity implements ITickable {
             if (isRemat && isDemat) isDemat = false;
         }
 
-
-        if(world.provider instanceof WorldProviderTardis) {
-            if(!world.isRemote) world.setBlockToAir(pos);
+        if (!world.isRemote) {
+            if (world.provider instanceof WorldProviderTardis) {
+                world.setBlockToAir(pos);
+            }
         }
     }
 

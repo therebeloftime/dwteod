@@ -1,5 +1,7 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
+import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
+import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
@@ -40,11 +42,14 @@ public class BlockTardis extends BlockTileBase {
 
             if (te != null && te instanceof TileEntityTardis) {
                 TileEntityTardis tileEntityTardis = (TileEntityTardis) te;
+
                 TardisInfo info = TardisHandler.tardises.get(tileEntityTardis.tardisID);
 
                 if (!playerIn.isSneaking() && !info.isLocked()) {
                     info.setExtereriorPos(tileEntityTardis.getPos());
                     info.setExteriorDim(worldIn.provider.getDimension());
+                    ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
+                    capability.setTardisID(tileEntityTardis.tardisID);
 
                     TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0, info.interiorSpawnRotation);
                 }else if(info.isLocked()) {

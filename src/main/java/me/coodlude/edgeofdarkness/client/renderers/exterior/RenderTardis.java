@@ -21,19 +21,18 @@ public class RenderTardis extends TileEntitySpecialRenderer<TileEntityTardis> {
         GlStateManager.rotate(Helper.getAngleFromFacing(state.getValue(BlockTardis.FACING)), 0, 1, 0);
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 
-        if(te.alpha < 1) {
+        if (te.alpha < 1) {
             double i = te.getWorld().rand.nextDouble() / 320 + 1;
-            GlStateManager.scale(i,i,i);
+            GlStateManager.scale(i, i, i);
             GlStateManager.color(1, 1, 1, te.alpha);
-           // GlStateManager.scale(1, te.getWorld().rand.nextDouble() / 28 + 1,1);
-           // if(te.alpha < 0.99) GlStateManager.disableLighting();
+            // GlStateManager.scale(1, te.getWorld().rand.nextDouble() / 28 + 1,1);
+            // if(te.alpha < 0.99) GlStateManager.disableLighting();
         }
 
 
-        if(te.getWorld().getBlockState(te.getPos().down()).getBlock() == Blocks.AIR) {
-            GlStateManager.rotate(te.getWorld().getWorldTime() , 0,1,0);
+        if (te.getWorld().getBlockState(te.getPos().down()).getBlock() == Blocks.AIR) {
+            GlStateManager.rotate(te.getWorld().getWorldTime(), 0, 1, 0);
         }
-
 
 
         TardisSkinRegistry.circuitList.get(te.circuitID).renderExterior();

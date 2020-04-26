@@ -62,4 +62,31 @@ public class TardisHandler {
             }
         }
     }
+
+    public static boolean doesTardisExist(int id) {
+        return tardises.containsKey(id);
+    }
+
+    public static TileEntityTardis getTardisTile(int id) {
+        TileEntity tileEntity = null;
+
+        if (doesTardisExist(id)) {
+            TardisInfo info = getTardis(id);
+            World world = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(info.exteriorDim);
+            TileEntity te = world.getTileEntity(info.extereriorPos);
+            if (te != null && te instanceof TileEntityTardis) {
+                tileEntity = te;
+            }
+        }
+
+        return (TileEntityTardis) tileEntity;
+    }
+
+    public static TardisInfo getTardis(int id) {
+        if (doesTardisExist(id)) {
+            return tardises.get(id);
+        }
+
+        return null;
+    }
 }

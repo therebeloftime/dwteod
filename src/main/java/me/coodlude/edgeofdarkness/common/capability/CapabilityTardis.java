@@ -22,6 +22,7 @@ public class CapabilityTardis implements ITardisCapability {
     private EntityPlayer player;
 
     public boolean inFlight = false;
+    public int tardisID = 0;
 
 
     public CapabilityTardis() {
@@ -53,17 +54,29 @@ public class CapabilityTardis implements ITardisCapability {
         return inFlight;
     }
 
+    @Override
+    public void setTardisID(int id) {
+        this.tardisID = id;
+    }
+
+    @Override
+    public int getTardisID() {
+        return tardisID;
+    }
+
 
     @Override
     public NBTTagCompound serializeNBT() {
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setBoolean("inflight", inFlight);
+        nbt.setInteger("tardisID", tardisID);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(NBTTagCompound nbt) {
         inFlight = nbt.getBoolean("inflight");
+        tardisID = nbt.getInteger("tardisID");
     }
 
     @Mod.EventBusSubscriber(modid = EdgeOfDarkness.MODID)

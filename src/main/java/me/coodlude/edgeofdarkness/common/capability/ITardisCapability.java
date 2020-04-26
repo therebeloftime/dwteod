@@ -13,4 +13,8 @@ public interface ITardisCapability extends INBTSerializable<NBTTagCompound> {
     void setFlight(boolean flight);
 
     boolean isInFlight();
+
+    void setTardisID(int id);
+
+    int getTardisID();
 }
