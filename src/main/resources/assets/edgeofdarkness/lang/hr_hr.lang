@@ -8,6 +8,12 @@ item.emerald_axe.name= Smaragdni Sjekira
 
 //Blocks
 tile.tardis.name=TARDIS
+tile.tardis_door.name=TARDIS Vrata
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doktor Who: Rub Mraka
+
+//Messages
+msg.tardis.locked=The Tardis je zaključan
+msg.tardis.lock=Zaključao Tardis
+msg.tardis.unlock=Odključao Tardis
