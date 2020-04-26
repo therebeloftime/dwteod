@@ -8,6 +8,7 @@ item.emerald_axe.name=Emerald Axe
 
 //Blocks
 tile.tardis.name=The TARDIS
+tile.tardis_door.name=TARDIS Door
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
