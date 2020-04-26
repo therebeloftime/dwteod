@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
-public class BlockTardis extends BlockTileBase implements IHaveItem {
+public class BlockTardis extends BlockTileBase {
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 

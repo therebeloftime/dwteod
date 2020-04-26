@@ -100,6 +100,7 @@ public class TileEntityTardis extends TileEntity implements ITickable {
         isDemat = compound.getBoolean("isDemat");
         alpha = compound.getFloat("alpha");
         tardisID = compound.getInteger("tardisID");
+        circuitID = compound.getInteger("circuitID");
     }
 
     @Override
@@ -109,6 +110,7 @@ public class TileEntityTardis extends TileEntity implements ITickable {
         compound.setBoolean("isDemat", isDemat);
         compound.setFloat("alpha", alpha);
         compound.setInteger("tardisID", tardisID);
+        compound.setInteger("circuitID", circuitID);
 
         return compound;
     }
