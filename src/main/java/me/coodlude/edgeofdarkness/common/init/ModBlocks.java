@@ -38,11 +38,9 @@ public class ModBlocks {
         }
 
         if (block instanceof IHaveItem) {
-            if (((IHaveItem) block).hasItem()) {
                 ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(name);
                 ModItems.registerRender(itemBlock);
                 ModItems.ITEM_LIST.add(itemBlock);
-            }
         }
         return block;
     }
