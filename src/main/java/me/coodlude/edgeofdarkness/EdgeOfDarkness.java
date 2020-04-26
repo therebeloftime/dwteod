@@ -1,11 +1,15 @@
 package me.coodlude.edgeofdarkness;
 
+import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
+import me.coodlude.edgeofdarkness.common.capability.CapabilityTardis;
+import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -39,6 +43,7 @@ public class EdgeOfDarkness
         ModSounds.registerSounds();
         ModItems.init();
         ConsoleRoom.init();
+        CapabilityManager.INSTANCE.register(ITardisCapability.class, new CapTardisStorage(), CapabilityTardis::new);
     }
 
     @EventHandler

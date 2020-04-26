@@ -1,5 +1,7 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
+import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
+import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import net.minecraft.block.Block;
@@ -32,7 +34,9 @@ public class BlockTest extends Block implements IHaveItem {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         if (!worldIn.isRemote) {
-            TardisHandler.travelTo(1, new BlockPos(-164,78,259), 0);
+         //   TardisHandler.travelTo(1, new BlockPos(-164,78,259), 0);
+            ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
+            capability.setFlight(!capability.isInFlight());
         }
 
         return true;
