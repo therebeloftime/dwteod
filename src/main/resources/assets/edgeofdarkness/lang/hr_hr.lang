@@ -2,9 +2,12 @@
 item.tardis_key.name=TARDIS Ključ
 item.sonic_screwdriver.name=Sonic Odvijač
 item.jammy_dodgers.name=Džamijski Iznutrice
+item.emerald_sword.name= Smaragdni Mač
+item.emerald_pickaxe.name= Smaragdni Pijuk
+item.emerald_axe.name= Smaragdni Sjekira
 
 //Blocks
-tile.tardis.name=The TARDIS
+tile.tardis.name=TARDIS
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doktor Who: Rub Mraka

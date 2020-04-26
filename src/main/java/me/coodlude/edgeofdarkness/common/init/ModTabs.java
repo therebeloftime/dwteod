@@ -8,7 +8,7 @@ public class ModTabs {
     public static CreativeTabs edgeofdarkness = new CreativeTabs("edgeofdarkness_items") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ModItems.tardis_key);
+            return new ItemStack(ModItems.sonic_screwdriver);
         }
     };
 }
