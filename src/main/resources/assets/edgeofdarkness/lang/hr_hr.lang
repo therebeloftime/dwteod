@@ -1,0 +1,10 @@
+// Items
+item.tardis_key.name=TARDIS Ključ
+item.sonic_screwdriver.name=Sonic Odvijač
+item.jammy_dodgers.name=Džamijski Iznutrice
+
+//Blocks
+tile.tardis.name=The TARDIS
+
+//CreativeTab
+itemGroup.edgeofdarkness_items=Doktor Who: Rub Mraka

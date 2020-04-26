@@ -1,7 +1,7 @@
 // Items
 item.tardis_key.name=TARDIS Key
 item.sonic_screwdriver.name=Sonic Screwdriver
-item..jammy_dodgers.name=Jammy Dodgers
+item.jammy_dodgers.name=Jammy Dodgers
 
 //Blocks
 tile.tardis.name=The TARDIS
