@@ -137,4 +137,12 @@ public class TileEntityTardis extends TileEntity implements ITickable {
         world.scheduleBlockUpdate(pos, getBlockType(), 0, 0);
         markDirty();
     }
+
+    public void setTardisID(int tardisID) {
+        this.tardisID = tardisID;
+    }
+
+    public void setCircuitID(int circuitID) {
+        this.circuitID = circuitID;
+    }
 }

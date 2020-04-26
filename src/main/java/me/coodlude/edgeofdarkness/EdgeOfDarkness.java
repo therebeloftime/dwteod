@@ -30,7 +30,6 @@ public class EdgeOfDarkness
     public static final String NAME = "EdgeOfDarkness";
     public static final String VERSION = "0.0.1";
 
-
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {

@@ -1,9 +1,10 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
-import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
-import me.coodlude.edgeofdarkness.util.helper.TeleportUtils;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -14,31 +15,24 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
-public class BlockDoor extends BlockTileBase implements IHaveItem {
+public class BlockTest extends Block implements IHaveItem {
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
-    public BlockDoor(Supplier<TileEntity> tileEntitySupplier) {
-        super(tileEntitySupplier);
+    public BlockTest(Material blockMaterialIn, MapColor blockMapColorIn) {
+        super(blockMaterialIn, blockMapColorIn);
     }
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-
         if (!worldIn.isRemote) {
-            TardisInfo info = TardisHandler.tardises.get(1);
-            if (!info.isInFlight()) {
-                TeleportUtils.teleportToDimension(playerIn, info.getExteriorDim(), info.getExtereriorPos().getX(), info.getExtereriorPos().getY(), info.getExtereriorPos().getZ(), 0, 0);
-            }else{
-                playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.inflight"), true);
-            }
+            TardisHandler.travelTo(1, new BlockPos(-164,78,259), 0);
         }
 
         return true;

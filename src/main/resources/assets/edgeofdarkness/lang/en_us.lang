@@ -17,3 +17,4 @@ itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
 msg.tardis.locked=The Tardis is locked
 msg.tardis.lock=Locked Tardis
 msg.tardis.unlock=Unlocked Tardis
+msg.tardis.inflight=The tardis is still in flight!
