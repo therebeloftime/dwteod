@@ -5,6 +5,8 @@ item.jammy_dodgers.name=Jammy Dodgers
 item.emerald_sword.name=Emerald Sword
 item.emerald_pickaxe.name=Emerald Pickaxe
 item.emerald_axe.name=Emerald Axe
+item.doomsdaydevicepiece.name=Doomsday Device Piece
+item.emerald_shovel.name=Emerald Shovel
 
 //Blocks
 tile.tardis.name=The TARDIS

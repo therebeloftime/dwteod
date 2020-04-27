@@ -5,6 +5,8 @@ item.jammy_dodgers.name=Džamijski Iznutrice
 item.emerald_sword.name= Smaragdni Mač
 item.emerald_pickaxe.name= Smaragdni Pijuk
 item.emerald_axe.name= Smaragdni Sjekira
+item.doomsdaydevicepiece.name=Doomsday Uređaj Dio
+item.emerald_shovel.name=Smaragdni Lopatica
 
 //Blocks
 tile.tardis.name=TARDIS

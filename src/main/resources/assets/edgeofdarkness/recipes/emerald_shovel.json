@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "##",
+    " # ",
     " / ",
     " / "
   ],
@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "edgeofdarkness:emerald_axe",
+    "item": "edgeofdarkness:emerald_shovel",
     "count": 1
   }
 }
