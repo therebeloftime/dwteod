@@ -1,11 +1,23 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
+import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.network.play.server.SPacketSoundEffect;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class TardisInfo {
 
@@ -13,6 +25,7 @@ public class TardisInfo {
 
     public BlockPos extereriorPos = BlockPos.ORIGIN;
     public int exteriorDim = 0;
+    public transient List<UUID> playersInside = new ArrayList<>();
 
     public BlockPos destinationPos = BlockPos.ORIGIN;
     public int destinationDim = 0;
@@ -105,6 +118,33 @@ public class TardisInfo {
         return inFlight;
     }
 
+    public List<UUID> getPlayersInside() {
+        return playersInside;
+    }
+
+    public void addPlayerInside(UUID uuid) {
+        if (!playersInside.contains(uuid)) {
+            playersInside.add(uuid);
+        }
+    }
+
+    public void removePlayerInside(UUID uuid) {
+        if (playersInside.contains(uuid)) {
+            playersInside.remove(uuid);
+        }
+    }
+
+    public void land() {
+        for (UUID uuid : playersInside) {
+            EntityPlayer player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerByUUID(uuid);
+
+            if (player instanceof EntityPlayerMP) {
+                player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation( "msg.tardis.landing").getFormattedText()), true);
+                ((EntityPlayerMP) player).connection.sendPacket(new SPacketSoundEffect(ModSounds.SHORT_REMAT, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
+            }
+        }
+    }
+
     public void flightUpdate() {
 
         if (inFlight) {
@@ -128,6 +168,7 @@ public class TardisInfo {
                     if (travelTime == 60) {
                         ((TileEntityTardis) tileEntity).setTardisID(tardisID);
                         ((TileEntityTardis) tileEntity).setRemat(true);
+                        land();
                     }
                 }
             }

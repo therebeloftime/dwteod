@@ -201,6 +201,7 @@ public class ModelTardisToyota extends ModelBase {
     public ModelTardisToyota() {
         this.textureWidth = 256;
         this.textureHeight = 256;
+
         this.a13 = new ModelRenderer(this, 0, 0);
         this.a13.setRotationPoint(0.0F, 23.0F, -11.600000381469727F);
         this.a13.addBox(0.0F, 0.0F, 0.0F, 38, 1, 1, 0.0F);

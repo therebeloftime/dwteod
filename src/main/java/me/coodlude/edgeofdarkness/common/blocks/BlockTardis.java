@@ -1,9 +1,9 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
+import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
 import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
-import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
@@ -18,10 +18,10 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.util.function.Supplier;
 
@@ -51,6 +51,7 @@ public class BlockTardis extends BlockTileBase {
                     ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
                     capability.setTardisID(tileEntityTardis.tardisID);
 
+                    MinecraftForge.EVENT_BUS.post(new EventEnterTardis(playerIn, tileEntityTardis.tardisID));
                     TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0, info.interiorSpawnRotation);
                 }else if(info.isLocked()) {
                     playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.locked"), true);

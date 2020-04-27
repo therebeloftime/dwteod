@@ -1,12 +1,22 @@
 package me.coodlude.edgeofdarkness.common.capability;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
+import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
+import me.coodlude.edgeofdarkness.common.init.ModDimension;
+import me.coodlude.edgeofdarkness.common.init.ModSounds;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
+import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.network.packets.PacketCapSync;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.server.SPacketSoundEffect;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -35,7 +45,17 @@ public class CapabilityTardis implements ITardisCapability {
 
     @Override
     public void update() {
+        if(!player.world.isRemote) {
+            if(player.world.provider instanceof WorldProviderTardis) {
+                if (tardisID != 0 && TardisHandler.doesTardisExist(tardisID)) {
+                    TardisInfo info = TardisHandler.getTardis(tardisID);
 
+                    if (info.inFlight && player.world.getWorldTime() % 80 == 0) {
+                        ((EntityPlayerMP) player).connection.sendPacket(new SPacketSoundEffect(ModSounds.FLY, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -116,7 +136,7 @@ public class CapabilityTardis implements ITardisCapability {
 
         @SubscribeEvent
         public static void onPlayerLeave(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent event) {
-
+            MinecraftForge.EVENT_BUS.post(new EventLeaveTardis(event.player, get(event.player).getTardisID()));
         }
     }
 
@@ -124,18 +144,26 @@ public class CapabilityTardis implements ITardisCapability {
     @SubscribeEvent
     public static void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event) {
         get(event.player).sync();
+
+        MinecraftForge.EVENT_BUS.post(new EventLeaveTardis(event.player, get(event.player).getTardisID()));
+
     }
 
 
     @SubscribeEvent
     public static void onPlayerChangedDimension(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent event) {
         get(event.player).sync();
+
+        if(event.toDim != ModDimension.TARDISID) {
+            MinecraftForge.EVENT_BUS.post(new EventLeaveTardis(event.player, get(event.player).getTardisID()));
+        }
     }
 
     @SubscribeEvent
     public static void onDeathEvent(LivingDeathEvent e) {
         if (e.getEntityLiving() instanceof EntityPlayer) {
             get((EntityPlayer) e.getEntityLiving()).sync();
+            MinecraftForge.EVENT_BUS.post(new EventLeaveTardis((EntityPlayer) e.getEntityLiving(), get((EntityPlayer) e.getEntityLiving()).getTardisID()));
         }
     }
 
@@ -144,6 +172,6 @@ public class CapabilityTardis implements ITardisCapability {
         if (player.hasCapability(CapTardisStorage.CAPABILITY, null)) {
             return player.getCapability(CapTardisStorage.CAPABILITY, null);
         }
-        throw new IllegalStateException("Missing Capability - IGauntlet");
+        throw new IllegalStateException("Missing Capability - Edge");
     }
 }
