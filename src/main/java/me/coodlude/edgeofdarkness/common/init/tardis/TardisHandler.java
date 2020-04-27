@@ -1,14 +1,13 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
-import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
-import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
+import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
+import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.play.server.SPacketSoundEffect;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
@@ -53,7 +52,7 @@ public class TardisHandler {
     @SubscribeEvent
     public static void EnterHandler(EventEnterTardis event) {
         if (tardises.size() > 0) {
-            if(doesTardisExist(event.tardisID)) {
+            if (doesTardisExist(event.tardisID)) {
                 TardisInfo info = getTardis(event.tardisID);
                 info.addPlayerInside(event.uuid);
             }
@@ -63,22 +62,37 @@ public class TardisHandler {
     @SubscribeEvent
     public static void LeaveHandler(EventLeaveTardis event) {
         if (tardises.size() > 0) {
-            if(doesTardisExist(event.tardisID)) {
+            if (doesTardisExist(event.tardisID)) {
                 TardisInfo info = getTardis(event.tardisID);
                 info.removePlayerInside(event.uuid);
             }
         }
     }
 
-    public static void travelTo(EntityPlayerMP player, int tardisID, BlockPos pos, int dim) {
-      if(doesTardisExist(tardisID)) {
-          player.connection.sendPacket(new SPacketSoundEffect(ModSounds.DEMAT, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
-          player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation("msg.tardis.dematting").getFormattedText()), true);
-          travelTo(tardisID, pos, dim);
-      }
+    public static void handleLandDemat(EntityPlayer player, int tardisID) {
+        if (doesTardisExist(tardisID)) {
+            TardisInfo info = getTardis(tardisID);
+
+            if (info != null) {
+
+                if (info.isInFlight()) {
+                    info.directLanding();
+                } else {
+                    startFlight((EntityPlayerMP) player, tardisID, info.destinationPos, info.destinationDim);
+                }
+            }
+        }
     }
 
-    public static void travelTo(int tardisID, BlockPos pos, int dim) {
+    public static void startFlight(EntityPlayerMP player, int tardisID, BlockPos pos, int dim) {
+        if (doesTardisExist(tardisID)) {
+            ModSounds.playSoundRange(player.world, player.getPosition(), ModSounds.DEMAT, 25, 1, 1);
+            player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation("msg.tardis.dematting").getFormattedText()), true);
+            startFlight(tardisID, pos, dim);
+        }
+    }
+
+    public static void startFlight(int tardisID, BlockPos pos, int dim) {
         if (DimensionManager.isDimensionRegistered(dim) && tardises.containsKey(tardisID)) {
             TardisInfo info = tardises.get(tardisID);
 
@@ -94,7 +108,7 @@ public class TardisHandler {
                 }
             }
 
-            if(!info.inFlight) {
+            if (!info.inFlight) {
                 info.setDestinationDim(dim);
                 info.setDestinationPos(pos);
                 info.setTravelTime(500 + world.rand.nextInt(60));
@@ -120,6 +134,37 @@ public class TardisHandler {
         }
 
         return (TileEntityTardis) tileEntity;
+    }
+
+    public static void immediateLanding(int tardisID, BlockPos pos, int dim) {
+        if (doesTardisExist(tardisID)) {
+            TardisInfo info = getTardis(tardisID);
+
+            TileEntityTardis tet = getTardisTile(tardisID);
+            if(tet != null) {
+                tet.setDemat(true);
+            }
+
+            if (info != null && DimensionManager.isDimensionRegistered(dim)) {
+                World world = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(dim);
+
+                if (world != null) {
+                    world.setBlockState(pos, ModBlocks.tardis.getDefaultState());
+                    TileEntity te = world.getTileEntity(pos);
+
+                    if (te != null && te instanceof TileEntityTardis) {
+                        TileEntityTardis tileEntityTardis = (TileEntityTardis) te;
+
+                        tileEntityTardis.setTardisID(tardisID);
+                        tileEntityTardis.setRemat(true);
+                        info.setExtereriorPos(info.destinationPos);
+                        info.setExteriorDim(info.destinationDim);
+                        info.travelTime = 0;
+                        info.inFlight = false;
+                    }
+                }
+            }
+        }
     }
 
     public static BlockPos getExitPosition(int id) {

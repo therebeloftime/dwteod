@@ -25,7 +25,7 @@ public class ItemSonicScrewdriver extends Item {
 
             if (block.getBlock() == Blocks.TNT) {
                 worldIn.setBlockToAir(pos);
-                EntityTNTPrimed tntPrimed = new EntityTNTPrimed(worldIn, pos.getX(), pos.getY(), pos.getZ(), player);
+                EntityTNTPrimed tntPrimed = new EntityTNTPrimed(worldIn, pos.getX() + 0.5d, pos.getY(), pos.getZ() + 0.5d, player);
                 worldIn.playSound(null, pos, SoundEvent.REGISTRY.getObject(new ResourceLocation("entity.tnt.primed")), SoundCategory.BLOCKS, 1, 1);
                 worldIn.spawnEntity(tntPrimed);
             }

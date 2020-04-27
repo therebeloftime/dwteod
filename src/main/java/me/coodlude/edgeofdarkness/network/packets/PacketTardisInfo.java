@@ -62,7 +62,7 @@ public class PacketTardisInfo implements IMessage {
                             break;
                         case "warp":
                             if (!info_msg.equals("")) {
-                                TardisHandler.travelTo(ctx.getServerHandler().player,capability.getTardisID(), info.getDestinationPos(), info.destinationDim);
+                                TardisHandler.immediateLanding(capability.getTardisID(), info.getDestinationPos(), info.destinationDim);
                             }
                             break;
                     }

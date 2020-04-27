@@ -46,7 +46,6 @@ public class GuiTardisCoords extends GuiScreen {
         if (button == this.warp) {
             BlockPos tpPos = new BlockPos(getInt(xCoord.getText(), XYZ.X), getInt(yCoord.getText(), XYZ.Y), getInt(zCoord.getText(), XYZ.Z));
             NetworkHandler.NETWORK.sendToServer(new PacketTardisInfo("position", String.valueOf(tpPos.toLong())));
-            NetworkHandler.NETWORK.sendToServer(new PacketTardisInfo("warp", "true"));
             Minecraft.getMinecraft().displayGuiScreen(null);
         }
 
@@ -118,7 +117,7 @@ public class GuiTardisCoords extends GuiScreen {
     public void initGui() {
         int x = width / 2 - 15;
         int y = height / 2 - 15;
-        String warpButton = "Warp";
+        String warpButton = "Save";
         String dimension = "Dimension";
 
         int yOffset = fr.FONT_HEIGHT + 3;

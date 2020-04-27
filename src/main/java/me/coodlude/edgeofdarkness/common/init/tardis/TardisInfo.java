@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.play.server.SPacketSoundEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -27,7 +28,7 @@ public class TardisInfo {
     public int exteriorDim = 0;
     public transient List<UUID> playersInside = new ArrayList<>();
 
-    public BlockPos destinationPos = BlockPos.ORIGIN;
+    public BlockPos destinationPos;
     public int destinationDim = 0;
 
     public BlockPos interiorPos = BlockPos.ORIGIN;
@@ -134,14 +135,35 @@ public class TardisInfo {
         }
     }
 
-    public void land() {
+    public void playSoundPlayersInside(SoundEvent soundEvent) {
         for (UUID uuid : playersInside) {
             EntityPlayer player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerByUUID(uuid);
 
             if (player instanceof EntityPlayerMP) {
                 player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation("msg.tardis.landing").getFormattedText()), true);
-                ((EntityPlayerMP) player).connection.sendPacket(new SPacketSoundEffect(ModSounds.SHORT_REMAT, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
+                ((EntityPlayerMP) player).connection.sendPacket(new SPacketSoundEffect(soundEvent, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
             }
+        }
+    }
+
+    public void directLanding() {
+        if(inFlight) {
+            TileEntityTardis tileEntityTardis = TardisHandler.getTardisTile(tardisID);
+
+            if(tileEntityTardis != null) {
+                if(tileEntityTardis.isDemat) {
+                    tileEntityTardis.switchDematState();
+                    inFlight = false;
+                    playSoundPlayersInside(ModSounds.SHORT_REMAT);
+                    travelTime = 0;
+                }
+            }else{
+                if(travelTime > 160) {
+                    TardisHandler.immediateLanding(tardisID, extereriorPos, exteriorDim);
+                    travelTime = 0;
+                }
+            }
+            playSoundPlayersInside(ModSounds.CLOISTER);
         }
     }
 
@@ -165,7 +187,7 @@ public class TardisInfo {
                 if (tileEntity != null && tileEntity instanceof TileEntityTardis) {
                     ((TileEntityTardis) tileEntity).setTardisID(tardisID);
                     ((TileEntityTardis) tileEntity).setRemat(true);
-                    land();
+                    playSoundPlayersInside(ModSounds.SHORT_REMAT);
                 }
             }
 
