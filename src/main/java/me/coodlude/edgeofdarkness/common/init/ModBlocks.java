@@ -1,11 +1,9 @@
 package me.coodlude.edgeofdarkness.common.init;
 
 
-import me.coodlude.edgeofdarkness.common.blocks.BlockDoor;
-import me.coodlude.edgeofdarkness.common.blocks.BlockTardis;
-import me.coodlude.edgeofdarkness.common.blocks.BlockTest;
-import me.coodlude.edgeofdarkness.common.blocks.BlockTileBase;
+import me.coodlude.edgeofdarkness.common.blocks.*;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityDoor;
+import me.coodlude.edgeofdarkness.common.tileentity.TileEntityMonitor;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.util.handlers.RegistryHandler;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
@@ -26,7 +24,8 @@ public class ModBlocks {
     public static final List<Block> BLOCK_LIST = new ArrayList<>();
 
     public static Block tardis = registerBlock(new BlockTardis(TileEntityTardis::new), "tardis").setCreativeTab(ModTabs.edgeofdarkness);
-    public static Block door = registerBlock(new BlockDoor(TileEntityDoor::new), "tardis_door").setCreativeTab(ModTabs.edgeofdarkness);
+    public static Block tardis_door = registerBlock(new BlockDoor(TileEntityDoor::new), "tardis_door").setCreativeTab(ModTabs.edgeofdarkness);
+    public static Block tardis_monitor = registerBlock(new BlockMonitor(TileEntityMonitor::new), "tardis_monitor").setCreativeTab(ModTabs.edgeofdarkness);
 
     public static Block temp = registerBlock(new BlockTest(Material.BARRIER, MapColor.DIAMOND), "test");
 
@@ -42,7 +41,6 @@ public class ModBlocks {
 
         if (block instanceof IHaveItem) {
             ItemBlock itemBlock = (ItemBlock) new ItemBlock(block).setRegistryName(name);
-            //ModItems.registerRender(itemBlock);
             ModItems.ITEM_LIST.add(itemBlock);
         }
         return block;
