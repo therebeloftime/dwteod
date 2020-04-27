@@ -71,9 +71,11 @@ public class TardisHandler {
     }
 
     public static void travelTo(EntityPlayerMP player, int tardisID, BlockPos pos, int dim) {
-        player.connection.sendPacket(new SPacketSoundEffect(ModSounds.DEMAT, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
-        player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation( "msg.tardis.dematting").getFormattedText()), true);
-        travelTo(tardisID, pos, dim);
+      if(doesTardisExist(tardisID)) {
+          player.connection.sendPacket(new SPacketSoundEffect(ModSounds.DEMAT, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
+          player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation("msg.tardis.dematting").getFormattedText()), true);
+          travelTo(tardisID, pos, dim);
+      }
     }
 
     public static void travelTo(int tardisID, BlockPos pos, int dim) {
@@ -90,7 +92,9 @@ public class TardisHandler {
                 if (te != null && te instanceof TileEntityTardis) {
                     ((TileEntityTardis) te).setDemat(true);
                 }
+            }
 
+            if(!info.inFlight) {
                 info.setDestinationDim(dim);
                 info.setDestinationPos(pos);
                 info.setTravelTime(500 + world.rand.nextInt(60));

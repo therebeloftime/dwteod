@@ -1,9 +1,12 @@
 package me.coodlude.edgeofdarkness.common.world.dimension;
 
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BossInfo;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
@@ -15,6 +18,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class WorldProviderTardis extends WorldProvider {
 
     public WorldProviderTardis() {
+    }
+
+    @Override
+    public Vec3d getSkyColor(Entity cameraEntity, float partialTicks) {
+        return new Vec3d(2,2,4);
     }
 
     @Override

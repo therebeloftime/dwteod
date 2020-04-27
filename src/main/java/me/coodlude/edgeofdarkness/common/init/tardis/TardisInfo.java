@@ -139,7 +139,7 @@ public class TardisInfo {
             EntityPlayer player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerByUUID(uuid);
 
             if (player instanceof EntityPlayerMP) {
-                player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation( "msg.tardis.landing").getFormattedText()), true);
+                player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation("msg.tardis.landing").getFormattedText()), true);
                 ((EntityPlayerMP) player).connection.sendPacket(new SPacketSoundEffect(ModSounds.SHORT_REMAT, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
             }
         }
@@ -152,24 +152,20 @@ public class TardisInfo {
                 travelTime--;
             }
 
-            if (travelTime <= 80) {
+            if (travelTime == 160) {
                 World destination = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(destinationDim);
 
-                if (travelTime == 80) {
-                    destination.setBlockToAir(destinationPos);
-                    destination.setBlockState(destinationPos, ModBlocks.tardis.getDefaultState());
-                    setExtereriorPos(destinationPos);
-                    setExteriorDim(destinationDim);
-                }
+                destination.setBlockToAir(destinationPos);
+                destination.setBlockState(destinationPos, ModBlocks.tardis.getDefaultState());
+                setExtereriorPos(destinationPos);
+                setExteriorDim(destinationDim);
 
                 TileEntity tileEntity = destination.getTileEntity(destinationPos);
 
                 if (tileEntity != null && tileEntity instanceof TileEntityTardis) {
-                    if (travelTime == 60) {
-                        ((TileEntityTardis) tileEntity).setTardisID(tardisID);
-                        ((TileEntityTardis) tileEntity).setRemat(true);
-                        land();
-                    }
+                    ((TileEntityTardis) tileEntity).setTardisID(tardisID);
+                    ((TileEntityTardis) tileEntity).setRemat(true);
+                    land();
                 }
             }
 

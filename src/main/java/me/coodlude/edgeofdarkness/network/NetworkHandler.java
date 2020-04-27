@@ -3,6 +3,7 @@ package me.coodlude.edgeofdarkness.network;
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.network.packets.PacketCapSync;
 import me.coodlude.edgeofdarkness.network.packets.PacketDemat;
+import me.coodlude.edgeofdarkness.network.packets.PacketTardisInfo;
 import me.coodlude.edgeofdarkness.network.packets.PacketVisible;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -17,5 +18,6 @@ public class NetworkHandler {
         NETWORK.registerMessage(PacketDemat.Handler.class, PacketDemat.class, id++, Side.CLIENT);
         NETWORK.registerMessage(PacketVisible.Handler.class, PacketVisible.class, id++, Side.CLIENT);
         NETWORK.registerMessage(PacketCapSync.Handler.class, PacketCapSync.class, id++, Side.CLIENT);
+        NETWORK.registerMessage(PacketTardisInfo.Handler.class, PacketTardisInfo.class, id++, Side.SERVER);
     }
 }

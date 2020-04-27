@@ -1,5 +1,6 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
+import me.coodlude.edgeofdarkness.client.gui.GuiTardisCoords;
 import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
@@ -10,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -34,10 +36,11 @@ public class BlockTest extends Block implements IHaveItem {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        if (!worldIn.isRemote) {
-            TardisHandler.travelTo((EntityPlayerMP) playerIn,1, new BlockPos(-164,78,259), 0);
-            ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
+        if (worldIn.isRemote) {
+          //  TardisHandler.travelTo((EntityPlayerMP) playerIn,1, new BlockPos(-164,78,259), 0);
+        //    ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
          //   capability.setFlight(!capability.isInFlight());
+            Minecraft.getMinecraft().displayGuiScreen(new GuiTardisCoords());
         }
 
         return true;
