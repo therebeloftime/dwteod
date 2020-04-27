@@ -1,0 +1,29 @@
+// Items
+item.tardis_key.name=Key To The Boxeth Of Charms
+item.sonic_screwdriver.name=Sonic Screwdriv'r
+item.jammy_dodgers.name=Dodg'rs Of Jameth
+item.emerald_sword.name=Sw'rd Of Em'rald
+item.emerald_pickaxe.name=Pickaxe Of Em'rald
+item.emerald_axe.name=Axe Of Em'rald
+item.doomsdaydevicepiece.name=Piece Of Device Which Bringeth Destruction
+item.emerald_shovel.name=Spade Of Em'rald
+item.metebelis_crystal.name=Crystal Of Metebelis
+item.lapis_sword.name=Sw'rd Of Lapis
+item.lapis_pickaxe.name=Pickaxe of Lapis
+item.lapis_axe.name=Axe Of Lapis
+item.lapis_shovel.name=Spade Of Lapis
+
+//Blocks
+tile.tardis.name=The Boxeth Of Charms
+tile.tardis_door.name=Doth'r To The Boxeth Of Charms
+
+//CreativeTab
+itemGroup.edgeofdarkness_items=Doct'r Who Is't: The Edge That Bringeth Darkness
+
+//Messages
+msg.tardis.locked=The Boxeth Of Charms Is Lock'd
+msg.tardis.lock=Lock'd The Boxeth Of Charms
+msg.tardis.unlock=Unlock'd The Boxeth Of Charms
+msg.tardis.inflight=The Boxeth Of Charms Still Drifts Through Timeth And Space!
+msg.tardis.dematting=Your Boxeth Of Charms is Drifting Into Timeth And Space!
+msg.tardis.landing=Your Boxeth Of Charms is Returning From Timeth And Space!
