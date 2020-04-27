@@ -18,3 +18,5 @@ msg.tardis.locked=The Tardis is locked
 msg.tardis.lock=Locked Tardis
 msg.tardis.unlock=Unlocked Tardis
 msg.tardis.inflight=The tardis is still in flight!
+msg.tardis.dematting=Your tardis is dematerialising!
+msg.tardis.landing=Your tardis is landing!
