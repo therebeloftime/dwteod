@@ -7,6 +7,11 @@ item.emerald_pickaxe.name=Emerald Pickaxe
 item.emerald_axe.name=Emerald Axe
 item.doomsdaydevicepiece.name=Doomsday Device Piece
 item.emerald_shovel.name=Emerald Shovel
+item.metebelis_crystal.name=Metebelis Crystal
+item.lapis_sword.name=Lapis Sword
+item.lapis_pickaxe.name=Lapis Pickaxe
+item.lapis_axe.name=Lapis Axe
+item.lapis_shovel.name=Lapis Shovel
 
 //Blocks
 tile.tardis.name=The TARDIS
@@ -16,9 +21,9 @@ tile.tardis_door.name=TARDIS Door
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
 
 //Messages
-msg.tardis.locked=The Tardis is locked
-msg.tardis.lock=Locked Tardis
-msg.tardis.unlock=Unlocked Tardis
-msg.tardis.inflight=The tardis is still in flight!
-msg.tardis.dematting=Your tardis is dematerialising!
-msg.tardis.landing=Your tardis is landing!
+msg.tardis.locked=The TARDIS is locked
+msg.tardis.lock=Locked TARDIS
+msg.tardis.unlock=Unlocked TARDIS
+msg.tardis.inflight=The TARDIS is still in flight!
+msg.tardis.dematting=Your TARDIS is dematerialising!
+msg.tardis.landing=Your TARDIS is landing!

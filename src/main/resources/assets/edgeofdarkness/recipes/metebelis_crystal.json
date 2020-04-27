@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "***",
+    "   "
+  ],
+  "key": {
+    "*":
+    {
+
+      "item": "minecraft:diamond",
+
+    },
+   ]
+  "result": {
+    "item": "edgeofdarkness:metebelis_crystal",
+    "count": 1
+  }
+}

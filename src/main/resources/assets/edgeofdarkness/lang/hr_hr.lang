@@ -7,6 +7,11 @@ item.emerald_pickaxe.name= Smaragdni Pijuk
 item.emerald_axe.name= Smaragdni Sjekira
 item.doomsdaydevicepiece.name=Doomsday Uređaj Dio
 item.emerald_shovel.name=Smaragdni Lopatica
+item.metebelis_crystal.name=Kristal Metebelis
+item.lapis_sword.name=Lapisov Mač
+item.lapis_pickaxe.name=Lapisov Pijuk
+item.lapis_axe.name=Lapisov Sjekira
+item.lapis_shovel.name=Lapisov Lopatica
 
 //Blocks
 tile.tardis.name=TARDIS
@@ -16,7 +21,9 @@ tile.tardis_door.name=TARDIS Vrata
 itemGroup.edgeofdarkness_items=Doktor Who: Rub Mraka
 
 //Messages
-msg.tardis.locked=Tardis je zaključan
-msg.tardis.lock=Zaključao Tardis
-msg.tardis.unlock=Odključao Tardis
-msg.tardis.inflight= Tardis je još uvijek u letu!
+msg.tardis.locked=TARDIS je zaključan
+msg.tardis.lock=Zaključao TARDIS
+msg.tardis.unlock=Odključao TARDIS
+msg.tardis.inflight= TARDIS je još uvijek u letu!
+msg.tardis.dematting=Tvoj TARDIS je poletio!
+msg.tardis.landing=Tvoj TARDIS je prestao!

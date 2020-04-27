@@ -28,6 +28,11 @@ public class ModItems {
     public static Item emerald_axe;
     public static Item doomsdaydevicepiece;
     public static Item emerald_shovel;
+    public static Item metebelis_crystal;
+    public static Item lapis_sword;
+    public static Item lapis_pickaxe;
+    public static Item lapis_axe;
+    public static Item lapis_shovel;
 
     public static void init() {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
@@ -38,6 +43,11 @@ public class ModItems {
         emerald_axe = registerItem(new ItemAxe(Item.ToolMaterial.DIAMOND), "emerald_axe").setCreativeTab(ModTabs.edgeofdarkness);
         doomsdaydevicepiece = registerItem(new ItemPiece(), "doomsdaydevicepiece").setCreativeTab(ModTabs.edgeofdarkness);
         emerald_shovel = registerItem(new ItemShovel(Item.ToolMaterial.DIAMOND), "emerald_shovel").setCreativeTab(ModTabs.edgeofdarkness);
+        metebelis_crystal = registerItem(new ItemCrystal(),"metebelis_crystal").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_sword = registerItem(new ItemSword(Item.ToolMaterial.DIAMOND), "lapis_sword").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.DIAMOND), "lapis_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_axe = registerItem(new ItemAxe(Item.ToolMaterial.DIAMOND), "lapis_axe").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_shovel = registerItem(new ItemShovel(Item.ToolMaterial.DIAMOND), "lapis_shovel").setCreativeTab(ModTabs.edgeofdarkness);
     }
 
     public static Item registerItem(Item item, String name) {
