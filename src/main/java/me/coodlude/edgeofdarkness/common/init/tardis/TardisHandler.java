@@ -5,8 +5,10 @@ import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
 import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -84,6 +86,51 @@ public class TardisHandler {
         }
     }
 
+    public static void calculateLandingPosition(TardisInfo info, BlockPos pos, int dim) {
+        if (info != null) {
+            World world = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(dim);
+
+            if (world != null) {
+                IBlockState blockState = world.getBlockState(pos);
+                boolean b = pos.getY() >= 60;
+
+                if (blockState.getBlock() != Blocks.AIR || world.isOutsideBuildHeight(pos) || world.getBlockState(pos.add(0,-1,0)).getBlock() == Blocks.AIR) {
+
+                    if (b) {
+                        for (int y = 256; y > 0; y--) {
+                            if (safeToLand(world, pos, info, y)) {
+                                break;
+                            }
+                        }
+                    } else {
+                        for (int y = 0; y > 0; y++) {
+                            if (safeToLand(world, pos, info, y)) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static boolean safeToLand(World world, BlockPos position, TardisInfo info, int y) {
+        BlockPos pos = new BlockPos(position.getX(), y, position.getZ());
+        IBlockState state = world.getBlockState(pos);
+
+        if (state.getBlock() == Blocks.AIR) {
+            IBlockState up = world.getBlockState(pos.add(0, 1, 0));
+            IBlockState down = world.getBlockState(pos.add(0, -1, 0));
+
+            if (down.getBlock() != Blocks.AIR && up.getBlock() == Blocks.AIR) {
+                info.setDestinationPos(pos);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static void startFlight(EntityPlayerMP player, int tardisID, BlockPos pos, int dim) {
         if (doesTardisExist(tardisID)) {
             ModSounds.playSoundRange(player.world, player.getPosition(), ModSounds.DEMAT, 25, 1, 1);
@@ -141,7 +188,7 @@ public class TardisHandler {
             TardisInfo info = getTardis(tardisID);
 
             TileEntityTardis tet = getTardisTile(tardisID);
-            if(tet != null) {
+            if (tet != null) {
                 tet.setDemat(true);
             }
 
@@ -157,6 +204,7 @@ public class TardisHandler {
 
                         tileEntityTardis.setTardisID(tardisID);
                         tileEntityTardis.setRemat(true);
+                        calculateLandingPosition(info, info.destinationPos, info.destinationDim);
                         info.setExtereriorPos(info.destinationPos);
                         info.setExteriorDim(info.destinationDim);
                         info.travelTime = 0;

@@ -1,4 +1,4 @@
-package me.coodlude.edgeofdarkness.common.items;
+package me.coodlude.edgeofdarkness.common.items.tools;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Made by Josia50
+ */
 public class TardisInfo {
 
     public int tardisID;
@@ -37,6 +40,8 @@ public class TardisInfo {
     public boolean locked = false;
     public boolean inFlight = false;
     public int travelTime = 0;
+    public boolean drifting = false;
+    public float health = 100;
 
 
     public void setTardisID(int tardisID) {
@@ -69,6 +74,14 @@ public class TardisInfo {
 
     public void setLocked(boolean locked) {
         this.locked = locked;
+    }
+
+    public void setHealth(float health) {
+        this.health = health;
+    }
+
+    public float getHealth() {
+        return health;
     }
 
     public void setInteriorPos(BlockPos interiorPos) {
@@ -117,6 +130,14 @@ public class TardisInfo {
 
     public boolean isInFlight() {
         return inFlight;
+    }
+
+    public void setDrifting(boolean drifting) {
+        this.drifting = drifting;
+    }
+
+    public boolean isDrifting() {
+        return drifting;
     }
 
     public List<UUID> getPlayersInside() {
@@ -170,13 +191,15 @@ public class TardisInfo {
     public void flightUpdate() {
 
         if (inFlight) {
-            if (travelTime > 0) {
+
+            if (travelTime > 0 && !isDrifting()) {
                 travelTime--;
             }
 
             if (travelTime == 160) {
                 World destination = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(destinationDim);
 
+                TardisHandler.calculateLandingPosition(this, destinationPos, destinationDim);
                 destination.setBlockToAir(destinationPos);
                 destination.setBlockState(destinationPos, ModBlocks.tardis.getDefaultState());
                 setExtereriorPos(destinationPos);
