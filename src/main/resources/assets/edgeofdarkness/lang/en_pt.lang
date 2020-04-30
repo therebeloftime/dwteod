@@ -12,6 +12,7 @@ item.lapis_sword.name=Cutlass O' Lapis
 item.lapis_pickaxe.name=Picaxe O' Lapis
 item.lapis_axe.name=Hatchet O' Lapis
 item.lapis_shovel.name=Spade O' Lapis
+item.doomsday_weapon.name=Weapon O' Doomsday
 
 //Blocks
 tile.tardis.name=The Ship O' Time
