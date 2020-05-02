@@ -12,6 +12,7 @@ item.lapis_sword.name=Lapis Sword
 item.lapis_pickaxe.name=Lapis Pickaxe
 item.lapis_axe.name=Lapis Axe
 item.lapis_shovel.name=Lapis Shovel
+item.doomsday_weapon.name=Doomsday Weapon
 
 //Blocks
 tile.tardis.name=The TARDIS

@@ -39,8 +39,8 @@ public class ModItems {
     public static Item lapis_axe;
     public static Item lapis_shovel;
     public static Item emerald_shovel;
+    public static Item doomsday_weapon;
     public static Item tardis_spawner;
-
 
     public static void init() {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
@@ -56,6 +56,7 @@ public class ModItems {
         lapis_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.DIAMOND), "lapis_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
         lapis_axe = registerItem(new ItemAxe(Item.ToolMaterial.DIAMOND), "lapis_axe").setCreativeTab(ModTabs.edgeofdarkness);
         lapis_shovel = registerItem(new ItemShovel(Item.ToolMaterial.DIAMOND), "lapis_shovel").setCreativeTab(ModTabs.edgeofdarkness);
+        doomsday_weapon = registerItem(new ItemDoomsday(),"doomsday_weapon").setCreativeTab(ModTabs.edgeofdarkness);
         tardis_spawner = registerItem(new ItemTardisSpawner(), "tardis_spawner").setCreativeTab(ModTabs.edgeofdarkness);
     }
 
