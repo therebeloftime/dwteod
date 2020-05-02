@@ -1,5 +1,7 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
+import com.google.gson.reflect.TypeToken;
+import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
@@ -21,7 +23,9 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.FMLInjectionData;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +33,8 @@ import java.util.Map;
 public class TardisHandler {
 
     public static HashMap<Integer, TardisInfo> tardises = new HashMap<>();
+    public TypeToken typeToken = new TypeToken<HashMap<Integer, TardisInfo>>() {
+    };
 
 
     public static int addTardis() {
@@ -36,6 +42,7 @@ public class TardisHandler {
         TardisInfo info = new TardisInfo();
         info.tardisID = id;
         tardises.put(id, info);
+        saveTardis(id);
 
         return id;
     }
@@ -94,7 +101,7 @@ public class TardisHandler {
                 IBlockState blockState = world.getBlockState(pos);
                 boolean b = pos.getY() >= 60;
 
-                if (blockState.getBlock() != Blocks.AIR || world.isOutsideBuildHeight(pos) || world.getBlockState(pos.add(0,-1,0)).getBlock() == Blocks.AIR) {
+                if (blockState.getBlock() != Blocks.AIR || world.isOutsideBuildHeight(pos) || world.getBlockState(pos.add(0, -1, 0)).getBlock() == Blocks.AIR) {
 
                     if (b) {
                         for (int y = 256; y > 0; y--) {
@@ -139,6 +146,12 @@ public class TardisHandler {
         }
     }
 
+    public static void summonTardisKey(EntityPlayerMP player, int tardisID, BlockPos pos, int dim) {
+        if (doesTardisExist(tardisID) && !getTardis(tardisID).inFlight) {
+            startFlight(tardisID, pos, dim);
+        }
+    }
+
     public static void startFlight(int tardisID, BlockPos pos, int dim) {
         if (DimensionManager.isDimensionRegistered(dim) && tardises.containsKey(tardisID)) {
             TardisInfo info = tardises.get(tardisID);
@@ -158,7 +171,7 @@ public class TardisHandler {
             if (!info.inFlight) {
                 info.setDestinationDim(dim);
                 info.setDestinationPos(pos);
-                info.setTravelTime(500 + world.rand.nextInt(60));
+                info.setTravelTime(500 + world.rand.nextInt(60)); // TODO Calculate travel time auto
                 info.setInFlight(true);
             }
         }
@@ -204,9 +217,9 @@ public class TardisHandler {
 
                         tileEntityTardis.setTardisID(tardisID);
                         tileEntityTardis.setRemat(true);
-                        calculateLandingPosition(info, info.destinationPos, info.destinationDim);
-                        info.setExtereriorPos(info.destinationPos);
-                        info.setExteriorDim(info.destinationDim);
+                        calculateLandingPosition(info, pos, dim);
+                        info.setExtereriorPos(pos);
+                        info.setExteriorDim(dim);
                         info.travelTime = 0;
                         info.inFlight = false;
                     }
@@ -236,5 +249,60 @@ public class TardisHandler {
         }
 
         return null;
+    }
+
+    public static void saveTardis(int tardisID) {
+        if (doesTardisExist(tardisID)) {
+            TardisInfo info = getTardis(tardisID);
+            String file = ((File) (FMLInjectionData.data()[6])).getAbsolutePath() + "/saves/" + FMLCommonHandler.instance().getMinecraftServerInstance().getFolderName() + "/tardis/";
+            String fileName = "tardis_" + tardisID + ".json";
+            File dir = new File(file);
+
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+
+            String json = EdgeOfDarkness.JSON.toJson(info);
+
+            try {
+                FileWriter fw = new FileWriter(dir + "/" + fileName);
+                fw.write(json);
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void loadTardisses() {
+        tardises.clear();
+        String file = ((File) (FMLInjectionData.data()[6])).getAbsolutePath() + "/saves/" + FMLCommonHandler.instance().getMinecraftServerInstance().getFolderName() + "/tardis/";
+        File dir = new File(file);
+
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        File[] tardis_files = dir.listFiles();
+
+        for (int x = 0; x < tardis_files.length; x++) {
+            File file1 = tardis_files[x];
+            String i = String.valueOf(file1.getName().charAt(file1.getName().length() - 6));
+            String fileName = "tardis_" + i + ".json";
+            try {
+                FileReader reader = new FileReader(file + "/" + fileName);
+                BufferedReader br = new BufferedReader(reader);
+
+                try {
+                    tardises.put(Integer.valueOf(i), EdgeOfDarkness.JSON.fromJson(br, TardisInfo.class));
+                } finally {
+                    br.close();
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -42,6 +42,10 @@ public class TileEntityBase extends TileEntity {
         readFromNBT(packet.getNbtCompound());
     }
 
+    public void setRotation(float rotation) {
+        this.rotation = rotation;
+    }
+
     public void sendUpdates() {
         world.markBlockRangeForRenderUpdate(pos, pos);
         world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);

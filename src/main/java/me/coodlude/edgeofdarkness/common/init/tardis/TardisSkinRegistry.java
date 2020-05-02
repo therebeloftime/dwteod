@@ -1,5 +1,6 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
+import me.coodlude.edgeofdarkness.client.models.ModelTardisBase;
 import me.coodlude.edgeofdarkness.client.models.ModelTardisMain;
 import me.coodlude.edgeofdarkness.client.models.ModelTardisToyota;
 import net.minecraft.client.model.ModelBase;
@@ -15,16 +16,16 @@ public class TardisSkinRegistry {
 
 
     public static void init() {
-        addCircuit(main, "Main", new ModelTardisMain());
-        addCircuit(toyota, "Toyota", new ModelTardisToyota());
+        main = addCircuit("Main", new ModelTardisMain());
+        toyota = addCircuit("Toyota", new ModelTardisToyota());
     }
 
-    public static void addCircuit(ExteriorCircuit circuit, String name, ModelBase base) {
+    public static ExteriorCircuit addCircuit(String name, ModelTardisBase base) {
         ExteriorCircuit exteriorCircuit = new ExteriorCircuit();
         exteriorCircuit.setBasemodel(base);
         exteriorCircuit.setName(name);
-        circuit = exteriorCircuit;
 
-        circuitList.add(circuit);
+        circuitList.add(exteriorCircuit);
+        return exteriorCircuit;
     }
 }

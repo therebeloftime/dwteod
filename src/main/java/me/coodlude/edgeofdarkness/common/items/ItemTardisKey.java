@@ -1,6 +1,7 @@
 package me.coodlude.edgeofdarkness.common.items;
 
-import me.coodlude.edgeofdarkness.common.init.ModBlocks;
+import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
+import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
@@ -8,6 +9,7 @@ import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
@@ -29,24 +31,19 @@ public class ItemTardisKey extends Item {
 
         if (!player.isSneaking()) {
 
-            if (!(worldIn.provider instanceof WorldProviderTardis)) {
-
-                worldIn.setBlockState(pos.up(), ModBlocks.tardis.getDefaultState());
+            if (!(worldIn.provider instanceof WorldProviderTardis)) {//  worldIn.setBlockState(pos.up(), ModBlocks.tardis.getDefaultState());
 
                 if (!worldIn.isRemote) {
 
-                    World world = worldIn.getMinecraftServer().getWorld(ModDimension.TARDISID);
-                    TileEntityTardis tileEntityTardis = (TileEntityTardis) worldIn.getTileEntity(pos.up());
+                    ITardisCapability capability = player.getCapability(CapTardisStorage.CAPABILITY, null);
+                    TardisInfo info = TardisHandler.getTardis(capability.getTardisID());
 
-                    if (tileEntityTardis != null) {
-                        TardisHandler.tardises.clear(); // Temp
-                        tileEntityTardis.tardisID = TardisHandler.addTardis();
-                        tileEntityTardis.rotation = (-player.rotationYaw) - 180;
-                        tileEntityTardis.sendUpdates();
-                        ConsoleRoom.ROOM_LIST.get(1).generate((WorldServer) world, new BlockPos(0, 50, 0));
+                    if(info != null) {
+                        info.setExteriorRotation((-player.rotationYaw) - 180);
+                        TardisHandler.summonTardisKey((EntityPlayerMP) player, capability.getTardisID(), pos.up(), player.dimension);
+                        info.save();
                     }
 
-                    tileEntityTardis.setRemat(true);
                 }
             }
         } else {

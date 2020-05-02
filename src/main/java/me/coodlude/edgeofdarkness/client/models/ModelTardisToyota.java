@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 
-public class ModelTardisToyota extends ModelBase {
+public class ModelTardisToyota extends ModelTardisBase {
     public ModelRenderer a1;
     public ModelRenderer a2;
     public ModelRenderer a3;
@@ -831,7 +831,7 @@ public class ModelTardisToyota extends ModelBase {
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.pushMatrix();
         GlStateManager.rotate(180, 1, 0, 0);
-        GlStateManager.translate(0.5, -1.52D, 0.4);
+        GlStateManager.translate(0, -1.52D, 0);
         GlStateManager.pushMatrix();
         Minecraft.getMinecraft().getTextureManager().bindTexture(location);
 
@@ -2323,6 +2323,11 @@ public class ModelTardisToyota extends ModelBase {
         this.a96.render(f5);
         GlStateManager.popMatrix();
         GlStateManager.popMatrix();
+    }
+
+    @Override
+    public void render(float doorRotation) {
+        render(null, 0,0,0,0,0,0.0625f);
     }
 
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {

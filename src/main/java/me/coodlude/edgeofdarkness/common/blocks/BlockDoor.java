@@ -6,6 +6,7 @@ import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
+import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import me.coodlude.edgeofdarkness.util.helper.TeleportUtils;
 import net.minecraft.block.state.IBlockState;
@@ -33,7 +34,7 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
 
-        if (!worldIn.isRemote) {
+        if (!worldIn.isRemote && worldIn.provider instanceof WorldProviderTardis) {
             ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
 
 

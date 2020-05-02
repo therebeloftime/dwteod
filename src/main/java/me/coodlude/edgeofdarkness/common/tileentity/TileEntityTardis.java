@@ -1,18 +1,25 @@
 package me.coodlude.edgeofdarkness.common.tileentity;
 
+import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
+import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
+import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
+import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
 import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.network.packets.PacketDemat;
+import me.coodlude.edgeofdarkness.util.helper.TeleportUtils;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraftforge.common.MinecraftForge;
 
-import javax.annotation.Nullable;
+import java.util.List;
 
 public class TileEntityTardis extends TileEntityBase implements ITickable {
 
@@ -20,6 +27,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
     public int circuitID = 0;
     public float alpha = 0;
     public boolean isRemat = false, isDemat = false;
+    public boolean open = false;
 
     public TileEntityTardis() {
 
@@ -27,6 +35,8 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
 
     @Override
     public void update() {
+
+
         if (isRemat || isDemat) {
 
             if (isRemat && alpha < 1) {
@@ -49,6 +59,33 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         if (!world.isRemote) {
             if (world.provider instanceof WorldProviderTardis) {
                 world.setBlockToAir(pos);
+            }
+
+            TardisInfo info = getTardisInfo();
+
+            if (info != null) {
+                if (open && info.isLocked()) {
+                    setOpen(false);
+                }
+
+                if (open) {
+                    AxisAlignedBB bb = new AxisAlignedBB(getPos());
+                    List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, bb);
+
+                    if (entityList.size() > 0) {
+                        EntityLivingBase base = entityList.get(0);
+
+                        if(base instanceof EntityPlayer) {
+                            EntityPlayer playerIn = (EntityPlayer) base;
+                            ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
+                            capability.setTardisID(tardisID);
+
+                            MinecraftForge.EVENT_BUS.post(new EventEnterTardis(playerIn, tardisID));
+                            setOpen(false);
+                            TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0, info.interiorSpawnRotation);
+                        }
+                    }
+                }
             }
         }
     }
@@ -88,6 +125,11 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         }
     }
 
+    public void setOpen(boolean open) {
+        this.open = open;
+        sendUpdates();
+    }
+
     public void sendDemat(boolean isDemat) {
         if (!world.isRemote) {
             NetworkHandler.NETWORK.sendToAll(new PacketDemat(pos, isDemat));
@@ -102,6 +144,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         alpha = compound.getFloat("alpha");
         tardisID = compound.getInteger("tardisID");
         circuitID = compound.getInteger("circuitID");
+        open = compound.getBoolean("open");
     }
 
     @Override
@@ -112,8 +155,13 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         compound.setFloat("alpha", alpha);
         compound.setInteger("tardisID", tardisID);
         compound.setInteger("circuitID", circuitID);
+        compound.setBoolean("open", open);
 
         return compound;
+    }
+
+    public TardisInfo getTardisInfo() {
+        return TardisHandler.getTardis(tardisID);
     }
 
     public void setTardisID(int tardisID) {

@@ -1,6 +1,7 @@
 package me.coodlude.edgeofdarkness.client.renderers.exterior;
 
 import me.coodlude.edgeofdarkness.common.blocks.BlockTardis;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisSkinRegistry;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.util.helper.Helper;
@@ -16,9 +17,7 @@ public class RenderTardis extends TileEntitySpecialRenderer<TileEntityTardis> {
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
 
-        GlStateManager.translate(x, y, z);
-        //IBlockState state = te.getWorld().getBlockState(te.getPos());
-        //Helper.getAngleFromFacing(state.getValue(BlockTardis.FACING))
+        GlStateManager.translate(x + 0.5, y, z + 0.5);
         GlStateManager.rotate(te.rotation, 0, 1, 0);
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 
@@ -26,17 +25,14 @@ public class RenderTardis extends TileEntitySpecialRenderer<TileEntityTardis> {
             double i = te.getWorld().rand.nextDouble() / 320 + 1;
             GlStateManager.scale(i, i, i);
             GlStateManager.color(1, 1, 1, te.alpha);
-            // GlStateManager.scale(1, te.getWorld().rand.nextDouble() / 28 + 1,1);
-            // if(te.alpha < 0.99) GlStateManager.disableLighting();
         }
 
 
         if (te.getWorld().getBlockState(te.getPos().down()).getBlock() == Blocks.AIR) {
-            GlStateManager.rotate(te.getWorld().getWorldTime(), 0, 1, 0);
+            GlStateManager.rotate(te.getWorld().getWorldTime() / 0.5f, 0, 1, 0);
         }
 
-
-        TardisSkinRegistry.circuitList.get(te.circuitID).renderExterior();
+        TardisSkinRegistry.circuitList.get(te.circuitID).basemodel.render(te.open ? 1 : 0);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
     }

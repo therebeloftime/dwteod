@@ -33,6 +33,7 @@ public class TardisInfo {
 
     public BlockPos destinationPos;
     public int destinationDim = 0;
+    public float exteriorRotation = 0;
 
     public BlockPos interiorPos = BlockPos.ORIGIN;
     public float interiorSpawnRotation = 0;
@@ -74,6 +75,14 @@ public class TardisInfo {
 
     public void setLocked(boolean locked) {
         this.locked = locked;
+    }
+
+    public void setExteriorRotation(float exteriorRotation) {
+        this.exteriorRotation = exteriorRotation;
+    }
+
+    public float getExteriorRotation() {
+        return exteriorRotation;
     }
 
     public void setHealth(float health) {
@@ -186,6 +195,7 @@ public class TardisInfo {
             }
             playSoundPlayersInside(ModSounds.CLOISTER);
         }
+        save();
     }
 
     public void flightUpdate() {
@@ -208,8 +218,12 @@ public class TardisInfo {
                 TileEntity tileEntity = destination.getTileEntity(destinationPos);
 
                 if (tileEntity != null && tileEntity instanceof TileEntityTardis) {
-                    ((TileEntityTardis) tileEntity).setTardisID(tardisID);
-                    ((TileEntityTardis) tileEntity).setRemat(true);
+                    TileEntityTardis tileEntityTardis = (TileEntityTardis) tileEntity;
+
+                    tileEntityTardis.setTardisID(tardisID);
+                    tileEntityTardis.setRemat(true);
+                    tileEntityTardis.setRotation(exteriorRotation);
+                    save();
                     playSoundPlayersInside(ModSounds.SHORT_REMAT);
                 }
             }
@@ -219,6 +233,10 @@ public class TardisInfo {
                 inFlight = false;
             }
         }
+    }
+
+    public void save() {
+        TardisHandler.saveTardis(tardisID);
     }
 
 }

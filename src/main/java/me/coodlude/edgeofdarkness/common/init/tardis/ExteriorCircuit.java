@@ -1,10 +1,11 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
+import me.coodlude.edgeofdarkness.client.models.ModelTardisBase;
 import net.minecraft.client.model.ModelBase;
 
 public class ExteriorCircuit {
     public String name = "";
-    public ModelBase basemodel;
+    public ModelTardisBase basemodel;
 
     public void renderExterior() {
         if(basemodel != null) {
@@ -16,7 +17,7 @@ public class ExteriorCircuit {
         this.name = name;
     }
 
-    public void setBasemodel(ModelBase basemodel) {
+    public void setBasemodel(ModelTardisBase basemodel) {
         this.basemodel = basemodel;
     }
 

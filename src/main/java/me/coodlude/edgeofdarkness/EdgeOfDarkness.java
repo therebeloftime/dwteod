@@ -1,5 +1,7 @@
 package me.coodlude.edgeofdarkness;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
 import me.coodlude.edgeofdarkness.common.capability.CapabilityTardis;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
@@ -7,6 +9,7 @@ import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -15,13 +18,11 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
-import java.io.Console;
-
 @Mod(modid = EdgeOfDarkness.MODID, name = EdgeOfDarkness.NAME, version = EdgeOfDarkness.VERSION)
-public class EdgeOfDarkness
-{
+public class EdgeOfDarkness {
     @Mod.Instance
     public static EdgeOfDarkness instance;
 
@@ -29,14 +30,14 @@ public class EdgeOfDarkness
     public static IProxy proxy;
 
     private static Logger logger;
+    public static Gson JSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static final String MODID = "edgeofdarkness";
     public static final String NAME = "EdgeOfDarkness";
     public static final String VERSION = "0.0.1";
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit();
         logger = event.getModLog();
         NetworkHandler.init();
@@ -47,9 +48,13 @@ public class EdgeOfDarkness
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void init(FMLInitializationEvent event) {
         proxy.init();
         ModDimension.Register();
+    }
+
+    @EventHandler
+    public void onServerStarting(FMLServerStartingEvent event) {
+        TardisHandler.loadTardisses();
     }
 }
