@@ -17,6 +17,10 @@ import net.minecraft.world.World;
 
 public class ItemTardisSpawner extends Item {
 
+    public ItemTardisSpawner() {
+        super();
+        setMaxStackSize(1);
+    }
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -42,6 +46,7 @@ public class ItemTardisSpawner extends Item {
                 info.setDestination(pos.up(), player.dimension);
                 tileEntityTardis.sendUpdates();
                 info.save();
+                player.getHeldItem(hand).setCount(0);
             }
 
             tileEntityTardis.setRemat(true);
