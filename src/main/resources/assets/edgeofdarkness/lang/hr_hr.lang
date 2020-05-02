@@ -13,6 +13,7 @@ item.lapis_pickaxe.name=Lapisov Pijuk
 item.lapis_axe.name=Lapisov Sjekira
 item.lapis_shovel.name=Lapisov Lopatica
 item.doomsday_weapon.name=Doomsday Oružja
+item.tardis_spawner.name=TARDIS Mrijesnih
 
 //Blocks
 tile.tardis.name=TARDIS

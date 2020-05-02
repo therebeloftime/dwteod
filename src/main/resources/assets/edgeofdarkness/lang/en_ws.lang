@@ -13,6 +13,7 @@ item.lapis_pickaxe.name=Lapis Pickaxe
 item.lapis_axe.name=Lapis Axe
 item.lapis_shovel.name=Lapis Spade
 item.doomsday_weapon.name=Device Which Bringeth Destruction
+item.tardis_spawner.name=Spawner Of The Boxeth Of Charms
 
 //Blocks
 tile.tardis.name=The Boxeth Of Charms
