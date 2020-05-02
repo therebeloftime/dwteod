@@ -31,7 +31,7 @@ public class TardisInfo {
     public int exteriorDim = 0;
     public transient List<UUID> playersInside = new ArrayList<>();
 
-    public BlockPos destinationPos;
+    public BlockPos destinationPos = BlockPos.ORIGIN;
     public int destinationDim = 0;
     public float exteriorRotation = 0;
 
@@ -103,6 +103,16 @@ public class TardisInfo {
 
     public void setInteriorSpawnRotation(float interiorSpawnRotation) {
         this.interiorSpawnRotation = interiorSpawnRotation;
+    }
+
+    public void setDestination(BlockPos pos, int dim) {
+        this.setDestinationPos(pos);
+        this.setDestinationDim(dim);
+    }
+
+    public void setExterior(BlockPos pos, int dim) {
+        this.setExtereriorPos(pos);
+        this.setExteriorDim(dim);
     }
 
     public float getInteriorSpawnRotation() {
@@ -177,18 +187,18 @@ public class TardisInfo {
     }
 
     public void directLanding() {
-        if(inFlight) {
+        if (inFlight) {
             TileEntityTardis tileEntityTardis = TardisHandler.getTardisTile(tardisID);
 
-            if(tileEntityTardis != null) {
-                if(tileEntityTardis.isDemat) {
+            if (tileEntityTardis != null) {
+                if (tileEntityTardis.isDemat) {
                     tileEntityTardis.switchDematState();
                     inFlight = false;
                     playSoundPlayersInside(ModSounds.SHORT_REMAT);
                     travelTime = 0;
                 }
-            }else{
-                if(travelTime > 160) {
+            } else {
+                if (travelTime > 160) {
                     TardisHandler.immediateLanding(tardisID, extereriorPos, exteriorDim);
                     travelTime = 0;
                 }

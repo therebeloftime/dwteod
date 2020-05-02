@@ -17,6 +17,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
     public float alpha = 0;
     public boolean isRemat = false, isDemat = false;
     public boolean open = false;
+    public int door_rotation = 0;
 
     public TileEntityTardis() {
 
@@ -38,6 +40,10 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
 
 
         if (isRemat || isDemat) {
+
+            if(open) {
+                setOpen(false);
+            }
 
             if (isRemat && alpha < 1) {
                 alpha += 0.016f;
@@ -56,6 +62,21 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
             if (isRemat && isDemat) isDemat = false;
         }
 
+        if(!world.isRemote) {
+            if(open) {
+                if(door_rotation < 45) {
+                   door_rotation += 2;
+                    sendUpdates();
+                }
+            }else{
+                if(door_rotation > 0) {
+                    door_rotation -= 3;
+                    sendUpdates();
+                }
+            }
+
+        }
+
         if (!world.isRemote) {
             if (world.provider instanceof WorldProviderTardis) {
                 world.setBlockToAir(pos);
@@ -68,7 +89,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
                     setOpen(false);
                 }
 
-                if (open) {
+                if (open || (isRemat && info.travelTime < 50 && info.travelTime > 0)) {
                     AxisAlignedBB bb = new AxisAlignedBB(getPos());
                     List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, bb);
 
@@ -79,10 +100,12 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
                             EntityPlayer playerIn = (EntityPlayer) base;
                             ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
                             capability.setTardisID(tardisID);
+                            capability.sync();
 
                             MinecraftForge.EVENT_BUS.post(new EventEnterTardis(playerIn, tardisID));
                             setOpen(false);
-                            TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, 0, 50, 0, 0, info.interiorSpawnRotation);
+                            BlockPos ip = info.getInteriorPos();
+                            TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, ip.getX(), ip.getY(), ip.getZ(), 0, info.interiorSpawnRotation);
                         }
                     }
                 }
@@ -145,6 +168,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         tardisID = compound.getInteger("tardisID");
         circuitID = compound.getInteger("circuitID");
         open = compound.getBoolean("open");
+        door_rotation = compound.getInteger("door_rotation");
     }
 
     @Override
@@ -156,6 +180,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         compound.setInteger("tardisID", tardisID);
         compound.setInteger("circuitID", circuitID);
         compound.setBoolean("open", open);
+        compound.setInteger("door_rotation", door_rotation);
 
         return compound;
     }

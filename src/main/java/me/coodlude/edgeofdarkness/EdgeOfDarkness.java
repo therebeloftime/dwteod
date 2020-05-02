@@ -5,6 +5,9 @@ import com.google.gson.GsonBuilder;
 import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
 import me.coodlude.edgeofdarkness.common.capability.CapabilityTardis;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
+import me.coodlude.edgeofdarkness.common.commands.CommandCreateSchematic;
+import me.coodlude.edgeofdarkness.common.commands.CommandPasteSchematic;
+import me.coodlude.edgeofdarkness.common.commands.CommandTest;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
@@ -12,6 +15,7 @@ import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
+import me.coodlude.edgeofdarkness.util.helper.schematics.SchematicUtil;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -55,6 +59,11 @@ public class EdgeOfDarkness {
 
     @EventHandler
     public void onServerStarting(FMLServerStartingEvent event) {
+        event.registerServerCommand(new CommandCreateSchematic());
+        event.registerServerCommand(new CommandPasteSchematic());
+        event.registerServerCommand(new CommandTest());
+        SchematicUtil.queue.clear();
+        TardisHandler.tardises.clear();
         TardisHandler.loadTardisses();
     }
 }

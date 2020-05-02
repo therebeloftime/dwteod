@@ -1,11 +1,7 @@
 package me.coodlude.edgeofdarkness.client.renderers.exterior;
 
-import me.coodlude.edgeofdarkness.common.blocks.BlockTardis;
-import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisSkinRegistry;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
-import me.coodlude.edgeofdarkness.util.helper.Helper;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.init.Blocks;
@@ -32,7 +28,7 @@ public class RenderTardis extends TileEntitySpecialRenderer<TileEntityTardis> {
             GlStateManager.rotate(te.getWorld().getWorldTime() / 0.5f, 0, 1, 0);
         }
 
-        TardisSkinRegistry.circuitList.get(te.circuitID).basemodel.render(te.open ? 1 : 0);
+        TardisSkinRegistry.circuitList.get(te.circuitID).basemodel.render((1.0f / 45) * te.door_rotation);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
     }

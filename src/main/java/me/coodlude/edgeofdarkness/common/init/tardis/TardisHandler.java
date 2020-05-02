@@ -1,6 +1,5 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
-import com.google.gson.reflect.TypeToken;
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
@@ -24,27 +23,34 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.FMLInjectionData;
+import org.lwjgl.Sys;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Mod.EventBusSubscriber
 public class TardisHandler {
 
     public static HashMap<Integer, TardisInfo> tardises = new HashMap<>();
-    public TypeToken typeToken = new TypeToken<HashMap<Integer, TardisInfo>>() {
-    };
+    public static int INTERIOR_SIZE = 128;
 
 
     public static int addTardis() {
         int id = tardises.size() + 1;
         TardisInfo info = new TardisInfo();
         info.tardisID = id;
+        info.setInteriorPos(getCenteredTardisPos(id).add(-1, 0, 0));
         tardises.put(id, info);
         saveTardis(id);
 
         return id;
+    }
+
+    public static BlockPos getCenteredTardisPos(int id) {
+        return new BlockPos(id * TardisHandler.INTERIOR_SIZE + (TardisHandler.INTERIOR_SIZE / 2), 128, id * TardisHandler.INTERIOR_SIZE + (TardisHandler.INTERIOR_SIZE / 2));
     }
 
     @SubscribeEvent
@@ -97,7 +103,7 @@ public class TardisHandler {
         if (info != null) {
             World world = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(dim);
 
-            if (world != null) {
+            if (world != null && pos != null) {
                 IBlockState blockState = world.getBlockState(pos);
                 boolean b = pos.getY() >= 60;
 
@@ -110,7 +116,7 @@ public class TardisHandler {
                             }
                         }
                     } else {
-                        for (int y = 0; y > 0; y++) {
+                        for (int y = 0; y < 256; y++) {
                             if (safeToLand(world, pos, info, y)) {
                                 break;
                             }
@@ -232,8 +238,8 @@ public class TardisHandler {
         if (doesTardisExist(id)) {
             TardisInfo info = getTardis(id);
 
-            Vec3d look = Vec3d.fromPitchYaw(45, (-getTardisTile(id).rotation));
-            float distance = 0.5F;
+            Vec3d look = Vec3d.fromPitchYaw(45, info.exteriorRotation);
+            float distance = 2.5F;
             double x = info.getExtereriorPos().getX() + (look.x * distance);
             double y = (info.getExtereriorPos().getY() > 0) ? info.getExtereriorPos().getY() : 128;
             double z = info.getExtereriorPos().getZ() + (look.z * distance);
@@ -249,6 +255,30 @@ public class TardisHandler {
         }
 
         return null;
+    }
+
+    public static int getTardisIDFromPos(BlockPos pos) {
+        int passed = 1;
+        int x = pos.getX();
+        int z = pos.getZ();
+        long begin = System.currentTimeMillis();
+
+        while (true) {
+
+            if (x > passed * INTERIOR_SIZE && x < (passed * INTERIOR_SIZE) + INTERIOR_SIZE && z > passed * INTERIOR_SIZE && z < (passed * INTERIOR_SIZE) + INTERIOR_SIZE) {
+                return passed;
+            }
+            passed++;
+
+            if((System.currentTimeMillis() - begin) > 10000 || passed > TardisHandler.tardises.size()) {
+                return 0;
+            }
+        }
+    }
+
+    public static int getIDFromCoords(BlockPos pos) {
+        int x = pos.getX();
+        return Math.abs(x / INTERIOR_SIZE);
     }
 
     public static void saveTardis(int tardisID) {
@@ -286,8 +316,15 @@ public class TardisHandler {
         File[] tardis_files = dir.listFiles();
 
         for (int x = 0; x < tardis_files.length; x++) {
+
             File file1 = tardis_files[x];
-            String i = String.valueOf(file1.getName().charAt(file1.getName().length() - 6));
+            System.out.println(file1.getName());
+            Pattern p = Pattern.compile("\\d+");
+            Matcher m = p.matcher(file1.getName());
+            String i = "";
+            while (m.find()) {
+                i = m.group();
+            }
             String fileName = "tardis_" + i + ".json";
             try {
                 FileReader reader = new FileReader(file + "/" + fileName);
