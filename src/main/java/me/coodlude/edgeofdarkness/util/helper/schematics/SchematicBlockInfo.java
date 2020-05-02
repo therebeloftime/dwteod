@@ -1,21 +1,25 @@
 package me.coodlude.edgeofdarkness.util.helper.schematics;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.nbt.JsonToNBT;
+import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 
 public class SchematicBlockInfo {
 
-    public IBlockState blockState;
+    public int blockState;
     public BlockPos pos;
-    public NBTTagCompound tileTag = new NBTTagCompound();
+    public String nbtData;
+    public transient NBTTagCompound compound;
     public boolean isTileEntity = false;
     public BlockPos reference;
 
 
     public SchematicBlockInfo(IBlockState state, TileEntity tileEntity, BlockPos referencePos, BlockPos ogPos) {
-        this.blockState = state;
+        this.blockState = Block.getStateId(state);
         this.reference = referencePos;
         this.pos = ogPos;
 
@@ -24,17 +28,17 @@ public class SchematicBlockInfo {
             NBTTagCompound tagCompound = tileEntity.serializeNBT();
 
             if (tagCompound != null) {
-                tileTag = tagCompound;
+                nbtData = tagCompound.toString();
             }
         }
     }
 
     public IBlockState getBlockState() {
-        return blockState;
+        return Block.getStateById(blockState);
     }
 
     public NBTTagCompound getTileTag() {
-        return tileTag;
+        return compound;
     }
 
     public boolean isTileEntity() {

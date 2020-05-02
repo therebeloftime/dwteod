@@ -10,9 +10,10 @@ import me.coodlude.edgeofdarkness.common.commands.CommandPasteSchematic;
 import me.coodlude.edgeofdarkness.common.commands.CommandTest;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModItems;
+import me.coodlude.edgeofdarkness.common.init.ModSchematics;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
-import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisSkinRegistry;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
 import me.coodlude.edgeofdarkness.util.helper.schematics.SchematicUtil;
@@ -47,7 +48,8 @@ public class EdgeOfDarkness {
         NetworkHandler.init();
         ModSounds.registerSounds();
         ModItems.init();
-        ConsoleRoom.init();
+        ModSchematics.init();
+        TardisSkinRegistry.init();
         CapabilityManager.INSTANCE.register(ITardisCapability.class, new CapTardisStorage(), CapabilityTardis::new);
     }
 

@@ -1,20 +1,24 @@
 package me.coodlude.edgeofdarkness.util.helper.schematics;
 
+import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.util.helper.WorldUtil;
+import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.nbt.JsonToNBT;
+import net.minecraft.nbt.NBTException;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import org.lwjgl.Sys;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +39,11 @@ public class SchematicUtil {
             try {
                 file.getParentFile().mkdirs();
                 file.createNewFile();
-                FileOutputStream out = new FileOutputStream(file, false);
-                ObjectOutputStream stream = new ObjectOutputStream(out);
-                stream.writeObject(schematic);
-                stream.close();
+                FileWriter writer = new FileWriter(file);
+                writer.write(EdgeOfDarkness.JSON.toJson(schematic));
+                writer.close();
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
         }
 
@@ -50,26 +53,18 @@ public class SchematicUtil {
     public static Schematic mapSchematic(World world, BlockPos blockpos1, BlockPos blockpos2, BlockPos standingPos, String name) {
         Schematic schematic = new Schematic();
 
-       /* for (BlockPos pos : BlockPos.getAllInBox(blockpos1, blockpos2)) {
-
-            IBlockState state = world.getBlockState(pos);
-            BlockPos reference = standingPos.subtract(new Vec3i(pos.getX(), pos.getY(), pos.getZ()));
-            SchematicBlockInfo blockInfo = new SchematicBlockInfo(state, world.getTileEntity(pos), reference);
-
-            schematic.addBlockInfo(blockInfo);
-        }
-        */
-
         BlockPos blockpos3 = new BlockPos(Math.min(blockpos1.getX(), blockpos2.getX()), Math.min(blockpos1.getY(), blockpos2.getY()), Math.min(blockpos1.getZ(), blockpos2.getZ()));
         BlockPos blockpos4 = new BlockPos(Math.max(blockpos1.getX(), blockpos2.getX()), Math.max(blockpos1.getY(), blockpos2.getY()), Math.max(blockpos1.getZ(), blockpos2.getZ()));
 
+        int size = (int) (blockpos3.getDistance(blockpos4.getX(), blockpos4.getY(), blockpos4.getZ())) / 4;
+        BlockPos ref = blockpos3.add(size, 0, size);
 
         for (int y = blockpos3.getY(); y <= blockpos4.getY(); ++y) {
             for (int x = blockpos3.getX(); x <= blockpos4.getX(); ++x) {
                 for (int z = blockpos3.getZ(); z <= blockpos4.getZ(); ++z) {
                     BlockPos pos = new BlockPos(x, y, z);
                     IBlockState state = world.getBlockState(pos);
-                    BlockPos reference = standingPos.subtract(new Vec3i(pos.getX(), pos.getY(), pos.getZ()));
+                    BlockPos reference = ref.subtract(new Vec3i(pos.getX(), pos.getY(), pos.getZ()));
                     SchematicBlockInfo blockInfo = new SchematicBlockInfo(state, world.getTileEntity(pos), reference, pos);
                     schematic.addBlockInfo(blockInfo);
                 }
@@ -90,19 +85,18 @@ public class SchematicUtil {
         for (SchematicBlockInfo blockInfo : schem.getBlockInfos()) {
             if (schem.getBlockInfos().size() <= 512) {
                 BlockPos r = blockInfo.getReference();
-                BlockPos pPos = pos.add(r.getX(), -r.getY(), r.getZ());
+                BlockPos pPos = pos.add(-r.getX(), -r.getY(), -r.getZ());
 
-                WorldUtil.setBlock(world, pPos, blockInfo.blockState, 2);
+                WorldUtil.setBlock(world, pPos, blockInfo.getBlockState(), 2);
 
                 if (blockInfo.isTileEntity) {
-                    blockInfo.tileTag.setInteger("x", pPos.getX());
-                    blockInfo.tileTag.setInteger("y", pPos.getY());
-                    blockInfo.tileTag.setInteger("z", pPos.getZ());
+                    blockInfo.getTileTag().setInteger("x", pPos.getX());
+                    blockInfo.getTileTag().setInteger("y", pPos.getY());
+                    blockInfo.getTileTag().setInteger("z", pPos.getZ());
                     TileEntity tileEntity = world.getTileEntity(pPos);
-                    tileEntity.readFromNBT(blockInfo.tileTag);
+                    tileEntity.readFromNBT(blockInfo.getTileTag());
                     tileEntity.markDirty();
                 }
-                world.markAndNotifyBlock(pPos, world.getChunk(pPos), world.getBlockState(pos), world.getBlockState(pPos), 1);
             } else {
                 if (chunk.getSchematicBlocks().size() == 1) {
                     chunk.setDimID(world.provider.getDimension());
@@ -153,25 +147,32 @@ public class SchematicUtil {
     public static void pasteBlocks(SchematicChunk chunk, World world, boolean ignoreAir) {
         for (SchematicBlockInfo blockInfo : chunk.getSchematicBlocks()) {
             BlockPos r = blockInfo.getReference();
-            BlockPos pPos = chunk.getQueuePos().add(r.getX(), -r.getY(), r.getZ());
+            BlockPos pPos = chunk.getQueuePos().add(-r.getX(), -r.getY(), -r.getZ());
 
-            if ((blockInfo.blockState.getBlock() == Blocks.AIR && ignoreAir) || blockInfo.blockState.getBlock() == world.getBlockState(pPos).getBlock()) continue;
+            if ((blockInfo.getBlockState().getBlock() == Blocks.AIR && ignoreAir) || blockInfo.getBlockState().getBlock() == world.getBlockState(pPos).getBlock()) continue;
             setAndSetup(blockInfo, pPos, world);
         }
     }
 
     public static void setAndSetup(SchematicBlockInfo blockInfo, BlockPos pPos, World world) {
-        WorldUtil.setBlock(world, pPos, blockInfo.blockState, 2);
+        WorldUtil.setBlock(world, pPos, blockInfo.getBlockState(), 2);
 
         if (blockInfo.isTileEntity) {
-            blockInfo.tileTag.setInteger("x", pPos.getX());
-            blockInfo.tileTag.setInteger("y", pPos.getY());
-            blockInfo.tileTag.setInteger("z", pPos.getZ());
             TileEntity tileEntity = world.getTileEntity(pPos);
-            tileEntity.readFromNBT(blockInfo.tileTag);
+            try {
+                blockInfo.compound = JsonToNBT.getTagFromJson(blockInfo.nbtData);
+            } catch (NBTException e) {
+                e.printStackTrace();
+            }
+
+            blockInfo.getTileTag().setInteger("x", pPos.getX());
+            blockInfo.getTileTag().setInteger("y", pPos.getY());
+            blockInfo.getTileTag().setInteger("z", pPos.getZ());
+            tileEntity.deserializeNBT(blockInfo.getTileTag());
             tileEntity.markDirty();
+            world.markAndNotifyBlock(pPos, world.getChunk(pPos), world.getBlockState(pPos), world.getBlockState(pPos), 1);
         }
 
-        world.markAndNotifyBlock(pPos, world.getChunk(pPos), world.getBlockState(pPos), world.getBlockState(pPos), 1);
+
     }
 }

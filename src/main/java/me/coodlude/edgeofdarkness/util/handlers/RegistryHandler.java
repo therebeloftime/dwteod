@@ -30,8 +30,6 @@ public class RegistryHandler {
             Item item = ModItems.ITEM_LIST.get(i);
             ModItems.registerRender(item);
         }
-
-        TardisSkinRegistry.init();
     }
 
     public static void registerTileEntity(Class<? extends TileEntity> clazz, String name) {

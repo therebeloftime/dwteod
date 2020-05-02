@@ -19,7 +19,7 @@ public class CommandPasteSchematic extends CommandBase {
         if (args.length < 1 || sender.getEntityWorld().isRemote) return;
 
         if (sender instanceof EntityPlayer) {
-            SchematicUtil.generateSchematic(SchematicUtil.schematics.get(0), sender.getPosition(), ((EntityPlayer) sender).world, false);
+            SchematicUtil.generateSchematic(SchematicUtil.schematics.get(0), sender.getPosition(), ((EntityPlayer) sender).world, true);
         }
     }
 

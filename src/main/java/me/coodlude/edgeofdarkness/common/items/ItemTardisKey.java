@@ -2,8 +2,6 @@ package me.coodlude.edgeofdarkness.common.items;
 
 import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
-import me.coodlude.edgeofdarkness.common.init.ModDimension;
-import me.coodlude.edgeofdarkness.common.init.tardis.ConsoleRoom;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
@@ -18,7 +16,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 
 public class ItemTardisKey extends Item {
 

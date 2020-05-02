@@ -2,6 +2,7 @@ package me.coodlude.edgeofdarkness.common.init.tardis;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
+import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
 import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
@@ -17,6 +18,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -42,11 +44,14 @@ public class TardisHandler {
         int id = tardises.size() + 1;
         TardisInfo info = new TardisInfo();
         info.tardisID = id;
-        info.setInteriorPos(getCenteredTardisPos(id).add(-1, 0, 0));
         tardises.put(id, info);
         saveTardis(id);
 
         return id;
+    }
+
+    public static WorldServer getTardisWorld(World world) {
+        return world.getMinecraftServer().getWorld(ModDimension.TARDISID);
     }
 
     public static BlockPos getCenteredTardisPos(int id) {
