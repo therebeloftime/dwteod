@@ -15,13 +15,12 @@ public class SchematicBlockInfo {
     public String nbtData;
     public transient NBTTagCompound compound;
     public boolean isTileEntity = false;
-    public BlockPos reference;
+    public long reference;
 
 
-    public SchematicBlockInfo(IBlockState state, TileEntity tileEntity, BlockPos referencePos, BlockPos ogPos) {
+    public SchematicBlockInfo(IBlockState state, TileEntity tileEntity, BlockPos referencePos) {
         this.blockState = Block.getStateId(state);
-        this.reference = referencePos;
-        this.pos = ogPos;
+        this.reference = referencePos.toImmutable().toLong();
 
         if (tileEntity != null) {
             isTileEntity = true;
@@ -46,7 +45,7 @@ public class SchematicBlockInfo {
     }
 
     public BlockPos getReference() {
-        return reference;
+        return BlockPos.fromLong(reference);
     }
 }
 

@@ -21,7 +21,8 @@ public class ExteriorCircuit {
 
     public void generateInterior(World world, BlockPos pos) {
         if (schematic != null) {
-            schematic.generate(world, pos, false);
+            schematic.generate(world, pos, true);
+            //schematic.markUpdate(world, pos, true);
         }
     }
 

@@ -18,6 +18,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.Supplier;
 
@@ -32,11 +34,17 @@ public class BlockMonitor extends BlockTileBase implements IHaveItem {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         if (worldIn.isRemote) {
-            Minecraft.getMinecraft().displayGuiScreen(new GuiTardisCoords());
+           openGUI();
         }
 
         return true;
     }
+
+    @SideOnly(Side.CLIENT)
+    public void openGUI() {
+        Minecraft.getMinecraft().displayGuiScreen(new GuiTardisCoords());
+    }
+
 
     @Override
     public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {

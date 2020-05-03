@@ -40,7 +40,6 @@ public class BlockTest extends Block implements IHaveItem {
           //  TardisHandler.travelTo((EntityPlayerMP) playerIn,1, new BlockPos(-164,78,259), 0);
         //    ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
          //   capability.setFlight(!capability.isInFlight());
-            Minecraft.getMinecraft().displayGuiScreen(new GuiTardisCoords());
         }
 
         return true;

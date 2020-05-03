@@ -9,12 +9,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber
 public class ClientHandler {
 
     public static boolean sound;
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void renderPlayer(RenderPlayerEvent.Pre event) {
 

@@ -2,17 +2,16 @@ package me.coodlude.edgeofdarkness.util.helper.schematics;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.util.helper.WorldUtil;
-import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -32,9 +31,10 @@ public class SchematicUtil {
 
     public static List<SchematicChunk> queue = new ArrayList<>();
 
+
     public static void addSchematic(Schematic schematic) {
         if (schematic != null) {
-            File file = new File("mods/igauntlet/schematics/" + schematic.name + ".json");
+            File file = new File("mods/edgeofdarkness/schematics/" + schematic.name + ".json");
 
             try {
                 file.getParentFile().mkdirs();
@@ -65,7 +65,7 @@ public class SchematicUtil {
                     BlockPos pos = new BlockPos(x, y, z);
                     IBlockState state = world.getBlockState(pos);
                     BlockPos reference = ref.subtract(new Vec3i(pos.getX(), pos.getY(), pos.getZ()));
-                    SchematicBlockInfo blockInfo = new SchematicBlockInfo(state, world.getTileEntity(pos), reference, pos);
+                    SchematicBlockInfo blockInfo = new SchematicBlockInfo(state, world.getTileEntity(pos), reference);
                     schematic.addBlockInfo(blockInfo);
                 }
             }
@@ -117,37 +117,12 @@ public class SchematicUtil {
         }
     }
 
-    @SubscribeEvent
-    public static void handleSchematicQueue(TickEvent.WorldTickEvent event) {
-        if (event.side.isServer()) {
-
-            if (queue.size() > 0) {
-                SchematicChunk chunk = queue.get(0);
-                World world;
-
-                world = event.world.getMinecraftServer().getWorld(chunk.dimID);
-
-                if (world.provider.getDimension() == chunk.dimID) {
-
-                    try {
-                        if (!chunk.isDone()) {
-                            pasteBlocks(chunk, world, chunk.ignoreAir);
-                            chunk.setDone(true);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    if (chunk.isDone()) queue.remove(0);
-                }
-            }
-        }
-    }
-
     public static void pasteBlocks(SchematicChunk chunk, World world, boolean ignoreAir) {
         for (SchematicBlockInfo blockInfo : chunk.getSchematicBlocks()) {
             BlockPos r = blockInfo.getReference();
             BlockPos pPos = chunk.getQueuePos().add(-r.getX(), -r.getY(), -r.getZ());
+
+
 
             if ((blockInfo.getBlockState().getBlock() == Blocks.AIR && ignoreAir) || blockInfo.getBlockState().getBlock() == world.getBlockState(pPos).getBlock()) continue;
             setAndSetup(blockInfo, pPos, world);
@@ -168,11 +143,9 @@ public class SchematicUtil {
             blockInfo.getTileTag().setInteger("x", pPos.getX());
             blockInfo.getTileTag().setInteger("y", pPos.getY());
             blockInfo.getTileTag().setInteger("z", pPos.getZ());
-            tileEntity.deserializeNBT(blockInfo.getTileTag());
+            tileEntity.readFromNBT(blockInfo.getTileTag());
             tileEntity.markDirty();
             world.markAndNotifyBlock(pPos, world.getChunk(pPos), world.getBlockState(pPos), world.getBlockState(pPos), 1);
         }
-
-
     }
 }
