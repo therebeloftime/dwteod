@@ -135,7 +135,7 @@ public class SchematicUtil {
         if (blockInfo.isTileEntity) {
             TileEntity tileEntity = world.getTileEntity(pPos);
             try {
-                blockInfo.compound = JsonToNBT.getTagFromJson(blockInfo.nbtData);
+                blockInfo.compound = JsonToNBT.getTagFromJson(blockInfo.nbtTag);
             } catch (NBTException e) {
                 e.printStackTrace();
             }

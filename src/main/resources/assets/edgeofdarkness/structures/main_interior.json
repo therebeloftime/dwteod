@@ -12012,7 +12012,7 @@
     },
     {
       "blockState": 138,
-      "nbtData": "{Secondary:-1,Primary:-1,x:6082,y:131,Levels:1,z:6084,id:\"minecraft:beacon\",Lock:\"\"}",
+      "nbtTag": "{Secondary:-1,Primary:-1,x:6082,y:131,Levels:1,z:6084,id:\"minecraft:beacon\",Lock:\"\"}",
       "isTileEntity": true,
       "reference": -824835047426
     },
@@ -17333,7 +17333,7 @@
     },
     {
       "blockState": 254,
-      "nbtData": "{rotation:-269.84644f,x:6082,y:133,z:6090,id:\"edgeofdarkness:tileentitydoor\"}",
+      "nbtTag": "{rotation:-269.84644f,x:6082,y:133,z:6090,id:\"edgeofdarkness:tileentitydoor\"}",
       "isTileEntity": true,
       "reference": -824969265160
     },
@@ -19959,7 +19959,7 @@
     },
     {
       "blockState": 257,
-      "nbtData": "{rotation:-90.29248f,x:6082,y:134,z:6086,id:\"edgeofdarkness:tileentitydematlever\"}",
+      "nbtTag": "{rotation:-90.29248f,x:6082,y:134,z:6086,id:\"edgeofdarkness:tileentitydematlever\"}",
       "isTileEntity": true,
       "reference": -825036374020
     },
@@ -22480,7 +22480,7 @@
     },
     {
       "blockState": 256,
-      "nbtData": "{rotation:-0.59350586f,x:6081,y:135,z:6084,id:\"edgeofdarkness:tileentitymonitor\"}",
+      "nbtTag": "{rotation:-0.59350586f,x:6081,y:135,z:6084,id:\"edgeofdarkness:tileentitymonitor\"}",
       "isTileEntity": true,
       "reference": -550225575938
     },
@@ -22711,7 +22711,7 @@
     },
     {
       "blockState": 256,
-      "nbtData": "{rotation:-181.19385f,x:6083,y:135,z:6084,id:\"edgeofdarkness:tileentitymonitor\"}",
+      "nbtTag": "{rotation:-181.19385f,x:6083,y:135,z:6084,id:\"edgeofdarkness:tileentitymonitor\"}",
       "isTileEntity": true,
       "reference": -1099981389826
     },
