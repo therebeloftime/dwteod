@@ -106,7 +106,6 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
                             MinecraftForge.EVENT_BUS.post(new EventEnterTardis(playerIn, tardisID));
                             setOpen(false);
                             BlockPos ip = info.getInteriorPos();
-                            System.out.println(ip);
                             TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, ip.getX(), ip.getY(), ip.getZ(), 0, info.interiorSpawnRotation);
                         }
                     }

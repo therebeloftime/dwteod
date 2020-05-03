@@ -323,27 +323,29 @@ public class TardisHandler {
         for (int x = 0; x < tardis_files.length; x++) {
 
             File file1 = tardis_files[x];
-            System.out.println(file1.getName());
-            Pattern p = Pattern.compile("\\d+");
-            Matcher m = p.matcher(file1.getName());
-            String i = "";
-            while (m.find()) {
-                i = m.group();
-            }
-            String fileName = "tardis_" + i + ".json";
-            try {
-                FileReader reader = new FileReader(file + "/" + fileName);
-                BufferedReader br = new BufferedReader(reader);
 
-                try {
-                    tardises.put(Integer.valueOf(i), EdgeOfDarkness.JSON.fromJson(br, TardisInfo.class));
-                } finally {
-                    br.close();
+            if (file1.getName().startsWith("tardis") && file1.getName().endsWith(".json")) {
+                Pattern p = Pattern.compile("\\d+");
+                Matcher m = p.matcher(file1.getName());
+                String i = "";
+                while (m.find()) {
+                    i = m.group();
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+                String fileName = "tardis_" + i + ".json";
+                try {
+                    FileReader reader = new FileReader(file + "/" + fileName);
+                    BufferedReader br = new BufferedReader(reader);
+
+                    try {
+                        tardises.put(Integer.valueOf(i), EdgeOfDarkness.JSON.fromJson(br, TardisInfo.class));
+                    } finally {
+                        br.close();
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

@@ -8,12 +8,10 @@ import java.util.List;
 public class SchematicChunk {
 
     public List<SchematicBlockInfo> schematicBlocks = new ArrayList<>();
-
     public BlockPos pPos;
     public int dimID;
     public boolean done = false;
     public boolean ignoreAir = false;
-
 
     public void addBlock(SchematicBlockInfo blockInfo) {
         schematicBlocks.add(blockInfo);
@@ -26,6 +24,7 @@ public class SchematicChunk {
     public void setQueuePos(BlockPos blockPos) {
         this.pPos = blockPos;
     }
+
 
     public void setDimID(int dimID) {
         this.dimID = dimID;

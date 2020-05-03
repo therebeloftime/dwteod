@@ -18,6 +18,8 @@ item.tardis_spawner.name=TARDIS Spawner
 //Blocks
 tile.tardis.name=The TARDIS
 tile.tardis_door.name=TARDIS Door
+tile.tardis_handbrake.name=TARDIS Handbrake
+tile.tardis_monitor.name=TARDIS Monitor
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness

@@ -9,12 +9,8 @@ import net.minecraft.nbt.NBTException;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -50,7 +46,7 @@ public class SchematicUtil {
 
     }
 
-    public static Schematic mapSchematic(World world, BlockPos blockpos1, BlockPos blockpos2, BlockPos standingPos, String name) {
+    public static Schematic mapSchematic(World world, BlockPos blockpos1, BlockPos blockpos2, String name, boolean ignoreAir) {
         Schematic schematic = new Schematic();
 
         BlockPos blockpos3 = new BlockPos(Math.min(blockpos1.getX(), blockpos2.getX()), Math.min(blockpos1.getY(), blockpos2.getY()), Math.min(blockpos1.getZ(), blockpos2.getZ()));
@@ -64,6 +60,9 @@ public class SchematicUtil {
                 for (int z = blockpos3.getZ(); z <= blockpos4.getZ(); ++z) {
                     BlockPos pos = new BlockPos(x, y, z);
                     IBlockState state = world.getBlockState(pos);
+
+                    if (state.getBlock() == Blocks.AIR && ignoreAir) continue;
+
                     BlockPos reference = ref.subtract(new Vec3i(pos.getX(), pos.getY(), pos.getZ()));
                     SchematicBlockInfo blockInfo = new SchematicBlockInfo(state, world.getTileEntity(pos), reference);
                     schematic.addBlockInfo(blockInfo);
@@ -80,12 +79,15 @@ public class SchematicUtil {
 
         if (schem == null) return;
 
+        List<SchematicChunk> chunks = new ArrayList<>();
         SchematicChunk chunk = new SchematicChunk();
+        BlockUpdater updater = new BlockUpdater(pos, world.provider.getDimension());
 
         for (SchematicBlockInfo blockInfo : schem.getBlockInfos()) {
             if (schem.getBlockInfos().size() <= 512) {
                 BlockPos r = blockInfo.getReference();
                 BlockPos pPos = pos.add(-r.getX(), -r.getY(), -r.getZ());
+                updater.addPosToUpdate(pPos);
 
                 WorldUtil.setBlock(world, pPos, blockInfo.getBlockState(), 2);
 
@@ -104,27 +106,36 @@ public class SchematicUtil {
                     chunk.setQueuePos(pos);
                 }
 
-                chunk.addBlock(blockInfo);
 
-                if (chunk.schematicBlocks.size() % 512 == 0) {
+                chunk.addBlock(blockInfo);
+                updater.addPosToUpdate(pos, blockInfo.getReference());
+
+                if (chunk.schematicBlocks.size() % 512 == 0 && chunk.schematicBlocks.size() != 0) {
                     queue.add(chunk);
                     chunk = new SchematicChunk();
                 }
             }
         }
+
         if (chunk.schematicBlocks.size() > 0) {
             queue.add(chunk);
         }
+
+        if(chunks.size() > 0) {
+            queue.addAll(chunks);
+        }
+
+        updater.queueUpdater();
     }
 
     public static void pasteBlocks(SchematicChunk chunk, World world, boolean ignoreAir) {
+
         for (SchematicBlockInfo blockInfo : chunk.getSchematicBlocks()) {
             BlockPos r = blockInfo.getReference();
             BlockPos pPos = chunk.getQueuePos().add(-r.getX(), -r.getY(), -r.getZ());
+            IBlockState state = blockInfo.getBlockState();
 
-
-
-            if ((blockInfo.getBlockState().getBlock() == Blocks.AIR && ignoreAir) || blockInfo.getBlockState().getBlock() == world.getBlockState(pPos).getBlock()) continue;
+            if (state == null || (state.getBlock() == Blocks.AIR && ignoreAir) || state.getBlock() == world.getBlockState(pPos).getBlock()) continue;
             setAndSetup(blockInfo, pPos, world);
         }
     }

@@ -28,6 +28,7 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(modid = EdgeOfDarkness.MODID, name = EdgeOfDarkness.NAME, version = EdgeOfDarkness.VERSION)
 public class EdgeOfDarkness {
+
     @Mod.Instance
     public static EdgeOfDarkness instance;
 
@@ -65,7 +66,6 @@ public class EdgeOfDarkness {
         event.registerServerCommand(new CommandPasteSchematic());
         event.registerServerCommand(new CommandTest());
         SchematicUtil.queue.clear();
-        TardisHandler.tardises.clear();
         TardisHandler.loadTardisses();
     }
 }

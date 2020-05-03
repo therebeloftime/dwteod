@@ -17,8 +17,8 @@ public class TardisSkinRegistry {
     public static ExteriorCircuit toyota;
 
     public static void init() {
-        main = addCircuit("Main", new ModelTardisMain(), ModSchematics.MAIN_TARDIS, new Vec3d(4, 6, 7),180);
-        toyota = addCircuit("Toyota", new ModelTardisToyota(), ModSchematics.MAIN_TARDIS, new Vec3d(4, 6, 7), 180);
+        main = addCircuit("Main", new ModelTardisMain(), ModSchematics.MAIN_TARDIS, new Vec3d(2, 5, 5),180);
+        toyota = addCircuit("Toyota", new ModelTardisToyota(), ModSchematics.MAIN_TARDIS, new Vec3d(2, 5, 5), 180);
     }
 
     public static ExteriorCircuit addCircuit(String name, ModelTardisBase base, Schematic schematic, Vec3d offset, float rotation) {

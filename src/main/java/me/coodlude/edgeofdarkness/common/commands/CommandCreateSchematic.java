@@ -44,7 +44,7 @@ public class CommandCreateSchematic extends CommandBase {
 
 
             if (sender instanceof EntityPlayer) {
-                Schematic schematic = SchematicUtil.mapSchematic(((EntityPlayer) sender).world, new BlockPos(X1, Y1, Z1), new BlockPos(X2, Y2, Z2), sender.getPosition(), name);
+                Schematic schematic = SchematicUtil.mapSchematic(((EntityPlayer) sender).world, new BlockPos(X1, Y1, Z1), new BlockPos(X2, Y2, Z2), name, true);
 
               if(schematic != null)  {
                   SchematicUtil.schematics.clear();
