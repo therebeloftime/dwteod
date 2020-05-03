@@ -19,7 +19,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
-import org.lwjgl.Sys;
 
 import java.util.List;
 
@@ -42,18 +41,18 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
 
         if (isRemat || isDemat) {
 
-            if(open) {
+            if (open) {
                 setOpen(false);
             }
 
             if (isRemat && alpha < 1) {
-                alpha += 0.016f;
+                alpha += 0.01f;
             } else if (isRemat) {
                 isRemat = false;
             }
 
             if (isDemat && alpha > 0) {
-                alpha -= 0.016f;
+                alpha -= 0.005f;
             } else if (isDemat) {
                 isDemat = false;
 
@@ -63,19 +62,28 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
             if (isRemat && isDemat) isDemat = false;
         }
 
-        if(!world.isRemote) {
-            if(open) {
-                if(door_rotation < 45) {
-                   door_rotation += 2;
-                    sendUpdates();
+
+        if (!world.isRemote) {
+            TardisInfo info = getTardisInfo();
+
+
+            if (info != null) {
+                if (open) {
+                    if (door_rotation < 45) {
+                        door_rotation += 2;
+                        sendUpdates();
+                    }
+                } else {
+                    if (door_rotation > 0) {
+                        door_rotation -= 3;
+                        sendUpdates();
+                    }
                 }
-            }else{
-                if(door_rotation > 0) {
-                    door_rotation -= 3;
-                    sendUpdates();
+
+                if (info.doorRotation != door_rotation) {
+                    info.setDoorRotation(door_rotation);
                 }
             }
-
         }
 
         if (!world.isRemote) {
@@ -85,19 +93,34 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
 
             TardisInfo info = getTardisInfo();
 
+            if (circuitID != info.circuitID) {
+                circuitID = info.circuitID;
+                sendUpdates();
+            }
+
             if (info != null) {
                 if (open && info.isLocked()) {
                     setOpen(false);
                 }
 
+                if(world.getWorldTime() % 200 == 0) {
+                    if(info.getExtereriorPos().toLong() != pos.toLong() || !TardisHandler.doesTardisExist(tardisID)) {
+                        world.setBlockToAir(pos);
+                    }
+                }
+
+                if (open != info.isOpen()) {
+                    open = info.isOpen();
+                }
+
                 if (open || (isRemat && info.travelTime < 50 && info.travelTime > 0)) {
-                    AxisAlignedBB bb = new AxisAlignedBB(getPos()).contract(0.5,0,0.5);
+                    AxisAlignedBB bb = new AxisAlignedBB(getPos()).contract(0.5, 0, 0.5);
                     List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, bb);
 
                     if (entityList.size() > 0) {
                         EntityLivingBase base = entityList.get(0);
 
-                        if(base instanceof EntityPlayer) {
+                        if (base instanceof EntityPlayer) {
                             EntityPlayer playerIn = (EntityPlayer) base;
                             ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
                             capability.setTardisID(tardisID);
@@ -118,7 +141,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
     public void onChunkUnload() {
         super.onChunkUnload();
 
-        if(isDemat && !world.isRemote) {
+        if (isDemat && !world.isRemote) {
             world.setBlockToAir(pos);
         }
     }
@@ -158,9 +181,13 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         }
     }
 
+    public boolean isOpen() {
+        return open;
+    }
+
     public void setOpen(boolean open) {
         this.open = open;
-        sendUpdates();
+        if (getTardisInfo() != null) getTardisInfo().setOpen(open);
     }
 
     public void sendDemat(boolean isDemat) {

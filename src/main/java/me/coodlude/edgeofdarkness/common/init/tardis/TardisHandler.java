@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
@@ -50,8 +51,8 @@ public class TardisHandler {
         return id;
     }
 
-    public static WorldServer getTardisWorld(World world) {
-        return world.getMinecraftServer().getWorld(ModDimension.TARDISID);
+    public static WorldServer getTardisWorld() {
+        return FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(ModDimension.TARDISID);
     }
 
     public static BlockPos getCenteredTardisPos(int id) {
@@ -65,26 +66,6 @@ public class TardisHandler {
             for (Map.Entry<Integer, TardisInfo> infoEntry : tardises.entrySet()) {
                 TardisInfo info = infoEntry.getValue();
                 info.flightUpdate();
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void EnterHandler(EventEnterTardis event) {
-        if (tardises.size() > 0) {
-            if (doesTardisExist(event.tardisID)) {
-                TardisInfo info = getTardis(event.tardisID);
-                info.addPlayerInside(event.uuid);
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void LeaveHandler(EventLeaveTardis event) {
-        if (tardises.size() > 0) {
-            if (doesTardisExist(event.tardisID)) {
-                TardisInfo info = getTardis(event.tardisID);
-                info.removePlayerInside(event.uuid);
             }
         }
     }
@@ -113,6 +94,12 @@ public class TardisHandler {
                 boolean b = pos.getY() >= 60;
 
                 if (blockState.getBlock() != Blocks.AIR || world.isOutsideBuildHeight(pos) || world.getBlockState(pos.add(0, -1, 0)).getBlock() == Blocks.AIR) {
+
+                    if(blockState.getBlock() == ModBlocks.tardis) {
+                        TileEntityTardis tileEntityTardis = (TileEntityTardis) world.getTileEntity(pos);
+                        tileEntityTardis.switchDematState();
+                        return;
+                    }
 
                     if (b) {
                         for (int y = 256; y > 0; y--) {
@@ -151,7 +138,7 @@ public class TardisHandler {
 
     public static void startFlight(EntityPlayerMP player, int tardisID, BlockPos pos, int dim) {
         if (doesTardisExist(tardisID)) {
-            ModSounds.playSoundRange(player.world, player.getPosition(), ModSounds.DEMAT, 25, 1, 1);
+            getTardis(tardisID).playSoundPlayersInside(ModSounds.DEMAT);
             player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation("msg.tardis.dematting").getFormattedText()), true);
             startFlight(tardisID, pos, dim);
         }
@@ -182,7 +169,7 @@ public class TardisHandler {
             if (!info.inFlight) {
                 info.setDestinationDim(dim);
                 info.setDestinationPos(pos);
-                info.setTravelTime(500 + world.rand.nextInt(60)); // TODO Calculate travel time auto
+                info.setTravelTime(calculateTravelTime()); // TODO Calculate travel time auto
                 info.setInFlight(true);
             }
         }
@@ -269,16 +256,21 @@ public class TardisHandler {
         long begin = System.currentTimeMillis();
 
         while (true) {
-
             if (x > passed * INTERIOR_SIZE && x < (passed * INTERIOR_SIZE) + INTERIOR_SIZE && z > passed * INTERIOR_SIZE && z < (passed * INTERIOR_SIZE) + INTERIOR_SIZE) {
                 return passed;
             }
             passed++;
 
-            if((System.currentTimeMillis() - begin) > 10000 || passed > TardisHandler.tardises.size()) {
+            if((System.currentTimeMillis() - begin) > 15000 || passed > TardisHandler.tardises.size()) {
                 return 0;
             }
         }
+    }
+
+    public static int calculateTravelTime() {
+        int minimum = 22;
+
+        return (minimum) * 20;
     }
 
     public static int getIDFromCoords(BlockPos pos) {

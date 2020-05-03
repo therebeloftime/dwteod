@@ -19,6 +19,12 @@ public class ExteriorCircuit {
         }
     }
 
+    public void renderExterior(float i) {
+        if (basemodel != null) {
+            basemodel.render(i);
+        }
+    }
+
     public void generateInterior(World world, BlockPos pos) {
         if (schematic != null) {
             schematic.generate(world, pos, true);

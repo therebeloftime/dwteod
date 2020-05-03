@@ -73,8 +73,6 @@ public class BlockTardis extends BlockTileBase {
         }
     }
 
-
-    @SuppressWarnings("deprecation")
     @Override
     public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World world, BlockPos pos) {
         TileEntityTardis tardis = (TileEntityTardis) world.getTileEntity(pos);

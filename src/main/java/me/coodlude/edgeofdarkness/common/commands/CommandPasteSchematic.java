@@ -1,5 +1,6 @@
 package me.coodlude.edgeofdarkness.common.commands;
 
+import me.coodlude.edgeofdarkness.common.init.ModSchematics;
 import me.coodlude.edgeofdarkness.util.helper.schematics.SchematicUtil;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -19,7 +20,7 @@ public class CommandPasteSchematic extends CommandBase {
         if (args.length < 1 || sender.getEntityWorld().isRemote) return;
 
         if (sender instanceof EntityPlayer) {
-            SchematicUtil.generateSchematic(SchematicUtil.schematics.get(0), sender.getPosition(), ((EntityPlayer) sender).world, true);
+            SchematicUtil.generateSchematic(ModSchematics.MAIN_TARDIS, sender.getPosition(), ((EntityPlayer) sender).world, true);
         }
     }
 

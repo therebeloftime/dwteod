@@ -12,10 +12,11 @@ public class RenderTardis extends TileEntitySpecialRenderer<TileEntityTardis> {
     public void render(TileEntityTardis te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
+        GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 
         GlStateManager.translate(x + 0.5, y, z + 0.5);
         GlStateManager.rotate(te.rotation, 0, 1, 0);
-        GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+
 
         if (te.alpha < 1) {
             double i = te.getWorld().rand.nextDouble() / 320 + 1;
@@ -28,7 +29,7 @@ public class RenderTardis extends TileEntitySpecialRenderer<TileEntityTardis> {
             GlStateManager.rotate(te.getWorld().getWorldTime() / 0.5f, 0, 1, 0);
         }
 
-        TardisSkinRegistry.circuitList.get(te.circuitID).basemodel.render((1.0f / 45) * te.door_rotation);
+        TardisSkinRegistry.circuitList.get(te.circuitID).renderExterior((1.0f / 45) * te.door_rotation);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
     }

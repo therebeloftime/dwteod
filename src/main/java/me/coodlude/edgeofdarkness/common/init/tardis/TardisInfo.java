@@ -1,8 +1,11 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
+import me.coodlude.edgeofdarkness.common.init.ModSchematics;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
+import me.coodlude.edgeofdarkness.util.helper.PlayerUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.play.server.SPacketSoundEffect;
@@ -27,6 +30,8 @@ public class TardisInfo {
 
     public int tardisID;
 
+    public int circuitID = 0;
+
     public BlockPos extereriorPos = BlockPos.ORIGIN;
     public int exteriorDim = 0;
     public transient List<UUID> playersInside = new ArrayList<>();
@@ -43,6 +48,8 @@ public class TardisInfo {
     public int travelTime = 0;
     public boolean drifting = false;
     public float health = 100;
+    public boolean open = false;
+    public int doorRotation = 0;
 
 
     public void setTardisID(int tardisID) {
@@ -91,6 +98,33 @@ public class TardisInfo {
 
     public float getHealth() {
         return health;
+    }
+
+    public boolean isOpen() {
+        return open;
+    }
+
+    public void setOpen(boolean open) {
+        this.open = open;
+        TardisHandler.getTardisTile(tardisID).open = true;
+        save();
+    }
+
+    public void setCircuitID(int circuitID) {
+        this.circuitID = circuitID;
+        save();
+    }
+
+    public int getCircuitID() {
+        return circuitID;
+    }
+
+    public void setDoorRotation(int doorRotation) {
+        this.doorRotation = doorRotation;
+    }
+
+    public int getDoorRotation() {
+        return doorRotation;
     }
 
     public void setInteriorPos(BlockPos interiorPos) {
@@ -163,27 +197,8 @@ public class TardisInfo {
         return playersInside;
     }
 
-    public void addPlayerInside(UUID uuid) {
-        if (!playersInside.contains(uuid)) {
-            playersInside.add(uuid);
-        }
-    }
-
-    public void removePlayerInside(UUID uuid) {
-        if (playersInside.contains(uuid)) {
-            playersInside.remove(uuid);
-        }
-    }
-
-    public void playSoundPlayersInside(SoundEvent soundEvent) {
-        for (UUID uuid : playersInside) {
-            EntityPlayer player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerByUUID(uuid);
-
-            if (player instanceof EntityPlayerMP) {
-                player.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + new TextComponentTranslation("msg.tardis.landing").getFormattedText()), true);
-                ((EntityPlayerMP) player).connection.sendPacket(new SPacketSoundEffect(soundEvent, SoundCategory.BLOCKS, player.posX, player.posY, player.posZ, 1, 1));
-            }
-        }
+    public void playSoundPlayersInside(SoundEvent event) {
+        ModSounds.playSoundRange(TardisHandler.getTardisWorld(), TardisHandler.getCenteredTardisPos(tardisID), event, TardisHandler.INTERIOR_SIZE / 2, 128,1,1);
     }
 
     public void directLanding() {
@@ -216,7 +231,7 @@ public class TardisInfo {
                 travelTime--;
             }
 
-            if (travelTime == 160) {
+            if (travelTime == 80) {
                 World destination = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(destinationDim);
 
                 TardisHandler.calculateLandingPosition(this, destinationPos, destinationDim);
@@ -235,6 +250,7 @@ public class TardisInfo {
                     tileEntityTardis.setRotation(exteriorRotation);
                     save();
                     playSoundPlayersInside(ModSounds.SHORT_REMAT);
+                    PlayerUtil.sendStatusTranslationMessageRange(TardisHandler.getTardisWorld(), TardisHandler.getCenteredTardisPos(tardisID), "msg.tardis.landing", TextFormatting.GREEN,TardisHandler.INTERIOR_SIZE / 2, 128, true);
                 }
             }
 

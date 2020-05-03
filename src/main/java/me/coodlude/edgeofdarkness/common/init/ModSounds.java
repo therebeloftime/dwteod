@@ -31,8 +31,8 @@ public class ModSounds {
         return event;
     }
 
-    public static void playSoundRange(World world, BlockPos pos, SoundEvent soundEvent, int range, float volume, float pitch) {
-        for (EntityPlayerMP playerMP : world.getEntitiesWithinAABB(EntityPlayerMP.class, new AxisAlignedBB(pos.add(-range, -range, -range), pos.add(range, range, range)))) {
+    public static void playSoundRange(World world, BlockPos pos, SoundEvent soundEvent, int range , int rangeY, float volume, float pitch) {
+        for (EntityPlayerMP playerMP : world.getEntitiesWithinAABB(EntityPlayerMP.class, new AxisAlignedBB(pos.add(-range, -rangeY, -range), pos.add(range, rangeY, range)))) {
             playerMP.connection.sendPacket(new SPacketSoundEffect(soundEvent, SoundCategory.BLOCKS, playerMP.posX, playerMP.posY, playerMP.posZ, volume, pitch));
         }
      }

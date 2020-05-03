@@ -13,6 +13,7 @@ import me.coodlude.edgeofdarkness.common.init.ModItems;
 import me.coodlude.edgeofdarkness.common.init.ModSchematics;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisSkinRegistry;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.proxy.IProxy;
@@ -24,7 +25,10 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Map;
 
 @Mod(modid = EdgeOfDarkness.MODID, name = EdgeOfDarkness.NAME, version = EdgeOfDarkness.VERSION)
 public class EdgeOfDarkness {
@@ -67,5 +71,14 @@ public class EdgeOfDarkness {
         event.registerServerCommand(new CommandTest());
         SchematicUtil.queue.clear();
         TardisHandler.loadTardisses();
+    }
+
+    @EventHandler
+    public void onServerStopping(FMLServerStoppingEvent event) {
+        if(TardisHandler.tardises.size() > 0) {
+            for(Map.Entry<Integer, TardisInfo> infoEntry : TardisHandler.tardises.entrySet()) {
+                TardisHandler.saveTardis(infoEntry.getKey());
+            }
+        }
     }
 }

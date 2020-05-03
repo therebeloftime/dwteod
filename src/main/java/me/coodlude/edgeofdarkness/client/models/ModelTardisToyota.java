@@ -831,7 +831,8 @@ public class ModelTardisToyota extends ModelTardisBase {
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.pushMatrix();
         GlStateManager.rotate(180, 1, 0, 0);
-        GlStateManager.translate(0, -1.52D, 0);
+        GlStateManager.translate(0, -1.20D, 0);
+        GlStateManager.scale(0.8,0.8,0.8);
         GlStateManager.pushMatrix();
         Minecraft.getMinecraft().getTextureManager().bindTexture(location);
 
