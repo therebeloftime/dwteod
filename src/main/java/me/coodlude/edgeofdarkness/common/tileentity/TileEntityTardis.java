@@ -91,7 +91,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
                 }
 
                 if (open || (isRemat && info.travelTime < 50 && info.travelTime > 0)) {
-                    AxisAlignedBB bb = new AxisAlignedBB(getPos());
+                    AxisAlignedBB bb = new AxisAlignedBB(getPos()).contract(0.5,0,0.5);
                     List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, bb);
 
                     if (entityList.size() > 0) {

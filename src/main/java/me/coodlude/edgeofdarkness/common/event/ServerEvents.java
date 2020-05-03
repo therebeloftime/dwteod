@@ -47,10 +47,6 @@ public class ServerEvents {
                 SchematicUtil.queue.remove(0);
             }
 
-            if(SchematicUtil.queue.size() == 1 || (SchematicUtil.queue.size() > 1 && SchematicUtil.queue.get(1).pPos.toLong() != chunk.pPos.toLong())) {
-                BlockUpdater.BlockUpdaterHandler.tempUpdaters.get(chunk.getQueuePos().toLong()).complete();
-            }
-
             if (chunk.isDone()) SchematicUtil.queue.remove(0);
         }
     }
