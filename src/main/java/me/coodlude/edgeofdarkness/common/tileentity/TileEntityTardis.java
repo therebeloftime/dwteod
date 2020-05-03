@@ -115,6 +115,15 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         }
     }
 
+    @Override
+    public void onChunkUnload() {
+        super.onChunkUnload();
+
+        if(isDemat && !world.isRemote) {
+            world.setBlockToAir(pos);
+        }
+    }
+
     public void setRemat(boolean remat) {
         isRemat = remat;
 
