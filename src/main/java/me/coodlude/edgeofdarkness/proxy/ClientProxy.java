@@ -1,10 +1,7 @@
 package me.coodlude.edgeofdarkness.proxy;
 
 import me.coodlude.edgeofdarkness.client.init.ModKeybinds;
-import me.coodlude.edgeofdarkness.client.renderers.RenderDematLever;
-import me.coodlude.edgeofdarkness.client.renderers.RenderDoor;
-import me.coodlude.edgeofdarkness.client.renderers.RenderMonitor;
-import me.coodlude.edgeofdarkness.client.renderers.RenderCircuitSelector;
+import me.coodlude.edgeofdarkness.client.renderers.*;
 import me.coodlude.edgeofdarkness.client.renderers.exterior.RenderTardis;
 import me.coodlude.edgeofdarkness.common.tileentity.*;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -17,6 +14,7 @@ public class ClientProxy implements IProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMonitor.class, new RenderMonitor());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDematLever.class, new RenderDematLever());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCircuitSelector.class, new RenderCircuitSelector());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFlightPanel.class, new RenderFlightPanel());
         ModKeybinds.init();
     }
 

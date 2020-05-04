@@ -29,9 +29,8 @@ public class BlockDematLever extends BlockTileBase implements IHaveItem {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         if (!worldIn.isRemote) {
-            ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
-            TardisInfo info = TardisHandler.getTardis(capability.getTardisID());
-            TardisHandler.handleLandDemat(playerIn, capability.getTardisID());
+            TardisInfo info = TardisHandler.getTardis(TardisHandler.getTardisIDFromPos(pos));
+            TardisHandler.handleLandDemat(playerIn, info.tardisID);
         }
 
         return true;

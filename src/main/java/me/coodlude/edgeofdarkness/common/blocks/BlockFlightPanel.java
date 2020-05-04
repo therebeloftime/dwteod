@@ -4,6 +4,7 @@ import me.coodlude.edgeofdarkness.client.gui.GuiTardisCoords;
 import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
+import me.coodlude.edgeofdarkness.common.tileentity.TileEntityFlightPanel;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -25,10 +26,10 @@ import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
-public class BlockTest extends BlockTileBase implements IHaveItem {
+public class BlockFlightPanel extends BlockTileBase implements IHaveItem {
 
 
-    public BlockTest(Supplier<TileEntity> tileEntitySupplier) {
+    public BlockFlightPanel(Supplier<TileEntity> tileEntitySupplier) {
         super(tileEntitySupplier);
     }
 
@@ -36,10 +37,12 @@ public class BlockTest extends BlockTileBase implements IHaveItem {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        if (worldIn.isRemote) {
-          //  TardisHandler.travelTo((EntityPlayerMP) playerIn,1, new BlockPos(-164,78,259), 0);
-        //    ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
-         //   capability.setFlight(!capability.isInFlight());
+        if (!worldIn.isRemote) {
+            TileEntityFlightPanel tileEntityFlightPanel = (TileEntityFlightPanel) worldIn.getTileEntity(pos);
+
+            if(tileEntityFlightPanel != null) {
+                tileEntityFlightPanel.setShown(!tileEntityFlightPanel.shown);
+            }
         }
 
         return true;

@@ -27,6 +27,7 @@ public class ModBlocks {
     public static Block tardis_monitor = registerBlock(new BlockMonitor(TileEntityMonitor::new), "tardis_monitor").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_handbrake = registerBlock(new BlockDematLever(TileEntityDematLever::new), "tardis_handbrake").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_circuit_selector = registerBlock(new BlockCircuitSelector(TileEntityCircuitSelector::new), "tardis_circuit_selector").setCreativeTab(ModTabs.edgeofdarkness);
+    public static Block tardis_flight_panel = registerBlock(new BlockFlightPanel(TileEntityFlightPanel::new), "tardis_flight_panel").setCreativeTab(ModTabs.edgeofdarkness);
 
     public static Block registerBlock(Block block, String name) {
         block.setRegistryName(name);

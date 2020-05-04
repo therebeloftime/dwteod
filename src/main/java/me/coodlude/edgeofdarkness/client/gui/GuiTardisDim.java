@@ -1,15 +1,12 @@
 package me.coodlude.edgeofdarkness.client.gui;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
-import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.network.packets.PacketTardisInfo;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.DimensionManager;
 
 import java.io.IOException;
@@ -34,7 +31,7 @@ public class GuiTardisDim extends GuiScreen {
     public GuiTardisDim(String... args) {
         mc = Minecraft.getMinecraft();
         fr = mc.fontRenderer;
-        if(args.length > 1) {
+        if (args.length > 1) {
             this.dims = EdgeOfDarkness.JSON.fromJson(args[1], Integer[].class);
         }
         this.args = args;
@@ -43,22 +40,22 @@ public class GuiTardisDim extends GuiScreen {
     @Override
     protected void actionPerformed(GuiButton button) throws IOException {
         if (button == this.rb) {
-            if(selection - 1 < 0) {
+            if (selection - 1 < 0) {
                 selection = dims.length - 1;
-            }else{
+            } else {
                 selection -= 1;
             }
         }
 
         if (button == this.lb) {
-            if(selection + 1 > (dims.length - 1)) {
+            if (selection + 1 > (dims.length - 1)) {
                 selection = 0;
-            }else{
+            } else {
                 selection += 1;
             }
         }
 
-        if(button == this.set) {
+        if (button == this.set) {
             NetworkHandler.NETWORK.sendToServer(new PacketTardisInfo("destination_dim", String.valueOf(dims[selection])));
         }
 
@@ -116,9 +113,9 @@ public class GuiTardisDim extends GuiScreen {
         int af = (selection + 1 > dims.length - 1) ? 0 : selection + 1;
 
 
-        fr.drawString(DimensionManager.getProviderType(dims[bf]).getName(), 190,100,0xF000);
-        fr.drawString(DimensionManager.getProviderType(dims[selection]).getName(), 190,120,0xA001);
-        fr.drawString(DimensionManager.getProviderType(dims[af]).getName(), 190,140,0xF000);
+        fr.drawString(DimensionManager.getProviderType(dims[bf]).getName(), x + 75, y + 110, 0xF000);
+        fr.drawString(DimensionManager.getProviderType(dims[selection]).getName(), x + 75, y + 130, 0xA001);
+        fr.drawString(DimensionManager.getProviderType(dims[af]).getName(), x + 75, y + 150, 0xF000);
 
 
         super.drawScreen(mouseX, mouseY, partialTicks);

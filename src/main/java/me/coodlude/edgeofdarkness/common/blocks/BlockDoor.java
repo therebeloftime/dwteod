@@ -4,7 +4,6 @@ import me.coodlude.edgeofdarkness.common.capability.CapTardisStorage;
 import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
-import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
@@ -19,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 
 import java.util.function.Supplier;
 
@@ -32,22 +30,28 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-
+        int id = TardisHandler.getIDFromCoords(pos);
 
         if (!worldIn.isRemote && worldIn.provider instanceof WorldProviderTardis) {
-            ITardisCapability capability = playerIn.getCapability(CapTardisStorage.CAPABILITY, null);
 
 
-            if (TardisHandler.doesTardisExist(capability.getTardisID())) {
-                TardisInfo info = TardisHandler.tardises.get(capability.getTardisID());
-                TileEntityTardis tileEntityTardis = TardisHandler.getTardisTile(capability.getTardisID());
+            if (TardisHandler.doesTardisExist(id)) {
+                TardisInfo info = TardisHandler.tardises.get(id);
+                TileEntityTardis tileEntityTardis = TardisHandler.getTardisTile(id);
 
                 if (!info.isInFlight() && tileEntityTardis != null) {
-                    BlockPos leavePos = TardisHandler.getExitPosition(capability.getTardisID());
+                    BlockPos leavePos = TardisHandler.getExitPosition(id);
                     TeleportUtils.teleportToDimension(playerIn, info.getExteriorDim(), leavePos.getX(), leavePos.getY(), leavePos.getZ(), 0, tileEntityTardis.rotation);
                 } else {
                     playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.inflight"), true);
                 }
+            }
+        }
+
+        if (worldIn.isRemote) {
+            TileEntityTardis tileEntityTardis = TardisHandler.getTardisTile(id);
+            if (tileEntityTardis != null) {
+                tileEntityTardis.reset();
             }
         }
 

@@ -40,10 +40,10 @@ public class BlockTardis extends BlockTileBase {
 
                 TardisInfo info = TardisHandler.tardises.get(tileEntityTardis.tardisID);
 
-                if (!playerIn.isSneaking() && !info.isLocked()) {
+                if (info != null && !playerIn.isSneaking() && !info.isLocked()) {
                     info.setExtereriorPos(tileEntityTardis.getPos());
                     info.setExteriorDim(worldIn.provider.getDimension());
-                    tileEntityTardis.setOpen(!tileEntityTardis.open);
+                    tileEntityTardis.setOpen(!tileEntityTardis.isOpen());
                 } else if (info.isLocked()) {
                     playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.locked"), true);
                 }
@@ -68,7 +68,7 @@ public class BlockTardis extends BlockTileBase {
     public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState) {
         TileEntityTardis tileEntityTardis = (TileEntityTardis) worldIn.getTileEntity(pos);
 
-        if (tileEntityTardis == null || !TardisHandler.doesTardisExist(tileEntityTardis.tardisID) || (TardisHandler.doesTardisExist(tileEntityTardis.tardisID) && !tileEntityTardis.open)) {
+        if (tileEntityTardis == null || (tileEntityTardis != null && !tileEntityTardis.open)) {
             super.addCollisionBoxToList(state, worldIn, pos, entityBox, collidingBoxes, entityIn, isActualState);
         }
     }
@@ -79,6 +79,7 @@ public class BlockTardis extends BlockTileBase {
         if (tardis != null && TardisHandler.doesTardisExist(tardis.tardisID)) {
             return new AxisAlignedBB(0, 0, 0, 0, 0, 0);
         }
+
         return super.getSelectedBoundingBox(state, world, pos);
     }
 

@@ -6,7 +6,6 @@ import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
-import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
 import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.network.packets.PacketDemat;
@@ -18,7 +17,6 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
 
@@ -89,20 +87,21 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
 
             TardisInfo info = getTardisInfo();
 
-            if (circuitID != info.circuitID) {
-                circuitID = info.circuitID;
-                sendUpdates();
+            if (world.getWorldTime() % 200 == 0) {
+                if (!TardisHandler.doesTardisExist(tardisID) || (info != null && info.getExtereriorPos().toLong() != pos.toLong())) {
+                    world.setBlockToAir(pos);
+                }
             }
 
             if (info != null) {
+
                 if (open && info.isLocked()) {
                     setOpen(false);
                 }
 
-                if(world.getWorldTime() % 200 == 0) {
-                    if(info.getExtereriorPos().toLong() != pos.toLong() || !TardisHandler.doesTardisExist(tardisID)) {
-                        world.setBlockToAir(pos);
-                    }
+                if (circuitID != info.circuitID) {
+                    circuitID = info.circuitID;
+                    sendUpdates();
                 }
 
                 if (open != info.isOpen()) {
@@ -141,6 +140,13 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         }
     }
 
+    @Override
+    public void onLoad() {
+        super.onLoad();
+
+        if (world.isRemote) reset();
+    }
+
     public void setRemat(boolean remat) {
         isRemat = remat;
 
@@ -176,6 +182,12 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         }
     }
 
+    public void reset() {
+        isRemat = false;
+        isDemat = false;
+        alpha = 1;
+    }
+
     public boolean isOpen() {
         return open;
     }
@@ -183,6 +195,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
     public void setOpen(boolean open) {
         this.open = open;
         sendUpdates();
+
 
         if (getTardisInfo() != null) getTardisInfo().setOpen(open);
     }

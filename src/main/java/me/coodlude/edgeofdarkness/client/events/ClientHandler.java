@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
 
-@SideOnly(Side.CLIENT)
+
 @Mod.EventBusSubscriber
 public class ClientHandler {
 
@@ -28,6 +28,7 @@ public class ClientHandler {
 
 
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public static void renderPlayer(RenderPlayerEvent.Pre event) {
 
         EntityPlayer player = event.getEntityPlayer();
@@ -58,6 +59,7 @@ public class ClientHandler {
 
 
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public static void onKeyBind(InputUpdateEvent event) {
 
         if(ModKeybinds.snap.isPressed()) {
