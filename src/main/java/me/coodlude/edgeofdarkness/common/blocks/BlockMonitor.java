@@ -2,6 +2,7 @@ package me.coodlude.edgeofdarkness.common.blocks;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.client.gui.GuiTardisCoords;
+import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModGuiHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
@@ -29,6 +30,7 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class BlockMonitor extends BlockTileBase implements IHaveItem {
@@ -43,17 +45,24 @@ public class BlockMonitor extends BlockTileBase implements IHaveItem {
 
         if (!worldIn.isRemote && worldIn.provider instanceof WorldProviderTardis) {
             int id = TardisHandler.getTardisIDFromPos(pos);
-            NetworkHandler.NETWORK.sendTo(new Packet_OpenGui(ModGuiHandler.GUI_MONITOR_COORD, pos, EdgeOfDarkness.JSON.toJson(TardisHandler.getTardis(id)), EdgeOfDarkness.JSON.toJson(DimensionManager.getStaticDimensionIDs())), (EntityPlayerMP) playerIn);
+            NetworkHandler.NETWORK.sendTo(new Packet_OpenGui(ModGuiHandler.GUI_MONITOR_COORD, pos, EdgeOfDarkness.JSON.toJson(TardisHandler.getTardis(id)), EdgeOfDarkness.JSON.toJson(getDimensions())), (EntityPlayerMP) playerIn);
         }
 
         return true;
     }
 
-    @SideOnly(Side.CLIENT)
-    public void openGUI() {
-        Minecraft.getMinecraft().displayGuiScreen(new GuiTardisCoords());
-    }
+    public Integer[] getDimensions() {
+        Integer[] dims = DimensionManager.getStaticDimensionIDs();
+        ArrayList<Integer> dim_save = new ArrayList<>();
 
+        for(int dim : dims) {
+            if(dim != ModDimension.TARDISID) {
+                dim_save.add(dim);
+            }
+        }
+
+        return dim_save.toArray(new Integer[dim_save.size()]);
+    }
 
     @Override
     public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
