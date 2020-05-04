@@ -28,8 +28,6 @@ public class ModBlocks {
     public static Block tardis_handbrake = registerBlock(new BlockDematLever(TileEntityDematLever::new), "tardis_handbrake").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_circuit_selector = registerBlock(new BlockCircuitSelector(TileEntityCircuitSelector::new), "tardis_circuit_selector").setCreativeTab(ModTabs.edgeofdarkness);
 
-    public static Block temp = registerBlock(new BlockTest(TileEntityTest::new), "test");
-
     public static Block registerBlock(Block block, String name) {
         block.setRegistryName(name);
         block.setTranslationKey(name);

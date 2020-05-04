@@ -91,7 +91,7 @@ public class TardisHandler {
 
             if (world != null && pos != null) {
                 IBlockState blockState = world.getBlockState(pos);
-                boolean b = pos.getY() >= 60;
+                boolean b = false;  //pos.getY() >= 60;
 
                 if (blockState.getBlock() != Blocks.AIR || world.isOutsideBuildHeight(pos) || world.getBlockState(pos.add(0, -1, 0)).getBlock() == Blocks.AIR) {
 
