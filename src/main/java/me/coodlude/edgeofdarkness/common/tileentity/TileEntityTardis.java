@@ -79,16 +79,12 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
                         sendUpdates();
                     }
                 }
-
-                if (info.doorRotation != door_rotation) {
-                    info.setDoorRotation(door_rotation);
-                }
             }
         }
 
         if (!world.isRemote) {
             if (world.provider instanceof WorldProviderTardis) {
-              //  world.setBlockToAir(pos);
+                //  world.setBlockToAir(pos);
             }
 
             TardisInfo info = getTardisInfo();
@@ -110,7 +106,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
                 }
 
                 if (open != info.isOpen()) {
-                    open = info.isOpen();
+                    setOpen(info.isOpen());
                 }
 
                 if (open || (isRemat && info.travelTime < 50 && info.travelTime > 0)) {
@@ -126,7 +122,6 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
                             capability.setTardisID(tardisID);
                             capability.sync();
 
-                            MinecraftForge.EVENT_BUS.post(new EventEnterTardis(playerIn, tardisID));
                             setOpen(false);
                             BlockPos ip = info.getInteriorPos();
                             TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, ip.getX(), ip.getY(), ip.getZ(), 0, info.interiorSpawnRotation);
@@ -187,6 +182,8 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
 
     public void setOpen(boolean open) {
         this.open = open;
+        sendUpdates();
+
         if (getTardisInfo() != null) getTardisInfo().setOpen(open);
     }
 

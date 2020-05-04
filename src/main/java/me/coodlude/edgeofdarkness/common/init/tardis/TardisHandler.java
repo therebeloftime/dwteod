@@ -4,15 +4,12 @@ import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
-import me.coodlude.edgeofdarkness.common.init.tardis.events.EventEnterTardis;
-import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
@@ -26,7 +23,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.FMLInjectionData;
-import org.lwjgl.Sys;
 
 import java.io.*;
 import java.util.HashMap;
@@ -79,7 +75,7 @@ public class TardisHandler {
                 if (info.isInFlight()) {
                     info.directLanding();
                 } else {
-                    startFlight((EntityPlayerMP) player, tardisID,info.destinationPos, info.destinationDim);
+                    startFlight((EntityPlayerMP) player, tardisID, info.destinationPos, info.destinationDim);
                 }
             }
         }
@@ -95,7 +91,7 @@ public class TardisHandler {
 
                 if (blockState.getBlock() != Blocks.AIR || world.isOutsideBuildHeight(pos) || world.getBlockState(pos.add(0, -1, 0)).getBlock() == Blocks.AIR) {
 
-                    if(blockState.getBlock() == ModBlocks.tardis) {
+                    if (blockState.getBlock() == ModBlocks.tardis) {
                         TileEntityTardis tileEntityTardis = (TileEntityTardis) world.getTileEntity(pos);
                         tileEntityTardis.setRemat(true);
                         return;
@@ -169,7 +165,7 @@ public class TardisHandler {
             if (!info.inFlight) {
                 info.setDestinationDim(dim);
                 info.setDestinationPos(pos);
-                info.setTravelTime(calculateTravelTime()); // TODO Calculate travel time auto
+                info.setTravelTime(calculateTravelTime(info));
                 info.setInFlight(true);
             }
         }
@@ -261,14 +257,24 @@ public class TardisHandler {
             }
             passed++;
 
-            if((System.currentTimeMillis() - begin) > 15000 || passed > TardisHandler.tardises.size()) {
+            if ((System.currentTimeMillis() - begin) > 15000 || passed > TardisHandler.tardises.size()) {
                 return 0;
             }
         }
     }
 
-    public static int calculateTravelTime() {
+    public static int calculateTravelTime(TardisInfo info) {
         int minimum = 25;
+        int bps = 2000;
+
+        if (info != null) {
+            int f = 0;
+            BlockPos dest = info.getDestinationPos();
+
+            f = (int) Math.abs(info.getExtereriorPos().getDistance(dest.getX(), dest.getY(), dest.getZ()) / bps);
+
+            return (minimum + f) * 20;
+        }
 
         return (minimum) * 20;
     }

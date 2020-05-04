@@ -44,7 +44,6 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
 
                 if (!info.isInFlight() && tileEntityTardis != null) {
                     BlockPos leavePos = TardisHandler.getExitPosition(capability.getTardisID());
-                    MinecraftForge.EVENT_BUS.post(new EventLeaveTardis(playerIn, capability.getTardisID()));
                     TeleportUtils.teleportToDimension(playerIn, info.getExteriorDim(), leavePos.getX(), leavePos.getY(), leavePos.getZ(), 0, tileEntityTardis.rotation);
                 } else {
                     playerIn.sendStatusMessage(new TextComponentTranslation("msg.tardis.inflight"), true);

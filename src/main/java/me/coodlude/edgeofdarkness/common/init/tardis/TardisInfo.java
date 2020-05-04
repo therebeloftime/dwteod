@@ -26,7 +26,6 @@ public class TardisInfo {
 
     public BlockPos extereriorPos = BlockPos.ORIGIN;
     public int exteriorDim = 0;
-    public transient List<UUID> playersInside = new ArrayList<>();
 
     public BlockPos destinationPos = BlockPos.ORIGIN;
     public int destinationDim = 0;
@@ -41,7 +40,6 @@ public class TardisInfo {
     public boolean drifting = false;
     public float health = 100;
     public boolean open = false;
-    public int doorRotation = 0;
 
 
     public void setTardisID(int tardisID) {
@@ -98,7 +96,6 @@ public class TardisInfo {
 
     public void setOpen(boolean open) {
         this.open = open;
-        TardisHandler.getTardisTile(tardisID).open = true;
         save();
     }
 
@@ -109,14 +106,6 @@ public class TardisInfo {
 
     public int getCircuitID() {
         return circuitID;
-    }
-
-    public void setDoorRotation(int doorRotation) {
-        this.doorRotation = doorRotation;
-    }
-
-    public int getDoorRotation() {
-        return doorRotation;
     }
 
     public void setInteriorPos(BlockPos interiorPos) {
@@ -185,12 +174,12 @@ public class TardisInfo {
         return drifting;
     }
 
-    public List<UUID> getPlayersInside() {
-        return playersInside;
-    }
-
     public void playSoundPlayersInside(SoundEvent event) {
         ModSounds.playSoundRange(TardisHandler.getTardisWorld(), TardisHandler.getCenteredTardisPos(tardisID), event, TardisHandler.INTERIOR_SIZE / 2, 128, 1, 1);
+    }
+
+    public void sendMessagePlayersInside(TextFormatting formatting, String msg, boolean status) {
+        PlayerUtil.sendStatusTranslationMessageRange(TardisHandler.getTardisWorld(), TardisHandler.getCenteredTardisPos(tardisID), msg, formatting, TardisHandler.INTERIOR_SIZE / 2, 128, status);
     }
 
     public void directLanding() {
