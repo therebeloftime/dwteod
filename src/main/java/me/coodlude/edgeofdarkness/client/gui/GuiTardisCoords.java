@@ -53,7 +53,7 @@ public class GuiTardisCoords extends GuiScreen {
     protected void actionPerformed(GuiButton button) throws IOException {
         if (button == this.warp) {
             BlockPos tpPos = new BlockPos(getInt(xCoord.getText(), XYZ.X), getInt(yCoord.getText(), XYZ.Y), getInt(zCoord.getText(), XYZ.Z));
-            NetworkHandler.NETWORK.sendToServer(new PacketTardisInfo("position", String.valueOf(tpPos.toLong())));
+            NetworkHandler.NETWORK.sendToServer(new PacketTardisInfo("destination_position", String.valueOf(tpPos.toLong())));
             Minecraft.getMinecraft().displayGuiScreen(null);
         }
 
@@ -85,38 +85,6 @@ public class GuiTardisCoords extends GuiScreen {
                 default:
                     return 0;
             }
-        }
-
-    }
-
-    public class SmallButton extends GuiButton {
-
-        int BUTTON_WIDTH = 50;
-        int BUTTON_HEIGHT = 60;
-
-        public SmallButton(int buttonId, int x, int y, String buttonText) {
-            super(buttonId, x, y, buttonText);
-        }
-
-        @Override
-        public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
-            this.width = BUTTON_WIDTH;
-            this.height = BUTTON_HEIGHT;
-            FontRenderer fontrenderer = mc.fontRenderer;
-            mc.getTextureManager().bindTexture(BUTTON_TEXTURES);
-            this.hovered = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
-            int i = this.getHoverState(this.hovered);
-
-            int j = 14737632;
-
-            if (packedFGColour != 0) {
-                j = packedFGColour;
-            } else if (!this.enabled) {
-                j = 10526880;
-            } else if (this.hovered) {
-                j = 16777120;
-            }
-            this.drawCenteredString(fontrenderer, this.displayString, this.x + this.width / 2, this.y + (this.height - 8) / 2, j);
         }
 
     }

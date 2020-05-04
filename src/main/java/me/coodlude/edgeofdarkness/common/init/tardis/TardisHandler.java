@@ -97,7 +97,7 @@ public class TardisHandler {
 
                     if(blockState.getBlock() == ModBlocks.tardis) {
                         TileEntityTardis tileEntityTardis = (TileEntityTardis) world.getTileEntity(pos);
-                        tileEntityTardis.switchDematState();
+                        tileEntityTardis.setRemat(true);
                         return;
                     }
 

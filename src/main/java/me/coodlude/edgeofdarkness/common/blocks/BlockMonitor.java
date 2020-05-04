@@ -43,7 +43,7 @@ public class BlockMonitor extends BlockTileBase implements IHaveItem {
 
         if (!worldIn.isRemote && worldIn.provider instanceof WorldProviderTardis) {
             int id = TardisHandler.getTardisIDFromPos(pos);
-            NetworkHandler.NETWORK.sendTo(new Packet_OpenGui(ModGuiHandler.GUI_MONITOR_COORD, pos, EdgeOfDarkness.JSON.toJson(TardisHandler.getTardis(id))), (EntityPlayerMP) playerIn);
+            NetworkHandler.NETWORK.sendTo(new Packet_OpenGui(ModGuiHandler.GUI_MONITOR_COORD, pos, EdgeOfDarkness.JSON.toJson(TardisHandler.getTardis(id)), EdgeOfDarkness.JSON.toJson(DimensionManager.getStaticDimensionIDs())), (EntityPlayerMP) playerIn);
         }
 
         return true;

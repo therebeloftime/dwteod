@@ -1,5 +1,6 @@
 package me.coodlude.edgeofdarkness.client.gui;
 
+import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.network.packets.PacketTardisInfo;
@@ -15,7 +16,6 @@ import java.io.IOException;
 
 public class GuiTardisDim extends GuiScreen {
 
-    //TODO Fix that you can tp to other dimensions & & Better Portal soon (I hope)
     private GuiButton rb;
     private GuiButton lb;
     private GuiButton coords;
@@ -34,7 +34,9 @@ public class GuiTardisDim extends GuiScreen {
     public GuiTardisDim(String... args) {
         mc = Minecraft.getMinecraft();
         fr = mc.fontRenderer;
-        this.dims = DimensionManager.getStaticDimensionIDs();
+        if(args.length > 1) {
+            this.dims = EdgeOfDarkness.JSON.fromJson(args[1], Integer[].class);
+        }
         this.args = args;
     }
 
