@@ -1,20 +1,12 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
-import me.coodlude.edgeofdarkness.common.init.ModSchematics;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityTardis;
 import me.coodlude.edgeofdarkness.util.helper.PlayerUtil;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.play.server.SPacketSoundEffect;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -198,7 +190,7 @@ public class TardisInfo {
     }
 
     public void playSoundPlayersInside(SoundEvent event) {
-        ModSounds.playSoundRange(TardisHandler.getTardisWorld(), TardisHandler.getCenteredTardisPos(tardisID), event, TardisHandler.INTERIOR_SIZE / 2, 128,1,1);
+        ModSounds.playSoundRange(TardisHandler.getTardisWorld(), TardisHandler.getCenteredTardisPos(tardisID), event, TardisHandler.INTERIOR_SIZE / 2, 128, 1, 1);
     }
 
     public void directLanding() {
@@ -216,6 +208,7 @@ public class TardisInfo {
                 if (travelTime > 160) {
                     TardisHandler.immediateLanding(tardisID, extereriorPos, exteriorDim);
                     travelTime = 0;
+                    inFlight = false;
                 }
             }
             playSoundPlayersInside(ModSounds.CLOISTER);
@@ -250,7 +243,7 @@ public class TardisInfo {
                     tileEntityTardis.setRotation(exteriorRotation);
                     save();
                     playSoundPlayersInside(ModSounds.SHORT_REMAT);
-                    PlayerUtil.sendStatusTranslationMessageRange(TardisHandler.getTardisWorld(), TardisHandler.getCenteredTardisPos(tardisID), "msg.tardis.landing", TextFormatting.GREEN,TardisHandler.INTERIOR_SIZE / 2, 128, true);
+                    PlayerUtil.sendStatusTranslationMessageRange(TardisHandler.getTardisWorld(), TardisHandler.getCenteredTardisPos(tardisID), "msg.tardis.landing", TextFormatting.GREEN, TardisHandler.INTERIOR_SIZE / 2, 128, true);
                 }
             }
 

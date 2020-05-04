@@ -18,20 +18,20 @@ public class RenderCircuitSelector extends TileEntitySpecialRenderer<TileEntityC
     @Override
     public void render(TileEntityCircuitSelector te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         GlStateManager.pushMatrix();
-        GlStateManager.translate(x , y, z);
+        GlStateManager.translate(x, y, z);
         GlStateManager.rotate(180, 1, 0, 0);
         GlStateManager.rotate(90, 0, 1, 0);
         GlStateManager.translate(0.5, -1.55, 0.5);
         GlStateManager.rotate(te.rotation, 0, 1, 0);
         Minecraft.getMinecraft().getTextureManager().bindTexture(location);
-        float f = te.getWorld().getWorldTime() / 0.2f;
+        float f = te.getWorld().getWorldTime() / 0.5f;
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         test.render(null, 0, 0, 0, 0, 0, 0.0625f);
-        GlStateManager.rotate(-180,1,0,0);
-        GlStateManager.rotate(f, 0,1,0);
-        GlStateManager.translate(0.0,-1.40,0.0);
-        GlStateManager.scale(0.2f,0.2f,0.2);
-        GlStateManager.color(1,1,1,te.alpha);
+        GlStateManager.rotate(-180, 1, 0, 0);
+        GlStateManager.rotate(f, 0, 1, 0);
+        GlStateManager.translate(0.0, -1.40, 0.0);
+        GlStateManager.scale(0.2f, 0.2f, 0.2);
+        GlStateManager.color(1, 1, 1, te.alpha);
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         TardisSkinRegistry.circuitList.get(te.circuitID).renderExterior((1.0f / 45) * te.doorOpen);

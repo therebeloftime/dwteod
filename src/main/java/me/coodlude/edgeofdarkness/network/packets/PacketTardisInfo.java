@@ -55,9 +55,15 @@ public class PacketTardisInfo implements IMessage {
 
                     switch (action) {
 
-                        case "position":
+                        case "destination_position":
                             if (!info_msg.equals("")) {
                                 info.setDestinationPos(BlockPos.fromLong(Long.parseLong(info_msg)));
+                            }
+                            break;
+
+                        case "destination_dim":
+                            if (!info_msg.equals("")) {
+                                info.setDestinationDim(Integer.parseInt(info_msg));
                             }
                             break;
                         case "warp":

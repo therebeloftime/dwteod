@@ -17,5 +17,7 @@ public class NetworkHandler {
         NETWORK.registerMessage(PacketCapSync.Handler.class, PacketCapSync.class, id++, Side.CLIENT);
         NETWORK.registerMessage(PacketTardisInfo.Handler.class, PacketTardisInfo.class, id++, Side.SERVER);
         NETWORK.registerMessage(PacketTardisSnap.Handler.class, PacketTardisSnap.class, id++, Side.SERVER);
+        NETWORK.registerMessage(Packet_OpenGui.Handler.class, Packet_OpenGui.class, id++, Side.CLIENT);
+        NETWORK.registerMessage(Packet_RequestGui.Handler.class, Packet_RequestGui.class, id++, Side.SERVER);
     }
 }

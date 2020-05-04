@@ -1,6 +1,7 @@
 package me.coodlude.edgeofdarkness.client.gui;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.network.NetworkHandler;
 import me.coodlude.edgeofdarkness.network.packets.PacketTardisInfo;
 import net.minecraft.client.Minecraft;
@@ -8,12 +9,9 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 
 import java.io.IOException;
-
-import static jdk.nashorn.internal.objects.Global.Infinity;
 
 public class GuiTardisCoords extends GuiScreen {
 
@@ -25,6 +23,9 @@ public class GuiTardisCoords extends GuiScreen {
     private GuiButton warp;
     private GuiButton coord;
     private GuiButton dimensions;
+    public TardisInfo info;
+
+    public String[] args;
 
     static final int GUI_WIDTH = 256;
     static final int GUI_HEIGHT = 256;
@@ -36,9 +37,16 @@ public class GuiTardisCoords extends GuiScreen {
     private Minecraft mc;
     private FontRenderer fr;
 
-    public GuiTardisCoords() {
+    public GuiTardisCoords(String... args) {
         mc = Minecraft.getMinecraft();
         fr = mc.fontRenderer;
+        if (args.length > 0) {
+            this.args = args;
+            TardisInfo info = EdgeOfDarkness.JSON.fromJson(args[0], TardisInfo.class);
+            if (info != null) this.info = info;
+        } else {
+            Minecraft.getMinecraft().displayGuiScreen(null);
+        }
     }
 
     @Override
@@ -50,7 +58,7 @@ public class GuiTardisCoords extends GuiScreen {
         }
 
         if (button == this.dimensions) {
-            Minecraft.getMinecraft().displayGuiScreen(null);
+            Minecraft.getMinecraft().displayGuiScreen(new GuiTardisDim(args));
         }
 
         super.actionPerformed(button);
@@ -126,10 +134,14 @@ public class GuiTardisCoords extends GuiScreen {
         yCoord = new GuiTextField(1, fr, x - 40, y + yOffset * 2, 100, fr.FONT_HEIGHT);
         zCoord = new GuiTextField(2, fr, x - 40, y + yOffset * 3 + 1, 100, fr.FONT_HEIGHT);
         warp = new GuiButton(3, x + 11, y + yOffset * 9, warpButton);
-        dimensions = new GuiButton(4, x + 66, y + yOffset - 109, 65, 21, dimension);
+        dimensions = new GuiButton(4, x + 66, y + yOffset - 109, 65, 20, dimension);
         warp.x -= warp.width / 2;
         dimensions.x -= dimensions.width / 2;
         xCoord.setFocused(true);
+
+        xCoord.setText(String.valueOf(info.getDestinationPos().getX()));
+        yCoord.setText(String.valueOf(info.getDestinationPos().getY()));
+        zCoord.setText(String.valueOf(info.getDestinationPos().getZ()));
 
         this.buttonList.clear();
         this.addButton(warp);
@@ -157,7 +169,7 @@ public class GuiTardisCoords extends GuiScreen {
         int y = (height - GUI_HEIGHT) / 2;
 
         //mc.getTextureManager().bindTexture(TEXTURE);
-       // this.drawTexturedModalRect(x, y, 0, 0, GUI_WIDTH, GUI_HEIGHT);
+        // this.drawTexturedModalRect(x, y, 0, 0, GUI_WIDTH, GUI_HEIGHT);
         xCoord.drawTextBox();
         yCoord.drawTextBox();
         zCoord.drawTextBox();

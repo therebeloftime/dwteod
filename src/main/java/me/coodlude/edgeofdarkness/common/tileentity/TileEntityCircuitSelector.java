@@ -41,7 +41,7 @@ public class TileEntityCircuitSelector extends TileEntityBase implements ITickab
         }
     }
 
-    public float interpolate(float curr, float fi, float per) {
+    public static float interpolate(float curr, float fi, float per) {
         float f = curr;
 
         if (curr < fi) {

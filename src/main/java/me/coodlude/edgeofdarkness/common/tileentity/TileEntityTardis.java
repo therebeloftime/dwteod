@@ -88,7 +88,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
 
         if (!world.isRemote) {
             if (world.provider instanceof WorldProviderTardis) {
-                world.setBlockToAir(pos);
+              //  world.setBlockToAir(pos);
             }
 
             TardisInfo info = getTardisInfo();

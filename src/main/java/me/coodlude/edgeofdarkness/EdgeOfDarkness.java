@@ -8,10 +8,7 @@ import me.coodlude.edgeofdarkness.common.capability.ITardisCapability;
 import me.coodlude.edgeofdarkness.common.commands.CommandCreateSchematic;
 import me.coodlude.edgeofdarkness.common.commands.CommandPasteSchematic;
 import me.coodlude.edgeofdarkness.common.commands.CommandTest;
-import me.coodlude.edgeofdarkness.common.init.ModDimension;
-import me.coodlude.edgeofdarkness.common.init.ModItems;
-import me.coodlude.edgeofdarkness.common.init.ModSchematics;
-import me.coodlude.edgeofdarkness.common.init.ModSounds;
+import me.coodlude.edgeofdarkness.common.init.*;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisSkinRegistry;
@@ -26,6 +23,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Map;
@@ -62,6 +60,7 @@ public class EdgeOfDarkness {
     public void init(FMLInitializationEvent event) {
         proxy.init();
         ModDimension.Register();
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new ModGuiHandler());
     }
 
     @EventHandler

@@ -2,9 +2,7 @@ package me.coodlude.edgeofdarkness.client.renderers;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.client.models.ModelDematLever;
-import me.coodlude.edgeofdarkness.client.models.ModelScreen;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityDematLever;
-import me.coodlude.edgeofdarkness.common.tileentity.TileEntityMonitor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -27,7 +25,7 @@ public class RenderDematLever extends TileEntitySpecialRenderer<TileEntityDematL
 
         GlStateManager.rotate(te.rotation, 0, 1, 0);
         Minecraft.getMinecraft().getTextureManager().bindTexture(location);
-        lever.render(null, 0, 0, 0, 0, 0, 0.0625f);
+        lever.render(te.rotationlever);
         GlStateManager.popMatrix();
     }
 }

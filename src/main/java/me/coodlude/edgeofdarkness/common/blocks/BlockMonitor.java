@@ -1,6 +1,12 @@
 package me.coodlude.edgeofdarkness.common.blocks;
 
+import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.client.gui.GuiTardisCoords;
+import me.coodlude.edgeofdarkness.common.init.ModGuiHandler;
+import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
+import me.coodlude.edgeofdarkness.common.world.dimension.WorldProviderTardis;
+import me.coodlude.edgeofdarkness.network.NetworkHandler;
+import me.coodlude.edgeofdarkness.network.packets.Packet_OpenGui;
 import me.coodlude.edgeofdarkness.util.helper.IHaveItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -11,6 +17,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -18,6 +25,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -33,8 +41,9 @@ public class BlockMonitor extends BlockTileBase implements IHaveItem {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        if (worldIn.isRemote) {
-           openGUI();
+        if (!worldIn.isRemote && worldIn.provider instanceof WorldProviderTardis) {
+            int id = TardisHandler.getTardisIDFromPos(pos);
+            NetworkHandler.NETWORK.sendTo(new Packet_OpenGui(ModGuiHandler.GUI_MONITOR_COORD, pos, EdgeOfDarkness.JSON.toJson(TardisHandler.getTardis(id))), (EntityPlayerMP) playerIn);
         }
 
         return true;

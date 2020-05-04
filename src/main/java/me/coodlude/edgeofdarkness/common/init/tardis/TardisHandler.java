@@ -79,7 +79,7 @@ public class TardisHandler {
                 if (info.isInFlight()) {
                     info.directLanding();
                 } else {
-                    startFlight((EntityPlayerMP) player, tardisID, info.destinationPos, info.destinationDim);
+                    startFlight((EntityPlayerMP) player, tardisID,info.destinationPos, info.destinationDim);
                 }
             }
         }
@@ -268,7 +268,7 @@ public class TardisHandler {
     }
 
     public static int calculateTravelTime() {
-        int minimum = 22;
+        int minimum = 25;
 
         return (minimum) * 20;
     }
