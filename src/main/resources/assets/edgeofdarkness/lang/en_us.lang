@@ -14,6 +14,10 @@ item.lapis_axe.name=Lapis Axe
 item.lapis_shovel.name=Lapis Shovel
 item.doomsday_weapon.name=Doomsday Weapon
 item.tardis_spawner.name=TARDIS Spawner
+tile.tardis_flight_panel.name= TARDIS Flight Panel
+item.tardis_monitor.name=TARDIS Monitor
+item.tardis_handbrake.name=TARDIS Handbrake
+tile.tardis_circuit_selector.name=TARDIS Circuit Selector
 
 //Blocks
 tile.tardis.name=The TARDIS
