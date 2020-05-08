@@ -1,0 +1,36 @@
+// Items
+item.tardis_key.name=TARDIS Ključ
+item.sonic_screwdriver.name=Sonic Odvijač
+item.jammy_dodgers.name=Džamijski Iznutrice
+item.emerald_sword.name= Smaragdni Mač
+item.emerald_pickaxe.name= Smaragdni Pijuk
+item.emerald_axe.name= Smaragdni Sjekira
+item.doomsdaydevicepiece.name=Doomsday Uređaj Dio
+item.emerald_shovel.name=Smaragdni Lopatica
+item.metebelis_crystal.name=Kristal Metebelis
+item.lapis_sword.name=Lapisov Mač
+item.lapis_pickaxe.name=Lapisov Pijuk
+item.lapis_axe.name=Lapisov Sjekira
+item.lapis_shovel.name=Lapisov Lopatica
+item.doomsday_weapon.name=Doomsday Oružja
+item.tardis_spawner.name=TARDIS Mrijesnih
+tile.tardis_flight_panel.name = TARDIS ploča leta
+item.tardis_monitor.name = Monitor TARDIS
+item.tardis_handbrake.name = TARDIS Ručna kočnica
+tile.tardis_circuit_selector.name = TARDIS Selektor
+
+//Blocks
+tile.tardis.name=TARDIS
+tile.tardis_door.name=TARDIS Vrata
+
+//CreativeTab
+itemGroup.edgeofdarkness_items=Doktor Who: Rub Mraka
+
+//Messages
+msg.tardis.locked=TARDIS je zaključan
+msg.tardis.lock=Zaključao TARDIS
+msg.tardis.unlock=Odključao TARDIS
+msg.tardis.inflight= TARDIS je još uvijek u letu!
+msg.tardis.dematting=Tvoj TARDIS je poletio!
+msg.tardis.landing=Tvoj TARDIS je prestao!
+msg.tardis.snap=Kliknuo si prste!

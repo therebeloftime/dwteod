@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "E R",
+    "EGR",
+    "E R"
+  ],
+
+  "key":
+  {
+    "E":
+    {
+      "item": "minecraft:emerald"
+    },
+    "G":
+    {
+      "item": "minecraft:ghast_tear"
+    },
+    "R":
+    {
+      "item": "minecraft:redstone"
+    }
+  },
+
+  "result":
+  {
+    "item": "edgeofdarkness:doomsdaydevicepiece",
+    "count": 1
+  }
+}
