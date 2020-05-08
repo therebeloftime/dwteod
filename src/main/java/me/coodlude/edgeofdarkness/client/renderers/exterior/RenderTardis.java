@@ -29,7 +29,7 @@ public class RenderTardis extends TileEntitySpecialRenderer<TileEntityTardis> {
             GlStateManager.rotate(te.getWorld().getWorldTime() / 0.5f, 0, 1, 0);
         }
 
-        TardisSkinRegistry.circuitList.get(te.circuitID).renderExterior((1.0f / 45) * te.door_rotation);
+        TardisSkinRegistry.circuitList.get(te.circuitID).renderExterior(((1.0f / 45.0f) * te.door_rotation));
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
     }

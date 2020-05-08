@@ -14,6 +14,10 @@ item.lapis_axe.name=Lapisov Sjekira
 item.lapis_shovel.name=Lapisov Lopatica
 item.doomsday_weapon.name=Doomsday Oružja
 item.tardis_spawner.name=TARDIS Mrijesnih
+tile.tardis_flight_panel.name = TARDIS ploča leta
+item.tardis_monitor.name = Monitor TARDIS
+item.tardis_handbrake.name = TARDIS Ručna kočnica
+tile.tardis_circuit_selector.name = TARDIS Selektor
 
 //Blocks
 tile.tardis.name=TARDIS

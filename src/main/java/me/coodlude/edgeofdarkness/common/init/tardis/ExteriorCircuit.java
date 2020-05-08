@@ -21,6 +21,13 @@ public class ExteriorCircuit {
 
     public void renderExterior(float i) {
         if (basemodel != null) {
+
+            if(i < 0) {
+                i = 0;
+            }else if(i > 1){
+                i = 1;
+            }
+
             basemodel.render(i);
         }
     }
@@ -28,7 +35,6 @@ public class ExteriorCircuit {
     public void generateInterior(World world, BlockPos pos) {
         if (schematic != null) {
             schematic.generate(world, pos, true);
-            //schematic.markUpdate(world, pos, true);
         }
     }
 
