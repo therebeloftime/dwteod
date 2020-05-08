@@ -7,6 +7,14 @@
     }
     ]
   },
+  "sja": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:maintheme",
+      "stream": true
+    }
+    ]
+  },
   "maintheme": {
     "category" : "record",
     "sounds": [{
