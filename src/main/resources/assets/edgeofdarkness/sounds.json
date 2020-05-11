@@ -10,7 +10,7 @@
   "sja": {
     "category" : "record",
     "sounds": [{
-      "name": "edgeofdarkness:maintheme",
+      "name": "edgeofdarkness:sja",
       "stream": true
     }
     ]
