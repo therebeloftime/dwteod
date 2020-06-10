@@ -24,9 +24,12 @@ tile.tardis.name=The TARDIS
 tile.tardis_door.name=TARDIS Door
 tile.tardis_handbrake.name=TARDIS Handbrake
 tile.tardis_monitor.name=TARDIS Monitor
+//Roundels
+tile.oak_planks_purple_full_roundel.name=Full Roundel
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
+itemGroup.edgeofdarkness_roundels=DWTEOD Roundels
 
 //Messages
 msg.tardis.locked=The TARDIS is locked

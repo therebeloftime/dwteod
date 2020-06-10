@@ -25,6 +25,7 @@ tile.tardis_door.name=TARDIS Vrata
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doktor Who: Rub Mraka
+itemGroup.edgeofdarkness_items=DWRM Krugovni Zidovi
 
 //Messages
 msg.tardis.locked=TARDIS je zaključan

@@ -21,6 +21,7 @@ tile.tardis_door.name=Door To The Boxeth Of Charms
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doct'r Who Is't: The Edge That Bringeth Darkness
+itemGroup.edgeofdarkness_roundels=DWITETBD Circular Wall Decorations
 
 //Messages
 msg.tardis.locked=The Boxeth of Charms is lock'd
@@ -29,4 +30,4 @@ msg.tardis.unlock=Unlock'd the Boxeth of Charms
 msg.tardis.inflight=The Boxeth of Charms still drifts through timeth and space!
 msg.tardis.dematting=Your Boxeth of Charms is drifting into timeth and space!
 msg.tardis.landing=Your Boxeth of Charms is returning from timeth and space!
-msg.tardis.snap=You have snapped your fingers!
+msg.tardis.snap=Thee hath snappéd thy fingers!

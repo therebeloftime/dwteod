@@ -21,6 +21,7 @@ tile.tardis_door.name=ɹoop SIpɹ∀┴
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=ssǝuʞɹɐp ɟO ǝƃpƎ ǝɥ┴ :oɥM ɹoʇɔop
+itemGroup.edgeofdarkness_roundels=slǝpunoɹ pOƎ┴Mp
 
 //Messages
 msg.tardis.locked=pǝʞɔol sᴉ SIpɹ∀┴ ǝɥ┴
@@ -29,4 +30,4 @@ msg.tardis.unlock=SIpɹ∀┴ pǝʞɔolu∩
 msg.tardis.inflight=¡ʇɥƃᴉlɟ uᴉ llᴉʇs sᴉ SIpɹ∀┴ ǝɥ┴
 msg.tardis.dematting=¡ƃuᴉsᴉlɐᴉɹǝʇɐɯǝp sᴉ SIpɹ∀┴ ɹno⅄
 msg.tardis.landing=¡ƃuᴉpuɐl sᴉ SIpɹ∀┴ ɹno⅄
-msg.tardis.snap=You have snapped your fingers!
+msg.tardis.snap=¡sɹǝƃuᴉɟ ɹnoʎ pǝddɐus ǝʌɐɥ no⅄
