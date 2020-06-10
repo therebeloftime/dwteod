@@ -9,6 +9,8 @@ public class BlockGlowRoundel extends Block implements IHaveItem {
 
     public BlockGlowRoundel(Material material, MapColor mapColor){
         super(material);
+        setLightLevel(1.0f);
+
 
     }
 
