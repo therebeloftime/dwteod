@@ -29,6 +29,10 @@ public class ModBlocks {
     public static Block tardis_circuit_selector = registerBlock(new BlockCircuitSelector(TileEntityCircuitSelector::new), "tardis_circuit_selector").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_flight_panel = registerBlock(new BlockFlightPanel(TileEntityFlightPanel::new), "tardis_flight_panel").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block oak_planks_purple_full_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_full_roundel").setCreativeTab(ModTabs.edgeofroundels);
+    public static Block oak_planks_purple_half_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_half_roundel").setCreativeTab(ModTabs.edgeofroundels);
+    public static Block oak_planks_purple_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
+    public static Block oak_planks_purple_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
+    public static Block oak_planks_purple_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
 
     public static Block registerBlock(Block block, String name) {
         block.setRegistryName(name);

@@ -26,6 +26,10 @@ tile.tardis_handbrake.name=TARDIS Handbrake
 tile.tardis_monitor.name=TARDIS Monitor
 //Roundels
 tile.oak_planks_purple_full_roundel.name=Full Roundel
+tile.oak_planks_purple_half_roundel.name=Half Roundel
+tile.oak_planks_purple_base_roundel.name=Base Roundel
+tile.oak_planks_purple_top_roundel.name=Top Roundel
+tile.oak_planks_purple_core_roundel.name=Core Roundel
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
