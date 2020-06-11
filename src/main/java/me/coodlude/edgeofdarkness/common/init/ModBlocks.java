@@ -34,6 +34,11 @@ public class ModBlocks {
     public static Block oak_planks_purple_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
     public static Block oak_planks_purple_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
     public static Block spruce_log_brown_full_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_full_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block spruce_log_brown_half_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_half_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block spruce_log_brown_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block spruce_log_brown_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block spruce_log_brown_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
+
 
     public static Block registerBlock(Block block, String name) {
         block.setRegistryName(name);
