@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "edgeofdarkness:oak_planks_purple_half_roundel" }
+		"normal": {"model": "edgeofdarkness:oak_planks_purple_core_roundel"}
     }
 }

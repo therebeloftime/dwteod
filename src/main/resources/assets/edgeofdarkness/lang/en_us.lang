@@ -30,6 +30,7 @@ tile.oak_planks_purple_half_roundel.name=Half Roundel
 tile.oak_planks_purple_base_roundel.name=Base Roundel
 tile.oak_planks_purple_top_roundel.name=Top Roundel
 tile.oak_planks_purple_core_roundel.name=Core Roundel
+tile.spruce_log_brown_full_roundel.name=Full Roundel
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
