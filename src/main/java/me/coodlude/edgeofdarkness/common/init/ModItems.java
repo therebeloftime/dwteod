@@ -6,6 +6,7 @@ import me.coodlude.edgeofdarkness.common.items.tools.ItemAxe;
 import me.coodlude.edgeofdarkness.common.items.tools.ItemPickAxe;
 import me.coodlude.edgeofdarkness.common.items.tools.ItemShovel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
@@ -46,6 +47,8 @@ public class ModItems {
     public static Item record_maintheme;
     public static Item record_secondarytheme;
     public static Item record_tertiarytheme;
+    public static Item record_a_good_man;
+    public static Item record_sja;
 
     public static void init() {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
@@ -63,9 +66,11 @@ public class ModItems {
         lapis_shovel = registerItem(new ItemShovel(Item.ToolMaterial.DIAMOND), "lapis_shovel").setCreativeTab(ModTabs.edgeofdarkness);
         doomsday_weapon = registerItem(new ItemDoomsday(),"doomsday_weapon").setCreativeTab(ModTabs.edgeofdarkness);
         tardis_spawner = registerItem(new ItemTardisSpawner(), "tardis_spawner").setCreativeTab(ModTabs.edgeofdarkness);
-        record_maintheme = registerItem(new ItemEODRecord("record_maintheme",ModSounds.MAINTHEME),"record_maintheme").setCreativeTab(ModTabs.edgeofmusic);
-        record_secondarytheme = registerItem(new ItemEODRecord("record_secondarytheme",ModSounds.SECONDARYTHEME),"record_secondarytheme").setCreativeTab(ModTabs.edgeofmusic);
-        record_tertiarytheme = registerItem(new ItemEODRecord("record_tertiarytheme",ModSounds.TERTIARYTHEME),"record_tertiarytheme").setCreativeTab(ModTabs.edgeofmusic);
+        record_maintheme = registerItem(new ItemEODRecord("record_maintheme",ModSounds.MAINTHEME),"record_maintheme").setCreativeTab(CreativeTabs.MISC);
+        record_secondarytheme = registerItem(new ItemEODRecord("record_secondarytheme",ModSounds.SECONDARYTHEME),"record_secondarytheme").setCreativeTab(CreativeTabs.MISC);
+        record_tertiarytheme = registerItem(new ItemEODRecord("record_tertiarytheme",ModSounds.TERTIARYTHEME),"record_tertiarytheme").setCreativeTab(CreativeTabs.MISC);
+        record_a_good_man = registerItem(new ItemEODRecord("record_a_good_man",ModSounds.A_GOOD_MAN),"record_a_good_man").setCreativeTab(CreativeTabs.MISC);
+        record_sja = registerItem(new ItemEODRecord("record_sja",ModSounds.SJA),"record_sja").setCreativeTab(CreativeTabs.MISC);
     }
 
     public static Item registerItem(Item item, String name) {

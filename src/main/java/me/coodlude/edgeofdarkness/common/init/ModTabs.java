@@ -15,10 +15,4 @@ public class ModTabs {
         @Override
         public ItemStack createIcon() { return new ItemStack(ModBlocks.oak_planks_purple_full_roundel); }
     };
-
-    public static CreativeTabs edgeofmusic = new CreativeTabs("edgeofdarkness_music") {
-        @Override
-        public ItemStack createIcon() { return new ItemStack(ModItems.record_maintheme); }
-    };
-
 }

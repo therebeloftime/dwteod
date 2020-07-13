@@ -22,10 +22,14 @@ tile.tardis_circuit_selector.name=TARDIS Circuit Selector
 item.record_maintheme.name=DWTEOD Main Theme
 item.record_secondarytheme.name=DWTEOD Secondary Theme
 item.record_tertiarytheme.name=DWTEOD Tertiary Theme
+item.record_a_good_man.name=A Good Man
+item.record_sja.name=The Sarah Jane Adventures Theme
 //Record Descriptions
 item.record.record_maintheme.desc=TGD - The 16th Doctor's Intro
 item.record.record_secondarytheme.desc=TGD - The 15th Doctor's Intro
 item.record.record_tertiarytheme.desc=TGD - The 14th Doctor's Intro
+item.record.record_a_good_man.desc=TGD - A Good Man
+item.record.record_sja.desc=TGD - The Sarah Jane Adventures Theme
 
 //Blocks
 tile.tardis.name=The TARDIS
