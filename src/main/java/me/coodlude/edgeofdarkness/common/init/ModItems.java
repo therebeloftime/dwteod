@@ -42,6 +42,11 @@ public class ModItems {
     public static Item doomsday_weapon;
     public static Item tardis_spawner;
 
+    //Records
+    public static Item record_maintheme;
+    public static Item record_secondarytheme;
+    public static Item record_tertiarytheme;
+
     public static void init() {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
         jammy_dodgers = registerItem(new ItemFood(1, 0.5f, false), "jammy_dodgers").setCreativeTab(ModTabs.edgeofdarkness);
@@ -58,6 +63,9 @@ public class ModItems {
         lapis_shovel = registerItem(new ItemShovel(Item.ToolMaterial.DIAMOND), "lapis_shovel").setCreativeTab(ModTabs.edgeofdarkness);
         doomsday_weapon = registerItem(new ItemDoomsday(),"doomsday_weapon").setCreativeTab(ModTabs.edgeofdarkness);
         tardis_spawner = registerItem(new ItemTardisSpawner(), "tardis_spawner").setCreativeTab(ModTabs.edgeofdarkness);
+        record_maintheme = registerItem(new ItemEODRecord("record_maintheme",ModSounds.MAINTHEME),"record_maintheme").setCreativeTab(ModTabs.edgeofmusic);
+        record_secondarytheme = registerItem(new ItemEODRecord("record_secondarytheme",ModSounds.SECONDARYTHEME),"record_secondarytheme").setCreativeTab(ModTabs.edgeofmusic);
+        record_tertiarytheme = registerItem(new ItemEODRecord("record_tertiarytheme",ModSounds.TERTIARYTHEME),"record_tertiarytheme").setCreativeTab(ModTabs.edgeofmusic);
     }
 
     public static Item registerItem(Item item, String name) {

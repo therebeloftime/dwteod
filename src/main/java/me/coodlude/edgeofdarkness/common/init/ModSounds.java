@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModSounds {
 
-    public static SoundEvent SHORT_REMAT, DEMAT, FLY, CLOISTER, DENIED_TAKEOFF;
+    public static SoundEvent SHORT_REMAT, DEMAT, FLY, CLOISTER, DENIED_TAKEOFF, MAINTHEME, SECONDARYTHEME, TERTIARYTHEME;
 
     public static void registerSounds() {
         SHORT_REMAT = registerSound("basiclanding");
@@ -21,6 +21,11 @@ public class ModSounds {
         FLY = registerSound("fly");
         CLOISTER = registerSound("cloister");
         DENIED_TAKEOFF = registerSound("denied");
+
+        //Music
+        MAINTHEME = registerSound("maintheme");
+        SECONDARYTHEME = registerSound("secondarytheme");
+        TERTIARYTHEME = registerSound("tertiarytheme");
     }
 
     private static SoundEvent registerSound(String name) {

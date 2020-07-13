@@ -18,6 +18,14 @@ tile.tardis_flight_panel.name= TARDIS Flight Panel
 item.tardis_monitor.name=TARDIS Monitor
 item.tardis_handbrake.name=TARDIS Handbrake
 tile.tardis_circuit_selector.name=TARDIS Circuit Selector
+//Records
+item.record_maintheme.name=DWTEOD Main Theme
+item.record_secondarytheme.name=DWTEOD Secondary Theme
+item.record_tertiarytheme.name=DWTEOD Tertiary Theme
+//Record Descriptions
+item.record.record_maintheme.desc=TGD - The 16th Doctor's Intro
+item.record.record_secondarytheme.desc=TGD - The 15th Doctor's Intro
+item.record.record_tertiarytheme.desc=TGD - The 14th Doctor's Intro
 
 //Blocks
 tile.tardis.name=The TARDIS
@@ -39,6 +47,7 @@ tile.spruce_log_brown_core_roundel.name=Core Roundel
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
 itemGroup.edgeofdarkness_roundels=DWTEOD Roundels
+itemGroup.edgeofdarkness_music=DWTEOD Music Records
 
 //Messages
 msg.tardis.locked=The TARDIS is locked

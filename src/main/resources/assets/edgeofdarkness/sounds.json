@@ -31,10 +31,10 @@
     }
     ]
   },
-  "secondarytheme3": {
+  "tertiarytheme": {
     "category" : "record",
     "sounds": [{
-      "name": "edgeofdarkness:secondarytheme3",
+      "name": "edgeofdarkness:tertiarytheme",
       "stream": true
     }
     ]
