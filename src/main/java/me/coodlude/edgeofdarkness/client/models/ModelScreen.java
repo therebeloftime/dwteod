@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
  * Screen.tcn - TechneToTabulaImporter
  * Created using Tabula 7.0.0
  */
-public class ModelScreen extends ModelBase {
+public class  ModelScreen extends ModelBase {
     public ModelRenderer Base;
     public ModelRenderer ArmLength;
     public ModelRenderer Armretention;
