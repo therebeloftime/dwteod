@@ -35,11 +35,13 @@ public class ModItems {
     public static Item emerald_sword;
     public static Item emerald_pickaxe;
     public static Item emerald_axe;
+    public static Item emerald_shovel;
+    public static Item emerald_hoe;
     public static Item lapis_sword;
     public static Item lapis_pickaxe;
     public static Item lapis_axe;
     public static Item lapis_shovel;
-    public static Item emerald_shovel;
+    public static Item lapis_hoe;
     public static Item doomsday_weapon;
     public static Item tardis_spawner;
 
@@ -57,13 +59,15 @@ public class ModItems {
         emerald_sword = registerItem(new ItemSword(Item.ToolMaterial.DIAMOND),  "emerald_sword").setCreativeTab(ModTabs.edgeofdarkness);
         emerald_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.DIAMOND),  "emerald_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
         emerald_axe = registerItem(new ItemAxe(Item.ToolMaterial.DIAMOND), "emerald_axe").setCreativeTab(ModTabs.edgeofdarkness);
-        doomsdaydevicepiece = registerItem(new ItemPiece(), "doomsdaydevicepiece").setCreativeTab(ModTabs.edgeofdarkness);
         emerald_shovel = registerItem(new ItemShovel(Item.ToolMaterial.DIAMOND), "emerald_shovel").setCreativeTab(ModTabs.edgeofdarkness);
+        emerald_hoe = registerItem(new ItemHoe(Item.ToolMaterial.DIAMOND), "emerald_hoe").setCreativeTab(ModTabs.edgeofdarkness);
+        doomsdaydevicepiece = registerItem(new ItemPiece(), "doomsdaydevicepiece").setCreativeTab(ModTabs.edgeofdarkness);
         metebelis_crystal = registerItem(new ItemCrystal(),"metebelis_crystal").setCreativeTab(ModTabs.edgeofdarkness);
         lapis_sword = registerItem(new ItemSword(Item.ToolMaterial.DIAMOND), "lapis_sword").setCreativeTab(ModTabs.edgeofdarkness);
         lapis_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.DIAMOND), "lapis_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
         lapis_axe = registerItem(new ItemAxe(Item.ToolMaterial.DIAMOND), "lapis_axe").setCreativeTab(ModTabs.edgeofdarkness);
         lapis_shovel = registerItem(new ItemShovel(Item.ToolMaterial.DIAMOND), "lapis_shovel").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_hoe = registerItem(new ItemHoe(Item.ToolMaterial.DIAMOND), "lapis_hoe").setCreativeTab(ModTabs.edgeofdarkness);
         doomsday_weapon = registerItem(new ItemDoomsday(),"doomsday_weapon").setCreativeTab(ModTabs.edgeofdarkness);
         tardis_spawner = registerItem(new ItemTardisSpawner(), "tardis_spawner").setCreativeTab(ModTabs.edgeofdarkness);
         record_maintheme = registerItem(new ItemEODRecord("record_maintheme",ModSounds.MAINTHEME),"record_maintheme").setCreativeTab(CreativeTabs.MISC);

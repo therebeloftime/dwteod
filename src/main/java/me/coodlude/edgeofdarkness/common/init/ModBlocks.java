@@ -1,7 +1,6 @@
 package me.coodlude.edgeofdarkness.common.init;
 
 
-import me.coodlude.edgeofdarkness.client.init.ModKeybinds;
 import me.coodlude.edgeofdarkness.common.blocks.*;
 import me.coodlude.edgeofdarkness.common.tileentity.*;
 import me.coodlude.edgeofdarkness.util.handlers.RegistryHandler;
