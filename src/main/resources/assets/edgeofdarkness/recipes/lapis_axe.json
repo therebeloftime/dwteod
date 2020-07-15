@@ -7,14 +7,15 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:emerald"
+      "item": "minecraft:dye",
+      "data": 4
     },
     "/": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "edgeofdarkness:emerald_axe",
+    "item": "edgeofdarkness:lapis_axe",
     "count": 1
   }
 }

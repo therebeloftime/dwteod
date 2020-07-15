@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "## ",
-    "#/ ",
-    " / "
+    "##",
+    " /",
+    " /"
   ],
   "key": {
     "#": {
@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "edgeofdarkness:emerald_axe",
+    "item": "edgeofdarkness:emerald_hoe",
     "count": 1
   }
 }
