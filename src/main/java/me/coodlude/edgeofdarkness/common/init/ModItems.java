@@ -40,6 +40,11 @@ public class ModItems {
     public static Item lapis_axe;
     public static Item lapis_shovel;
     public static Item lapis_hoe;
+    public static Item redstone_sword;
+    public static Item redstone_pickaxe;
+    public static Item redstone_axe;
+    public static Item redstone_shovel;
+    public static Item redstone_hoe;
     public static Item doomsday_weapon;
     public static Item tardis_spawner;
 
@@ -49,6 +54,8 @@ public class ModItems {
     public static Item record_tertiarytheme;
     public static Item record_a_good_man;
     public static Item record_sja;
+    public static Item record_megalovania;
+    public static Item record_megalovania_jazz;
 
     public static void init() {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
@@ -61,11 +68,16 @@ public class ModItems {
         emerald_hoe = registerItem(new ItemHoe(Item.ToolMaterial.DIAMOND), "emerald_hoe").setCreativeTab(ModTabs.edgeofdarkness);
         doomsdaydevicepiece = registerItem(new ItemPiece(), "doomsdaydevicepiece").setCreativeTab(ModTabs.edgeofdarkness);
         metebelis_crystal = registerItem(new ItemCrystal(),"metebelis_crystal").setCreativeTab(ModTabs.edgeofdarkness);
-        lapis_sword = registerItem(new ItemSword(Item.ToolMaterial.DIAMOND), "lapis_sword").setCreativeTab(ModTabs.edgeofdarkness);
-        lapis_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.DIAMOND), "lapis_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
-        lapis_axe = registerItem(new ItemHatchet(Item.ToolMaterial.DIAMOND), "lapis_axe").setCreativeTab(ModTabs.edgeofdarkness);
-        lapis_shovel = registerItem(new ItemSpade(Item.ToolMaterial.DIAMOND), "lapis_shovel").setCreativeTab(ModTabs.edgeofdarkness);
-        lapis_hoe = registerItem(new ItemHoe(Item.ToolMaterial.DIAMOND), "lapis_hoe").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_sword = registerItem(new ItemSword(Item.ToolMaterial.IRON), "lapis_sword").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.IRON), "lapis_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_axe = registerItem(new ItemHatchet(Item.ToolMaterial.IRON), "lapis_axe").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_shovel = registerItem(new ItemSpade(Item.ToolMaterial.IRON), "lapis_shovel").setCreativeTab(ModTabs.edgeofdarkness);
+        lapis_hoe = registerItem(new ItemHoe(Item.ToolMaterial.IRON), "lapis_hoe").setCreativeTab(ModTabs.edgeofdarkness);
+        redstone_sword = registerItem(new ItemSword(Item.ToolMaterial.IRON), "redstone_sword").setCreativeTab(ModTabs.edgeofdarkness);
+        redstone_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.IRON), "redstone_pickaxe").setCreativeTab(ModTabs.edgeofdarkness);
+        redstone_axe = registerItem(new ItemHatchet(Item.ToolMaterial.IRON), "redstone_axe").setCreativeTab(ModTabs.edgeofdarkness);
+        redstone_shovel = registerItem(new ItemSpade(Item.ToolMaterial.IRON), "redstone_shovel").setCreativeTab(ModTabs.edgeofdarkness);
+        redstone_hoe = registerItem(new ItemHoe(Item.ToolMaterial.IRON), "redstone_hoe").setCreativeTab(ModTabs.edgeofdarkness);
         doomsday_weapon = registerItem(new ItemDoomsday(),"doomsday_weapon").setCreativeTab(ModTabs.edgeofdarkness);
         tardis_spawner = registerItem(new ItemTardisSpawner(), "tardis_spawner").setCreativeTab(ModTabs.edgeofdarkness);
         record_maintheme = registerItem(new ItemEODRecord("record_maintheme",ModSounds.MAINTHEME),"record_maintheme").setCreativeTab(CreativeTabs.MISC);
@@ -73,6 +85,8 @@ public class ModItems {
         record_tertiarytheme = registerItem(new ItemEODRecord("record_tertiarytheme",ModSounds.TERTIARYTHEME),"record_tertiarytheme").setCreativeTab(CreativeTabs.MISC);
         record_a_good_man = registerItem(new ItemEODRecord("record_a_good_man",ModSounds.A_GOOD_MAN),"record_a_good_man").setCreativeTab(CreativeTabs.MISC);
         record_sja = registerItem(new ItemEODRecord("record_sja",ModSounds.SJA),"record_sja").setCreativeTab(CreativeTabs.MISC);
+        record_megalovania = registerItem(new ItemEODRecord("record_megalovania",ModSounds.MEGALOVANIA),"record_megalovania").setCreativeTab(CreativeTabs.MISC);
+        record_megalovania_jazz = registerItem(new ItemEODRecord("record_megalovania_jazz",ModSounds.MEGALOVANIA_JAZZ),"record_megalovania_jazz").setCreativeTab(CreativeTabs.MISC);
     }
 
     public static Item registerItem(Item item, String name) {

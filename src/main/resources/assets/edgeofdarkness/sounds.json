@@ -39,6 +39,22 @@
     }
     ]
   },
+  "megalovania": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:megalovania",
+      "stream": true
+    }
+    ]
+  },
+  "megalovania_jazz": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:megalovania_jazz",
+      "stream": true
+    }
+    ]
+  },
   "basiclanding": {
     "category": "master",
     "subtitle": "edgeofdarkness.basicremat",

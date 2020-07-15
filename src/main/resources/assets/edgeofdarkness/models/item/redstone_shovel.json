@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "edgeofdarkness:items/redstone_shovel",
+	"shade": false
+  }
+}
