@@ -72,3 +72,13 @@ msg.tardis.inflight=The TARDIS is still in flight!
 msg.tardis.dematting=Your TARDIS is dematerialising!
 msg.tardis.landing=Your TARDIS is landing!
 msg.tardis.snap=You have snapped your fingers!
+
+//Advancements
+advancements.edgeofdarkness.main.title=Doctor Who: The Edge Of Darkness
+advancements.edgeofdarkness.craft_sonic.title=It's Not Breaking and Entering
+advancements.edgeofdarkness.craft_tardis.title=The Universe Awaits You
+
+//Advancement Descriptions
+advancements.edgeofdarkness.main.description=Craft a TARDIS Key
+advancements.edgeofdarkness.craft_sonic.description=Craft a Sonic Screwdriver
+advancements.edgeofdarkness.craft_tardis.description=Craft a TARDIS

@@ -1,0 +1,28 @@
+{
+    "display": {
+        "icon": {
+            "item" : "edgeofdarkness:tardis_spawner"
+        },
+        "title": {
+            "translate" : "advancements.edgeofdarkness.craft_tardis.title"
+        },
+        "description" : {
+            "translate" : "advancements.edgeofdarkness.craft_tardis.description"
+        },
+		"frame" : "challenge"
+    },
+    "parent" : "edgeofdarkness:main",
+		"criteria" : {
+			"craft_tardis" : {
+				"trigger" : "minecraft:inventory_changed",
+					"conditions" : {
+						"items" : [
+							{
+								"item" : "edgeofdarkness:tardis_spawner"
+							}
+						]
+					}
+				}
+			}
+        }
+    }
