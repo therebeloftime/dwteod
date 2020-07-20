@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Craft a food machine!",
+      "color": "gray"
+    },
+	"title": {
+		"text":"I'm Hungry",
+		"italic": false,
+		"color":"blue"
+		},
+    "icon": {
+      "item": "thedalekmod:btefoodmachine"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "craft_foodmachine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "thedalekmod:btefoodmachine"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "requirements": [
+    [
+      "craft_foodmachine"
+    ]
+  ],
+	"parent": "thedalekmod:craft_sonic"
+}

@@ -1,0 +1,56 @@
+{
+	"display": {
+		"description": {
+			"text": "Meet a Dalek/Cyberman",
+			"color": "gray"
+		},
+		"title": {
+			"text": "The Dalek Mod!",
+			"bold": true,
+			"italic": true,
+			"color": "red"
+		},
+		"icon": {
+			"item": "thedalekmod:iDalekSpawner",
+			"data": 0
+		},
+		"announce_to_chat": true,
+		"show_toast": true,
+		"background": "thedalekmod:textures/blocks/tardis_blocks/tardisstone.png"
+	},
+	"criteria": {
+		"dalek_hurt_me": {
+			"trigger": "minecraft:entity_hurt_player",
+			"conditions": {
+				"damage": {
+					"source_entity": {
+						"type": "thedalekmod:dalek"
+					},
+					"taken": {},
+					"type": {
+						"undefined": "true"
+					}
+				}
+			}
+		},
+		"cyberman_hurt_me": {
+			"trigger": "minecraft:entity_hurt_player",
+			"conditions": {
+				"damage": {
+					"source_entity": {
+						"type": "thedalekmod:cyberman"
+					},
+					"taken": {},
+					"type": {
+						"undefined": "true"
+					}
+				}
+			}
+		}
+	},
+	"rewards": {},
+	"requirements": [
+		["dalek_hurt_me"],
+		["cyberman_hurt_me"]
+	]
+}

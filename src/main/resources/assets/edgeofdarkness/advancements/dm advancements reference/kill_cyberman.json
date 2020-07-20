@@ -1,0 +1,35 @@
+{
+	"display": {
+		"description": {
+			"text": "Kill a Cyberman",
+			"color": "gray"
+		},
+		"title": {
+			"text": "Upgrade this!",
+			"bold": true,
+			"italic": true,
+			"color": "red"
+		},
+		"icon": {
+			"item": "thedalekmod:cyber_gun",
+			"data": 0
+		}
+	},
+	"criteria": {
+		"killed_cyberman": {
+			"trigger": "minecraft:player_killed_entity",
+			"conditions": {
+				"entity": {
+					"type": "thedalekmod:cyberman"
+				}
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["thedalekmod:items/weapons/guns/pistol"]
+	},
+	"requirements": [
+		["killed_cyberman"]
+	],
+	"parent": "thedalekmod:thedalekmod"
+}

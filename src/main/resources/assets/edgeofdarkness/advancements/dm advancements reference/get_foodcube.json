@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Make a foodcube!",
+      "color": "gray"
+    },
+	"title": {
+		"text":"Food in a CUBE!?",
+		"italic": false,
+		"color":"blue"
+		},
+    "icon": {
+      "item": "thedalekmod:foodcube"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "get_foodcube": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "thedalekmod:foodcube"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "requirements": [
+    [
+      "get_foodcube"
+    ]
+  ],
+	"parent": "thedalekmod:craft_foodmachine"
+}

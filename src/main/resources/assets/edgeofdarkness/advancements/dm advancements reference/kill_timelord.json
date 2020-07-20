@@ -1,0 +1,35 @@
+{
+	"display": {
+		"description": {
+			"text": "Kill a Timelord",
+			"color": "gray"
+		},
+		"title": {
+			"text": "//regen",
+			"bold": true,
+			"italic": true,
+			"color": "green"
+		},
+		"icon": {
+			"item": "thedalekmod:timelord_0",
+			"data": 0
+		}
+	},
+	"criteria": {
+		"killed_timelord": {
+			"trigger": "minecraft:player_killed_entity",
+			"conditions": {
+				"entity": {
+					"type": "thedalekmod:timelord"
+				}
+			}
+		}
+	},
+	"rewards": {
+		
+	},
+	"requirements": [
+		["killed_timelord"]
+	],
+	"parent": "thedalekmod:thedalekmod"
+}

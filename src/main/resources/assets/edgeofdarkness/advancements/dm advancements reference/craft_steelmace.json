@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Craft a steel Mace!",
+      "color": "gray"
+    },
+	"title": {
+		"text":"Cyber Thug",
+		"italic": false,
+		"color":"blue"
+		},
+    "icon": {
+      "item": "thedalekmod:steelmace"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "craft_steelmace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "thedalekmod:steelmace"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "requirements": [
+    [
+      "craft_steelmace"
+    ]
+  ],
+	"parent": "thedalekmod:craft_steelblock"
+}

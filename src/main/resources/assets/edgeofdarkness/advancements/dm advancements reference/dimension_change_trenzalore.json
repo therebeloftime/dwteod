@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "thedalekmod:whisperman_spawner"
+        },
+        "title": {
+            "translate": "Whispers"
+        },
+        "description": {
+            "translate": "Land on trenzalore!"
+        }
+    },
+    "parent": "thedalekmod:craft_tardis",
+    "criteria": {
+        "enter_tardis": {
+            "trigger": "minecraft:changed_dimension",
+            "conditions": {
+                "to": "TRENZALORE"
+            }
+        }
+    }
+}

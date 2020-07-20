@@ -1,0 +1,35 @@
+{
+	"display": {
+		"description": {
+			"text": "Kill a Dalek",
+			"color": "gray"
+		},
+		"title": {
+			"text": "The Oncoming Storm",
+			"bold": true,
+			"italic": true,
+			"color": "gold"
+		},
+		"icon": {
+			"item": "thedalekmod:dalek_weapon",
+			"data": 0
+		}
+	},
+	"criteria": {
+		"killed_dalek": {
+			"trigger": "minecraft:player_killed_entity",
+			"conditions": {
+				"entity": {
+					"type": "thedalekmod:dalek"
+				}
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["thedalekmod:food/pepsi"]
+	},
+	"requirements": [
+		["killed_dalek"]
+	],
+	"parent": "thedalekmod:thedalekmod"
+}

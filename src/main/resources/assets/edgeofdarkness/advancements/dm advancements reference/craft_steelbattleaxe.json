@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Craft a steel Battleaxe",
+      "color": "gray"
+    },
+	"title": {
+		"text":"Cyber Viking",
+		"italic": false,
+		"color":"blue"
+		},
+    "icon": {
+      "item": "thedalekmod:steelbattleaxe"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "craft_steelbattleaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "thedalekmod:steelbattleaxe"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "requirements": [
+    [
+      "craft_steelbattleaxe"
+    ]
+  ],
+	"parent": "thedalekmod:craft_steelblock"
+}

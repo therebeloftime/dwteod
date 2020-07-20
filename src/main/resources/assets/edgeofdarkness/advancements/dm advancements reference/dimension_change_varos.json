@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "thedalekmod:varos_sand"
+        },
+        "title": {
+            "translate": "Varos"
+        },
+        "description": {
+            "translate": "Land on Varos!"
+        }
+    },
+    "parent": "thedalekmod:craft_tardis",
+    "criteria": {
+        "enter_tardis": {
+            "trigger": "minecraft:changed_dimension",
+            "conditions": {
+                "to": "VAROS"
+            }
+        }
+    }
+}

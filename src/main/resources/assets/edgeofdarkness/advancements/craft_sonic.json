@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item" : "edgeofdarkness:sonic_screwdriver"
+        },
+        "title": {
+            "translate" : "advancements.edgeofdarkness.craft_sonic.title"
+        },
+        "description" : {
+            "translate" : "advancements.edgeofdarkness.craft_sonic.description"
+        }
+    },
+		"parent" : "edgeofdarkness:main",
+		"criteria" : {
+			"craft_sonic" : {
+				"trigger" : "minecraft:inventory_changed",
+					"conditions" : {
+						"items" : [
+							{
+								"item" : "edgeofdarkness:sonic_screwdriver"
+							}
+						]
+					}
+				}
+			}
+        }
+    }

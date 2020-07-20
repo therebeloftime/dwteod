@@ -1,0 +1,39 @@
+{
+  "display": {
+    "description": {
+      "text": "Make a sonic!",
+      "color": "gray"
+    },
+	"title": {
+		"text":"Iron doors beware!",
+		"italic": true,
+		"color":"green"
+		},
+    "icon": {
+      "item": "thedalekmod:sonicScrewdriver"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "craft_screwdriver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "thedalekmod:sonicScrewdriver"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10,
+    "recipes": ["thedalekmod:armor/clothes/3dglasses"]
+  },
+  "requirements": [
+    [
+      "craft_screwdriver"
+    ]
+  ],
+	"parent": "thedalekmod:thedalekmod"
+}

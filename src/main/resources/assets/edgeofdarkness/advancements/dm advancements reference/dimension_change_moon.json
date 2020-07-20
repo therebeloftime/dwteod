@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "thedalekmod:us_flag"
+        },
+        "title": {
+            "translate": "That's one small step for man!"
+        },
+        "description": {
+            "translate": "Land on the moon!"
+        }
+    },
+    "parent": "thedalekmod:craft_tardis",
+    "criteria": {
+        "enter_tardis": {
+            "trigger": "minecraft:changed_dimension",
+            "conditions": {
+                "to": "MOON"
+            }
+        }
+    }
+}

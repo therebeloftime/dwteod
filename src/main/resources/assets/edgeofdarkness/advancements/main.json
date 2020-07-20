@@ -1,0 +1,29 @@
+{
+	"display" : {
+		"icon" : {
+			"item" : "edgeofdarkness:tardis_key"
+		},
+		"title" : {
+			"translate" : "advancements.edgeofdarkness.main.title"
+		},
+		"description" : {
+			"translate" : "advancements.edgeofdarkness.main.description"
+		},
+		"background": "edgeofdarkness:textures/gui/advancements/backgrounds/roundels.png",
+		"show_toast": true,
+		"announce_to_chat": true
+	},
+		"criteria" : {
+			"craft_key" : {
+				"trigger" : "minecraft:inventory_changed",
+				"conditions" : {
+					"items" : [
+						{
+							"item" : "edgeofdarkness:tardis_key"
+						}
+					]
+				}
+			}
+		}
+	}
+		
