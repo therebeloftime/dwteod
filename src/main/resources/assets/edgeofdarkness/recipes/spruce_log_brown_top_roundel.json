@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "edgeofdarkness:spruce_log_brown_half_roundel"
+    },
+    "B": {
+      "item": "minecraft:log",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "edgeofdarkness:spruce_log_brown_top_roundel",
+    "count": 6
+  }
+}

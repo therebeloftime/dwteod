@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "edgeofdarkness:oak_planks_purple_half_roundel"
+    }
+  ],
+  "result": {
+    "item": "edgeofdarkness:oak_planks_purple_full_roundel",
+    "count": 1
+  }
+}

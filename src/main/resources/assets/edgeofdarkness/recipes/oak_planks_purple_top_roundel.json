@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "edgeofdarkness:oak_planks_purple_half_roundel"
+    },
+    "B": {
+      "item": "minecraft:planks",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "edgeofdarkness:oak_planks_purple_top_roundel",
+    "count": 6
+  }
+}

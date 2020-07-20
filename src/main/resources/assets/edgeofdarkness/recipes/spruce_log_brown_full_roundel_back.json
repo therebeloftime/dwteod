@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "edgeofdarkness:spruce_log_brown_half_roundel"
+    }
+  ],
+  "result": {
+    "item": "edgeofdarkness:spruce_log_brown_full_roundel",
+    "count": 1
+  }
+}

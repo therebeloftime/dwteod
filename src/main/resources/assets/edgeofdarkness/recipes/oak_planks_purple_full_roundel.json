@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "GRG",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:planks",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:stained_glass_pane",
+      "data": 10
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "edgeofdarkness:oak_planks_purple_full_roundel",
+    "count": 6
+  }
+}
