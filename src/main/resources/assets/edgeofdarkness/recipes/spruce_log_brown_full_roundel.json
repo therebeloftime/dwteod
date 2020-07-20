@@ -7,8 +7,8 @@
   ],
   "key": {
     "B": {
-      "item": "minecraft:spruce_log",
-      "data": 0
+      "item": "minecraft:log",
+      "data": 1
     },
     "G": {
       "item": "minecraft:stained_glass_pane",
