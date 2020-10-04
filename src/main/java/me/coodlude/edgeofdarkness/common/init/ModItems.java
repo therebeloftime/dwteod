@@ -56,6 +56,7 @@ public class ModItems {
     public static Item record_sja;
     public static Item record_megalovania;
     public static Item record_megalovania_jazz;
+    public static Item record_pigstep;
 
     public static void init() {
         tardis_key = registerItem(new ItemTardisKey(), "tardis_key").setCreativeTab(ModTabs.edgeofdarkness);
@@ -87,6 +88,7 @@ public class ModItems {
         record_sja = registerItem(new ItemEODRecord("record_sja",ModSounds.SJA),"record_sja").setCreativeTab(CreativeTabs.MISC);
         record_megalovania = registerItem(new ItemEODRecord("record_megalovania",ModSounds.MEGALOVANIA),"record_megalovania").setCreativeTab(CreativeTabs.MISC);
         record_megalovania_jazz = registerItem(new ItemEODRecord("record_megalovania_jazz",ModSounds.MEGALOVANIA_JAZZ),"record_megalovania_jazz").setCreativeTab(CreativeTabs.MISC);
+        record_pigstep = registerItem(new ItemEODRecord("record_pigstep",ModSounds.PIGSTEP),"record_pigstep").setCreativeTab(CreativeTabs.MISC);
     }
 
     public static Item registerItem(Item item, String name) {

@@ -33,6 +33,7 @@ item.record_a_good_man.name=Music Disc
 item.record_sja.name=Music Disc
 item.record_megalovania.name=Music Disc
 item.record_megalovania_jazz.name=Music Disc
+item.record_pigstep.name=Music Disc
 //Record Descriptions
 item.record.record_maintheme.desc=TGD - The 16th Doctor's Intro
 item.record.record_secondarytheme.desc=TGD - The 15th Doctor's Intro
@@ -41,6 +42,7 @@ item.record.record_a_good_man.desc=TGD - A Good Man
 item.record.record_sja.desc=TGD - The Sarah Jane Adventures Theme
 item.record.record_megalovania.desc=TGD - Megalovania
 item.record.record_megalovania_jazz.desc=TGD - Megalovania Jazz
+item.record.record_pigstep.desc=Lena Raine - Pigstep
 
 //Blocks
 tile.tardis.name=The TARDIS
@@ -62,7 +64,6 @@ tile.spruce_log_brown_core_roundel.name=Core Roundel
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
 itemGroup.edgeofdarkness_roundels=DWTEOD Roundels
-itemGroup.edgeofdarkness_music=DWTEOD Music Records
 
 //Messages
 msg.tardis.locked=The TARDIS is locked

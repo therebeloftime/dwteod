@@ -55,6 +55,14 @@
     }
     ]
   },
+  "pigstep": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:pigstep",
+      "stream": true
+    }
+    ]
+  },
   "basiclanding": {
     "category": "master",
     "subtitle": "edgeofdarkness.basicremat",

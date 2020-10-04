@@ -1,5 +1,4 @@
 package me.coodlude.edgeofdarkness.client.models;
-
 // Made with Blockbench
 // Paste this code into your mod.
 // Make sure to generate all required imports
@@ -20,7 +19,7 @@ public class ModelTardisMain extends ModelTardisBase {
 	private final ModelRenderer Lamp;
 	private final ModelRenderer LeftDoor;
 	private final ModelRenderer RightDoor;
-	public ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/main_tardis.png");
+	private ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/main_tardis.png");
 
 	public ModelTardisMain() {
 		textureWidth = 256;
@@ -100,7 +99,7 @@ public class ModelTardisMain extends ModelTardisBase {
 		Lamp = new ModelRenderer(this);
 		Lamp.setRotationPoint(0.0F, -6.0F, 0.0F);
 		Lamp.cubeList.add(new ModelBox(Lamp, 8, 0, -1.5F, -3.0F, -1.0F, 3, 3, 2, 0.0F, false));
-		Lamp.cubeList.add(new ModelBox(Lamp, 19, 0, -1.0F, -3.0F, -1.5F, 2, 3, 3, 0.0F, false));
+		Lamp.cubeList.add(new ModelBox(Lamp, 18, 0, -1.0F, -3.0F, -1.5F, 2, 3, 3, 0.0F, false));
 		Lamp.cubeList.add(new ModelBox(Lamp, 0, 4, -1.0F, -3.5F, -1.0F, 2, 1, 2, 0.0F, false));
 
 		LeftDoor = new ModelRenderer(this);
@@ -137,14 +136,14 @@ public class ModelTardisMain extends ModelTardisBase {
 		RightDoor.cubeList.add(new ModelBox(RightDoor, 0, 16, -9.0F, -23.5F, -3.0F, 1, 1, 1, 0.0F, false));
 	}
 
-	    @Override
+	@Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.rotate(180, 1, 0, 0);
         GlStateManager.pushMatrix();
         GlStateManager.translate(0, -2.3F, 0);
         GlStateManager.scale(0.65, 0.65, 0.65);
 
-        Minecraft.getMinecraft().renderEngine.bindTexture(location);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(location);
         TARDIS.render(f5);
         Lamp.render(f5);
 
@@ -159,7 +158,7 @@ public class ModelTardisMain extends ModelTardisBase {
         GlStateManager.translate(0, -2.3F, 0);
         GlStateManager.scale(0.65, 0.65, 0.65);
 
-        Minecraft.getMinecraft().renderEngine.bindTexture(location);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(location);
         TARDIS.render(0.0625f);
         Lamp.render(0.0625f);
 
