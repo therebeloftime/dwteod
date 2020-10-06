@@ -16,9 +16,9 @@ public class ModelTardisTrashCan extends ModelTardisBase {
     private final ModelRenderer lid;
     private ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/trash_can.png");
 
-    public ModelTardisTrashCan() {
-        textureWidth = 16;
-        textureHeight = 16;
+	public ModelTardisTrashCan() {
+		textureWidth = 64;
+		textureHeight = 64;
 
         TrashCan = new ModelRenderer(this);
         TrashCan.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -38,7 +38,7 @@ public class ModelTardisTrashCan extends ModelTardisBase {
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.pushMatrix();
         Minecraft.getMinecraft().getTextureManager().bindTexture(location);
-        GlStateManager.translate(0,0.80,0);
+        GlStateManager.translate(0,0,0);
         GlStateManager.scale(1.2,1.2,1.2);
         GlStateManager.rotate(180, 1,0,0);
         can.render(f5);
