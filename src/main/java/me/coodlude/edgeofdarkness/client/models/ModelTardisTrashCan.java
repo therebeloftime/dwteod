@@ -31,7 +31,7 @@ public class ModelTardisTrashCan extends ModelTardisBase {
         lid = new ModelRenderer(this);
         lid.setRotationPoint(0.0F, -4.0F, 5.0F);
         TrashCan.addChild(lid);
-        lid.cubeList.add(new ModelBox(lid, 0, 11, -5.75F, -0.25F, -10.5F, 11, 1, 11, 0.0F, false));
+        lid.cubeList.add(new ModelBox(lid, 0, 23, -5.75F, -0.25F, -10.5F, 11, 1, 11, 0.0F, false));
     }
 
     @Override
