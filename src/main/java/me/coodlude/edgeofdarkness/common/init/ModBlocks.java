@@ -27,6 +27,8 @@ public class ModBlocks {
     public static Block tardis_handbrake = registerBlock(new BlockDematLever(TileEntityDematLever::new), "tardis_handbrake").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_circuit_selector = registerBlock(new BlockCircuitSelector(TileEntityCircuitSelector::new), "tardis_circuit_selector").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_flight_panel = registerBlock(new BlockFlightPanel(TileEntityFlightPanel::new), "tardis_flight_panel").setCreativeTab(ModTabs.edgeofdarkness);
+    //public static Block oak_planks_purple_full_roundel_on = registerBlock(new OakPlanksFullRoundel(true), "oak_planks_purple_full_roundel_on");
+    //public static Block oak_planks_purple_full_roundel_off = registerBlock(new OakPlanksFullRoundel(false), "oak_planks_purple_full_roundel_off").setCreativeTab(ModTabs.edgeofroundels);
     public static Block oak_planks_purple_full_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_full_roundel").setCreativeTab(ModTabs.edgeofroundels);
     public static Block oak_planks_purple_half_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_half_roundel").setCreativeTab(ModTabs.edgeofroundels);
     public static Block oak_planks_purple_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "oak_planks_purple_base_roundel").setCreativeTab(ModTabs.edgeofroundels);

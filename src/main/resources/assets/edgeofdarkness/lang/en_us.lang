@@ -26,18 +26,20 @@ item.tardis_monitor.name=TARDIS Monitor
 item.tardis_handbrake.name=TARDIS Handbrake
 tile.tardis_circuit_selector.name=TARDIS Circuit Selector
 //Records
-item.record_maintheme.name=Music Disc
-item.record_secondarytheme.name=Music Disc
-item.record_tertiarytheme.name=Music Disc
+item.record_sixteenth_theme.name=Music Disc
+item.record_fifteenth_theme.name=Music Disc
+item.record_fourteenth_theme.name=Music Disc
+item.record_edgeofdarkness_theme.name=Music Disc
 item.record_a_good_man.name=Music Disc
 item.record_sja.name=Music Disc
 item.record_megalovania.name=Music Disc
 item.record_megalovania_jazz.name=Music Disc
 item.record_pigstep.name=Music Disc
 //Record Descriptions
-item.record.record_maintheme.desc=TGD - The 16th Doctor's Intro
-item.record.record_secondarytheme.desc=TGD - The 15th Doctor's Intro
-item.record.record_tertiarytheme.desc=TGD - The 14th Doctor's Intro
+item.record.record_sixteenth_theme.desc=TGD - The 16th Doctor's Theme
+item.record.record_fifteenth_theme.desc=TGD - The 15th Doctor's Theme
+item.record.record_fourteenth_theme.desc=TGD - The 14th Doctor's Theme
+item.record.record_edgeofdarkness_theme.desc=TGD - Edge Of Darkness Theme
 item.record.record_a_good_man.desc=TGD - A Good Man
 item.record.record_sja.desc=TGD - The Sarah Jane Adventures Theme
 item.record.record_megalovania.desc=TGD - Megalovania

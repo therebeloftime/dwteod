@@ -49,9 +49,10 @@ public class ModItems {
     public static Item tardis_spawner;
 
     //Records
-    public static Item record_maintheme;
-    public static Item record_secondarytheme;
-    public static Item record_tertiarytheme;
+    public static Item record_sixteenth_theme;
+    public static Item record_fifteenth_theme;
+    public static Item record_fourteenth_theme;
+    public static Item record_edgeofdarkness_theme;
     public static Item record_a_good_man;
     public static Item record_sja;
     public static Item record_megalovania;
@@ -81,9 +82,10 @@ public class ModItems {
         redstone_hoe = registerItem(new ItemHoe(Item.ToolMaterial.IRON), "redstone_hoe").setCreativeTab(ModTabs.edgeofdarkness);
         doomsday_weapon = registerItem(new ItemDoomsday(),"doomsday_weapon").setCreativeTab(ModTabs.edgeofdarkness);
         tardis_spawner = registerItem(new ItemTardisSpawner(), "tardis_spawner").setCreativeTab(ModTabs.edgeofdarkness);
-        record_maintheme = registerItem(new ItemEODRecord("record_maintheme",ModSounds.MAINTHEME),"record_maintheme").setCreativeTab(CreativeTabs.MISC);
-        record_secondarytheme = registerItem(new ItemEODRecord("record_secondarytheme",ModSounds.SECONDARYTHEME),"record_secondarytheme").setCreativeTab(CreativeTabs.MISC);
-        record_tertiarytheme = registerItem(new ItemEODRecord("record_tertiarytheme",ModSounds.TERTIARYTHEME),"record_tertiarytheme").setCreativeTab(CreativeTabs.MISC);
+        record_sixteenth_theme = registerItem(new ItemEODRecord("record_sixteenth_theme",ModSounds.SIXTEENTH_THEME),"record_sixteenth_theme").setCreativeTab(CreativeTabs.MISC);
+        record_fifteenth_theme = registerItem(new ItemEODRecord("record_fifteenth_theme",ModSounds.FIFTEENTH_THEME),"record_fifteenth_theme").setCreativeTab(CreativeTabs.MISC);
+        record_fourteenth_theme = registerItem(new ItemEODRecord("record_fourteenth_theme",ModSounds.FOURTEENTH_THEME),"record_fourteenth_theme").setCreativeTab(CreativeTabs.MISC);
+        record_edgeofdarkness_theme = registerItem(new ItemEODRecord("record_edgeofdarkness_theme",ModSounds.EDGEOFDARKNESS_THEME),"record_edgeofdarkness_theme").setCreativeTab(CreativeTabs.MISC);
         record_a_good_man = registerItem(new ItemEODRecord("record_a_good_man",ModSounds.A_GOOD_MAN),"record_a_good_man").setCreativeTab(CreativeTabs.MISC);
         record_sja = registerItem(new ItemEODRecord("record_sja",ModSounds.SJA),"record_sja").setCreativeTab(CreativeTabs.MISC);
         record_megalovania = registerItem(new ItemEODRecord("record_megalovania",ModSounds.MEGALOVANIA),"record_megalovania").setCreativeTab(CreativeTabs.MISC);

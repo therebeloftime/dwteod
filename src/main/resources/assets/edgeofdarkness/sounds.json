@@ -15,26 +15,34 @@
     }
     ]
   },
-  "maintheme": {
+  "sixteenth_theme": {
     "category" : "record",
     "sounds": [{
-      "name": "edgeofdarkness:maintheme",
+      "name": "edgeofdarkness:sixteenth_theme",
       "stream": true
     }
     ]
   },
-  "secondarytheme": {
+  "fifteenth_theme": {
     "category" : "record",
     "sounds": [{
-      "name": "edgeofdarkness:secondarytheme",
+      "name": "edgeofdarkness:fifteenth_theme",
       "stream": true
     }
     ]
   },
-  "tertiarytheme": {
+  "fourteenth_theme": {
     "category" : "record",
     "sounds": [{
-      "name": "edgeofdarkness:tertiarytheme",
+      "name": "edgeofdarkness:fourteenth_theme",
+      "stream": true
+    }
+    ]
+  },
+  "edgeofdarkness_theme": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:edgeofdarkness_theme",
       "stream": true
     }
     ]
