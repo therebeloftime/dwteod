@@ -62,7 +62,7 @@ public class ModelTardisMain extends ModelTardisBase {
         GlStateManager.rotate(180, 1, 0, 0);
         GlStateManager.pushMatrix();
         GlStateManager.translate(0, 0, 0);
-        GlStateManager.scale(1, 1, 1);
+		GlStateManager.scale(0.65, 0.65, 0.65);
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(location);
 		MainBox.render(f5);
@@ -76,7 +76,7 @@ public class ModelTardisMain extends ModelTardisBase {
         GlStateManager.rotate(180, 1, 0, 0);
         GlStateManager.pushMatrix();
         GlStateManager.translate(0, 0, 0);
-        GlStateManager.scale(1, 1, 1);
+        GlStateManager.scale(0.65, 0.65, 0.65);
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(location);
 		MainBox.render(0.0625f);
