@@ -47,6 +47,14 @@
     }
     ]
   },
+  "sixteenth_parallel_theme": {
+    "category" : "record",
+    "sounds": [{
+      "name": "edgeofdarkness:sixteenth_parallel_theme",
+      "stream": true
+    }
+    ]
+  },
   "megalovania": {
     "category" : "record",
     "sounds": [{

@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModSounds {
 
-    public static SoundEvent SHORT_REMAT, DEMAT, FLY, CLOISTER, DENIED_TAKEOFF, SIXTEENTH_THEME, FIFTEENTH_THEME, FOURTEENTH_THEME, EDGEOFDARKNESS_THEME, A_GOOD_MAN, SJA, MEGALOVANIA, MEGALOVANIA_JAZZ, PIGSTEP;
+    public static SoundEvent SHORT_REMAT, DEMAT, FLY, CLOISTER, DENIED_TAKEOFF, SIXTEENTH_THEME, FIFTEENTH_THEME, FOURTEENTH_THEME, EDGEOFDARKNESS_THEME, SIXTEENTH_PARALLEL_THEME, A_GOOD_MAN, SJA, MEGALOVANIA, MEGALOVANIA_JAZZ, PIGSTEP;
 
     public static void registerSounds() {
         SHORT_REMAT = registerSound("basiclanding");
@@ -27,6 +27,7 @@ public class ModSounds {
         FIFTEENTH_THEME = registerSound("fifteenth_theme");
         FOURTEENTH_THEME = registerSound("fourteenth_theme");
         EDGEOFDARKNESS_THEME = registerSound("edgeofdarkness_theme");
+        SIXTEENTH_PARALLEL_THEME = registerSound("sixteenth_parallel_theme");
         A_GOOD_MAN = registerSound("a_good_man");
         SJA = registerSound("sja");
         MEGALOVANIA = registerSound("megalovania");

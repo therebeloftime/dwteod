@@ -52,6 +52,7 @@ public class ModItems {
     public static Item record_sixteenth_theme;
     public static Item record_fifteenth_theme;
     public static Item record_fourteenth_theme;
+    public static Item record_sixteenth_parallel_theme;
     public static Item record_edgeofdarkness_theme;
     public static Item record_a_good_man;
     public static Item record_sja;
@@ -86,6 +87,7 @@ public class ModItems {
         record_fifteenth_theme = registerItem(new ItemEODRecord("record_fifteenth_theme",ModSounds.FIFTEENTH_THEME),"record_fifteenth_theme").setCreativeTab(CreativeTabs.MISC);
         record_fourteenth_theme = registerItem(new ItemEODRecord("record_fourteenth_theme",ModSounds.FOURTEENTH_THEME),"record_fourteenth_theme").setCreativeTab(CreativeTabs.MISC);
         record_edgeofdarkness_theme = registerItem(new ItemEODRecord("record_edgeofdarkness_theme",ModSounds.EDGEOFDARKNESS_THEME),"record_edgeofdarkness_theme").setCreativeTab(CreativeTabs.MISC);
+        record_sixteenth_parallel_theme = registerItem(new ItemEODRecord("record_sixteenth_parallel_theme",ModSounds.SIXTEENTH_PARALLEL_THEME),"record_sixteenth_parallel_theme").setCreativeTab(CreativeTabs.MISC);
         record_a_good_man = registerItem(new ItemEODRecord("record_a_good_man",ModSounds.A_GOOD_MAN),"record_a_good_man").setCreativeTab(CreativeTabs.MISC);
         record_sja = registerItem(new ItemEODRecord("record_sja",ModSounds.SJA),"record_sja").setCreativeTab(CreativeTabs.MISC);
         record_megalovania = registerItem(new ItemEODRecord("record_megalovania",ModSounds.MEGALOVANIA),"record_megalovania").setCreativeTab(CreativeTabs.MISC);
