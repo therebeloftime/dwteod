@@ -51,6 +51,7 @@ public class ModelDoor extends ModelBase {
 
 		LeftDoor.render(f5);
 		RightDoor.render(f5);
+		GlStateManager.popMatrix();
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
