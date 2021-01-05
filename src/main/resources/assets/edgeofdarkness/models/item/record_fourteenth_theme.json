@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "edgeofdarkness:items/record_fourteenth_theme"
+    }
+}
