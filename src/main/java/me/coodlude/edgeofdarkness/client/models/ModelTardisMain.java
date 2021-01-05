@@ -25,7 +25,7 @@ public class ModelTardisMain extends ModelTardisBase {
 		textureHeight = 256;
 
 		MainBox = new ModelRenderer(this);
-		MainBox.setRotationPoint(0.0F, 56.0F, 0.0F);
+		MainBox.setRotationPoint(0.0F, 0.0F, 0.0F);
 		MainBox.cubeList.add(new ModelBox(MainBox, 0, 0, -14.0F, -2.0F, -14.0F, 28, 2, 28, 0.0F, false));
 		MainBox.cubeList.add(new ModelBox(MainBox, 0, 30, -13.0F, -57.0F, 10.0F, 3, 55, 3, 0.0F, false));
 		MainBox.cubeList.add(new ModelBox(MainBox, 12, 30, 10.0F, -57.0F, 10.0F, 3, 55, 3, 0.0F, false));
@@ -47,12 +47,12 @@ public class ModelTardisMain extends ModelTardisBase {
 		MainBox.cubeList.add(new ModelBox(MainBox, 0, 6, -1.0F, -65.0F, -1.0F, 2, 3, 2, 0.0F, false));
 
 		LeftDoor = new ModelRenderer(this);
-		LeftDoor.setRotationPoint(-10.0F, 54.0F, -10.0F);
+		LeftDoor.setRotationPoint(-10.0F, -2.0F, -10.0F);
 		LeftDoor.cubeList.add(new ModelBox(LeftDoor, 0, 161, 0.0F, -49.0F, -1.0F, 10, 49, 1, 0.0F, false));
 		LeftDoor.cubeList.add(new ModelBox(LeftDoor, 0, 0, 1.0F, -32.0F, -2.0F, 1, 3, 1, 0.0F, false));
 
 		RightDoor = new ModelRenderer(this);
-		RightDoor.setRotationPoint(10.5F, 54.0F, -10.5F);
+		RightDoor.setRotationPoint(10.5F, -2.0F, -10.5F);
 		RightDoor.cubeList.add(new ModelBox(RightDoor, 22, 161, -10.5F, -49.0F, -0.5F, 10, 49, 1, 0.0F, false));
 		RightDoor.cubeList.add(new ModelBox(RightDoor, 0, 22, -9.5F, -27.0F, -1.5F, 1, 5, 1, 0.0F, false));
 	}
@@ -61,8 +61,8 @@ public class ModelTardisMain extends ModelTardisBase {
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.rotate(180, 1, 0, 0);
         GlStateManager.pushMatrix();
-        GlStateManager.translate(0, -2.3F, 0);
-        GlStateManager.scale(0.65, 0.65, 0.65);
+        GlStateManager.translate(0, 0, 0);
+        GlStateManager.scale(1, 1, 1);
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(location);
 		MainBox.render(f5);
@@ -75,8 +75,8 @@ public class ModelTardisMain extends ModelTardisBase {
     public void render(float doorRotation) {
         GlStateManager.rotate(180, 1, 0, 0);
         GlStateManager.pushMatrix();
-        GlStateManager.translate(0, -2.3F, 0);
-        GlStateManager.scale(0.65, 0.65, 0.65);
+        GlStateManager.translate(0, 0, 0);
+        GlStateManager.scale(1, 1, 1);
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(location);
 		MainBox.render(0.0625f);
