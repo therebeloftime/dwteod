@@ -14,7 +14,7 @@ public class ModKeybinds {
     public static KeyBinding snap;
 
     public static void init() {
-        snap = new KeyBinding("Snap your fingers to open tardis!", Keyboard.KEY_B, EdgeOfDarkness.NAME);
+        snap = new KeyBinding("Snap your fingers to open your TARDIS!", Keyboard.KEY_B, EdgeOfDarkness.NAME);
         ClientRegistry.registerKeyBinding(snap);
     }
 }

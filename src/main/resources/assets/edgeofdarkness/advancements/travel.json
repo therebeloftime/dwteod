@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item" : "minecraft:clock"
+    },
+    "title": {
+      "translate" : "advancements.edgeofdarkness.travel.title"
+    },
+    "description" : {
+      "translate" : "advancements.edgeofdarkness.travel.description"
+    },
+    "frame" : "challenge"
+  },
+  "parent" : "edgeofdarkness:main",
+  "criteria" : {
+    "craft_tardis" : {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "from": "tardis",
+        "to": "the_nether"
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20
+  }
+}

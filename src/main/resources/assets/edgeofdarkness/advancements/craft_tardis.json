@@ -14,15 +14,14 @@
     "parent" : "edgeofdarkness:main",
 		"criteria" : {
 			"craft_tardis" : {
-				"trigger" : "minecraft:inventory_changed",
-					"conditions" : {
-						"items" : [
-							{
-								"item" : "edgeofdarkness:tardis_spawner"
-							}
-						]
-					}
-				}
-			}
-        }
-    }
+              "trigger": "minecraft:changed_dimension",
+              "conditions": {
+                "from": "overworld",
+                "to": "tardis"
+              }
+            }
+        },
+  "rewards": {
+    "experience": 20
+  }
+}

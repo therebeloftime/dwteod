@@ -9,6 +9,7 @@
 		"description" : {
 			"translate" : "advancements.edgeofdarkness.main.description"
 		},
+		"frame" : "challenge",
 		"background": "edgeofdarkness:textures/gui/advancements/backgrounds/roundels.png",
 		"show_toast": true,
 		"announce_to_chat": true
@@ -26,4 +27,3 @@
 			}
 		}
 	}
-		
