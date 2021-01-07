@@ -9,11 +9,9 @@
 		"description" : {
 			"translate" : "advancements.edgeofdarkness.craft_key_mcgann.description"
 		},
-		"frame" : "challenge",
-		"background": "edgeofdarkness:textures/gui/advancements/backgrounds/roundels.png",
-		"show_toast": true,
-		"announce_to_chat": true
+		"frame": "challenge"
 	},
+	"parent" : "edgeofdarkness:foreman",
 		"criteria" : {
 			"craft_key_mcgann" : {
 				"trigger" : "minecraft:inventory_changed",
