@@ -13,7 +13,7 @@
   },
   "parent" : "edgeofdarkness:craft_key_mcgann",
   "criteria" : {
-    "craft_sonic" : {
+    "craft_sonicscrewdriver_eod" : {
       "trigger" : "minecraft:inventory_changed",
       "conditions" : {
         "items" : [

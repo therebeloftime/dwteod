@@ -13,7 +13,7 @@
     },
     "parent" : "edgeofdarkness:craft_key_mcgann",
 		"criteria" : {
-			"craft_tardis" : {
+			"enter_tardis" : {
               "trigger": "minecraft:changed_dimension",
               "conditions": {
                 "from": "overworld",

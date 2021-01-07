@@ -15,7 +15,7 @@
 		"announce_to_chat": true
 	},
 		"criteria" : {
-			"craft_key" : {
+			"craft_key_mcgann" : {
 				"trigger" : "minecraft:inventory_changed",
 				"conditions" : {
 					"items" : [
