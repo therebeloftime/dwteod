@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item" : "minecraft:clock"
+    },
+    "title": {
+      "translate" : "advancements.edgeofdarkness.tardis_circuit_selector.title"
+    },
+    "description" : {
+      "translate" : "advancements.edgeofdarkness.tardis_circuit_selector.description"
+  },
+  "parent" : "edgeofdarkness:main",
+    "criteria" : {
+      "craft_key" : {
+        "trigger" : "minecraft:inventory_changed",
+        "conditions" : {
+          "items" : [
+            {
+              "item" : "edgeofdarkness:tardis_circuit_selector"
+            }
+          ]
+        }
+      }
+    }
+  }}
