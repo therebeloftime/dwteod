@@ -22,13 +22,13 @@ tile.tardis_circuit_selector.name = TARDIS Selektor
 item.record.record_sixteenth_theme.desc = TGD - 16. Doktora tema
 item.record.record_fifteenth_theme.desc = TGD - 15. Doktora tema
 item.record.record_fourteenth_theme.desc = TGD - 14. Doktora tema
-item.record.record_edgeofdarkness_theme.desc = TGD - Tema Edge Of Darkness
+item.record.record_edgeofdarkness_theme.desc = TGD - Tema Rub Mraka
 item.record.record_sixteenth_parallel_theme.desc = Dalekium - Razbijanje matrice (16. Doktora paralelna tema)
 item.record.record_a_good_man.desc = TGD - Dobar čovjek
 item.record.record_sja.desc = TGD - Tema o avanturama Sarah Jane-a
 item.record.record_megalovania.desc = TGD - Megalovanija
 item.record.record_megalovania_jazz.desc = TGD - Megalovanija Jazz
-item.record.record_pigstep.desc = Lena Raine - Pigstep
+item.record.record_pigstep.desc = Lena Raine - Svinjastep
 
 //Blocks
 tile.tardis.name=TARDIS
@@ -36,20 +36,20 @@ tile.tardis_door.name=TARDIS Vrata
 tile.tardis_handbrake.name = TARDIS ručna kočnica
 tile.tardis_monitor.name = TARDIS monitor
 //Roundels
-tile.oak_planks_purple_full_roundel.name = Cijela okrugla
-tile.oak_planks_purple_half_roundel.name = Polovina okrugle
-tile.oak_planks_purple_base_roundel.name = Osnovna okrugla
-tile.oak_planks_purple_top_roundel.name = Gornja okrugla
-tile.oak_planks_purple_core_roundel.name = Jezgra okrugla
-tile.spruce_log_brown_full_roundel.name = Cijeli Roundel
-tile.spruce_log_brown_half_roundel.name = Polukrug
-tile.spruce_log_brown_base_roundel.name = Osnovna okrugla
-tile.spruce_log_brown_top_roundel.name = Gornja okrugla
-tile.spruce_log_brown_core_roundel.name = Jezgra okrugla
+tile.oak_planks_purple_full_roundel.name = Pun kružni zid
+tile.oak_planks_purple_half_roundel.name = Pola kružnog zida
+tile.oak_planks_purple_base_roundel.name = Osnovni kružni zid
+tile.oak_planks_purple_top_roundel.name = Gornji kružni zid
+tile.oak_planks_purple_core_roundel.name = Jezgra kružnog zida
+tile.spruce_log_brown_full_roundel.name = Pun kružni zid
+tile.spruce_log_brown_half_roundel.name = Pola kružnog zida
+tile.spruce_log_brown_base_roundel.name = Osnovni kružni zid
+tile.spruce_log_brown_top_roundel.name = Gornji kružni zid
+tile.spruce_log_brown_core_roundel.name = Jezgra kružnog zida
 
 //CreativeTab
-itemGroup.edgeofdarkness_items=Doktor Who: Rub Mraka
-itemGroup.edgeofdarkness_items=DWRM Krugovni Zidovi
+itemGroup.edgeofdarkness_items=DW:RM - Predmeti
+itemGroup.edgeofdarkness_roundels=DW:RM  - Krugovni Zidovi
 
 //Messages
 msg.tardis.locked=TARDIS je zaključan
@@ -61,13 +61,13 @@ msg.tardis.landing=Tvoj TARDIS je prestao!
 msg.tardis.snap=Kliknuo si prste!
 
 //Advancements
-advancements.edgeofdarkness.main.title = Što da ti kažem? TARDIS ključ.
-advancements.edgeofdarkness.craft_sonic.title = Ne lomi se i ulazi
+advancements.edgeofdarkness.craft_key_mcgann.title = Što da ti kažem? TARDIS ključ.
+advancements.edgeofdarkness.craft_sonicscrewdriver_eod.title = Ne lomi se i ulazi
 advancements.edgeofdarkness.enter_tardis.title = Svemir vas čeka
-advancements.edgeofdarkness.travel.title = Putovanje cijelog života
+advancements.edgeofdarkness.travel_nether.title = Putovanje cijelog života
 
 //Advancement Descriptions
-advancements.edgeofdarkness.main.description = Izradite TARDIS ključ i vaša potraga za vremenskim brodom započinje ovdje
-advancements.edgeofdarkness.craft_sonic.description = Izradite zvučni odvijač
+advancements.edgeofdarkness.craft_key_mcgann.description = Izradite TARDIS ključ i vaša potraga za vremenskim brodom započinje ovdje
+advancements.edgeofdarkness.craft_sonicscrewdriver_eod.description = Izradite zvučni odvijač
 advancements.edgeofdarkness.enter_tardis.description = Unesite vremenski brod
-advancements.edgeofdarkness.travel.description = Označite svoje prvo putovanje kroz prostor i vrijeme
+advancements.edgeofdarkness.travel_nether.description = Označite svoje prvo putovanje kroz prostor i vrijeme

@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item" : "edgeofdarkness:sonicscrewdriver_eod"
+    },
+    "title": {
+      "translate" : "advancements.edgeofdarkness.craft_sonicscrewdriver_eod.title"
+    },
+    "description" : {
+      "translate" : "advancements.edgeofdarkness.craft_sonicscrewdriver_eod.description"
+    },
+    "frame" : "challenge"
+  },
+  "parent" : "edgeofdarkness:craft_key_mcgann",
+  "criteria" : {
+    "craft_sonic" : {
+      "trigger" : "minecraft:inventory_changed",
+      "conditions" : {
+        "items" : [
+          {
+            "item" : "edgeofdarkness:sonicscrewdriver_eod"
+          }
+        ]
+      }
+    }
+  }
+}

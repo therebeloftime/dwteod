@@ -1,6 +1,6 @@
 // Items
-item.tardis_key.name=TARDIS Key
-item.sonic_screwdriver.name=Sonic Screwdriver
+item.key_mcgann.name=TARDIS Key
+item.sonicscrewdriver_eod.name=Sonic Screwdriver
 item.jammy_dodgers.name=Jammy Dodgers
 item.emerald_sword.name=Emerald Sword
 item.emerald_pickaxe.name=Emerald Pickaxe
@@ -66,8 +66,8 @@ tile.spruce_log_brown_top_roundel.name=Top Roundel
 tile.spruce_log_brown_core_roundel.name=Core Roundel
 
 //CreativeTab
-itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
-itemGroup.edgeofdarkness_roundels=DWTEOD Roundels
+itemGroup.edgeofdarkness_items=DW:TEOD - Items
+itemGroup.edgeofdarkness_roundels=DW:TEOD - Roundels
 
 //Messages
 msg.tardis.locked=The TARDIS is locked
@@ -79,13 +79,13 @@ msg.tardis.landing=Your TARDIS is landing!
 msg.tardis.snap=You have snapped your fingers!
 
 //Advancements
-advancements.edgeofdarkness.main.title=Tell you what? TARDIS Key.
-advancements.edgeofdarkness.craft_sonic.title=It's Not Breaking and Entering
+advancements.edgeofdarkness.craft_key_mcgann.title=Tell you what? TARDIS Key.
+advancements.edgeofdarkness.craft_sonicscrewdriver_eod.title=It's Not Breaking and Entering
 advancements.edgeofdarkness.enter_tardis.title=The Universe Awaits You
-advancements.edgeofdarkness.travel.title=A Trip Of A Lifetime
+advancements.edgeofdarkness.travel_nether.title=A Trip Of A Lifetime
 
 //Advancement Descriptions
-advancements.edgeofdarkness.main.description=Craft a TARDIS Key and your quest for the timeship starts here
-advancements.edgeofdarkness.craft_sonic.description=Craft a Sonic Screwdriver
+advancements.edgeofdarkness.craft_key_mcgann.description=Craft a TARDIS Key and your quest for the timeship starts here
+advancements.edgeofdarkness.craft_sonicscrewdriver_eod.description=Craft a Sonic Screwdriver
 advancements.edgeofdarkness.enter_tardis.description=Enter the timeship
-advancements.edgeofdarkness.travel.description=Mark your first trip through space and time
+advancements.edgeofdarkness.travel_nether.description=Mark your first trip through space and time

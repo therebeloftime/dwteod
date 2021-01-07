@@ -1,13 +1,13 @@
 {
 	"display" : {
 		"icon" : {
-			"item" : "edgeofdarkness:tardis_key"
+			"item" : "edgeofdarkness:key_mcgann"
 		},
 		"title" : {
-			"translate" : "advancements.edgeofdarkness.main.title"
+			"translate" : "advancements.edgeofdarkness.craft_key_mcgann.title"
 		},
 		"description" : {
-			"translate" : "advancements.edgeofdarkness.main.description"
+			"translate" : "advancements.edgeofdarkness.craft_key_mcgann.description"
 		},
 		"frame" : "challenge",
 		"background": "edgeofdarkness:textures/gui/advancements/backgrounds/roundels.png",
@@ -20,7 +20,7 @@
 				"conditions" : {
 					"items" : [
 						{
-							"item" : "edgeofdarkness:tardis_key"
+							"item" : "edgeofdarkness:key_mcgann"
 						}
 					]
 				}

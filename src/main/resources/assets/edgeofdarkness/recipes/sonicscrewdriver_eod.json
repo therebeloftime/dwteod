@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:iron_nugget"
+      "item": "minecraft:redstone"
     },
     {
       "item": "minecraft:iron_ingot"
     }
   ],
   "result": {
-    "item": "edgeofdarkness:tardis_key",
+    "item": "edgeofdarkness:sonicscrewdriver_eod",
     "count": 1
   }
 }

@@ -1,17 +1,17 @@
 {
   "display": {
     "icon": {
-      "item" : "minecraft:clock"
+      "item" : "edgeofdarkness:tardis_handbrake"
     },
     "title": {
-      "translate" : "advancements.edgeofdarkness.travel.title"
+      "translate" : "advancements.edgeofdarkness.travel_nether.title"
     },
     "description" : {
-      "translate" : "advancements.edgeofdarkness.travel.description"
+      "translate" : "advancements.edgeofdarkness.travel_nether.description"
     },
     "frame" : "challenge"
   },
-  "parent" : "edgeofdarkness:main",
+  "parent" : "edgeofdarkness:enter_tardis",
   "criteria" : {
     "craft_tardis" : {
       "trigger": "minecraft:changed_dimension",

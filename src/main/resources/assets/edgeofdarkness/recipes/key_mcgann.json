@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:redstone"
+      "item": "minecraft:iron_nugget"
     },
     {
       "item": "minecraft:iron_ingot"
     }
   ],
   "result": {
-    "item": "edgeofdarkness:sonic_screwdriver",
+    "item": "edgeofdarkness:key_mcgann",
     "count": 1
   }
 }
