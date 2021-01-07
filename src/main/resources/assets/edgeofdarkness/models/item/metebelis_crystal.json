@@ -1,54 +1,6 @@
 {
-	"credit": "Made with Blockbench",
-	"textures": {
-		"0": "edgeofdarkness:items/metebelis_crystal",
-		"1": "edgeofdarkness:items/metebelis_crystal",
-		"2": "edgeofdarkness:items/metebelis_crystal",
-		"3": "edgeofdarkness:items/metebelis_crystal",
-		"particle": "edgeofdarkness:items/metebelis_crystal"
-	},
-	"elements": [
-		{
-			"from": [5, 0, 4],
-			"to": [8, 3, 12],
-			"rotation": {"angle": 0, "axis": "y", "origin": [15, 8, 15]},
-			"faces": {
-				"north": {"uv": [0, 0, 3, 3], "texture": "#1"},
-				"east": {"uv": [3, 7, 12, 10], "texture": "#1"},
-				"south": {"uv": [0, 0, 3, 3], "texture": "#1"},
-				"west": {"uv": [3, 6, 11, 9], "texture": "#1"},
-				"up": {"uv": [3, 6, 12, 9], "texture": "#1"},
-				"down": {"uv": [3, 6, 12, 9], "texture": "#1"}
-			}
-		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, -89, 0],
-			"translation": [0, 5.75, 2.75]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [0, -89, 0],
-			"translation": [0, 8, 0]
-		},
-		"firstperson_righthand": {
-			"rotation": [-6, -91, -1],
-			"translation": [0, 8, 0]
-		},
-		"firstperson_lefthand": {
-			"rotation": [-6, -91, -1],
-			"translation": [0, 8, -1.75]
-		},
-		"ground": {
-			"translation": [0, 2.5, 0]
-		},
-		"gui": {
-			"rotation": [0, 28, 3],
-			"translation": [0, 7, 0]
-		},
-		"fixed": {
-			"rotation": [0, 89, 0],
-			"translation": [0, 6.75, -2.5]
-		}
-	}
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "edgeofdarkness:items/metebelis_crystal"
+  }
 }
