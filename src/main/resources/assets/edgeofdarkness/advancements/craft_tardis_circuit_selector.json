@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item" : "minecraft:tardis_circuit_selector"
+      "item" : "edgeofdarkness:tardis_circuit_selector"
     },
     "title": {
       "translate" : "advancements.edgeofdarkness.craft_tardis_circuit_selector.title"
