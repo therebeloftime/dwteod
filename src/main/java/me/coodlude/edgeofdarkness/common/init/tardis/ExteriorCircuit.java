@@ -13,6 +13,8 @@ public class ExteriorCircuit {
     public Vec3d offset;
     public float rotation_int;
 
+    public IFlightAnimation animation;
+
     public void renderExterior() {
         if (basemodel != null) {
             basemodel.render(null, 0, 0, 0, 0, 0, 0.0625f);

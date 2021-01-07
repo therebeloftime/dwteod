@@ -16,6 +16,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProviderSurface;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -57,11 +58,11 @@ public class TardisHandler {
 
     @SubscribeEvent
     public static void flightUpdate(TickEvent.ServerTickEvent event) {
+        World world = getTardisWorld();
         if (tardises.size() > 0) {
-
             for (Map.Entry<Integer, TardisInfo> infoEntry : tardises.entrySet()) {
                 TardisInfo info = infoEntry.getValue();
-                info.flightUpdate();
+                info.flightUpdate(world);
             }
         }
     }
@@ -264,7 +265,7 @@ public class TardisHandler {
     }
 
     public static int calculateTravelTime(TardisInfo info) {
-        int minimum = 25;
+        int minimum = 45;
         int bps = 2000;
 
         if (info != null) {
@@ -273,7 +274,7 @@ public class TardisHandler {
 
             f = (int) Math.abs(info.getExtereriorPos().getDistance(dest.getX(), dest.getY(), dest.getZ()) / bps);
 
-            return (minimum + f) * 20;
+            return (minimum + f);
         }
 
         return (minimum) * 20;

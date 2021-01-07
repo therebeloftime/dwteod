@@ -13,7 +13,7 @@
   },
   "parent" : "edgeofdarkness:enter_tardis",
   "criteria" : {
-    "craft_sonic" : {
+    "craft_tardis_circuit_selector" : {
       "trigger" : "minecraft:inventory_changed",
       "conditions" : {
         "items" : [

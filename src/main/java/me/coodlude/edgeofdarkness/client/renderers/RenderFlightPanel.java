@@ -39,14 +39,9 @@ public class RenderFlightPanel extends TileEntitySpecialRenderer<TileEntityFligh
 
             renderer.drawString("Tardis Destination: Z:" + info.getDestinationPos().getX() + " Y:" + info.getDestinationPos().getY() + " Z:" + info.getDestinationPos().getZ(), 0, 35, 0xFA00);
             renderer.drawString("Tardis Destination Dim: " + info.getDestinationDim(), 0, 45, 0xFA00);
-            renderer.drawString("Travel Time Left: " + info.travelTime / 20, 0, 65, 0xFA00);
+            renderer.drawString("Travel Time Left: " + info.travelTime, 0, 65, 0xFA00);
         }
 
         GlStateManager.popMatrix();
-    }
-
-    public int addi(int x) {
-        x = x + 10;
-        return x + 10;
     }
 }
