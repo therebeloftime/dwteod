@@ -85,6 +85,7 @@ advancements.edgeofdarkness.enter_tardis.title=The Universe Awaits You
 advancements.edgeofdarkness.travel_nether.title=A Trip Of A Lifetime
 advancements.edgeofdarkness.craft_tardis_circuit_selector.title=This is getting ridiculous!
 advancements.edgeofdarkness.foreman.title=DW: The Edge Of Darkness
+advancements.edgeofdarkness.metebelis_crystal.title=Metebelis Three, Doctor?
 
 //Advancement Descriptions
 advancements.edgeofdarkness.craft_key_mcgann.description=Craft a TARDIS Key and your quest for the timeship starts here
@@ -93,3 +94,4 @@ advancements.edgeofdarkness.enter_tardis.description=Enter the timeship
 advancements.edgeofdarkness.travel_nether.description=Mark your first trip through space and time
 advancements.edgeofdarkness.craft_tardis_circuit_selector.description=Craft a TARDIS Circuit Selector and you can change your chameleon circuit
 advancements.edgeofdarkness.foreman.description=I.M.F.O.R.E.M.A.N.
+advancements.edgeofdarkness.metebelis_crystal.description=Craft a Metebelis Crystal and witness the air of Metebelis Three like wine

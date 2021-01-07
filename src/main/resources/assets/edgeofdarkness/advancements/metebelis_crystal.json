@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item" : "edgeofdarkness:metebelis_crystal"
+    },
+    "title": {
+      "translate" : "advancements.edgeofdarkness.metebelis_crystal.title"
+    },
+    "description" : {
+      "translate" : "advancements.edgeofdarkness.metebelis_crystal.description"
+    },
+    "frame" : "task"
+  },
+  "parent" : "edgeofdarkness:craft_sonicscrewdriver_eod",
+  "criteria" : {
+    "metebelis_crystal" : {
+      "trigger" : "minecraft:inventory_changed",
+      "conditions" : {
+        "items" : [
+          {
+            "item" : "edgeofdarkness:metebelis_crystal"
+          }
+        ]
+      }
+    }
+  }
+}
