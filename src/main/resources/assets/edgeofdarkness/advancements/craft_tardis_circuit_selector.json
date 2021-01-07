@@ -11,7 +11,7 @@
   },
   "parent" : "edgeofdarkness:enter_tardis",
     "criteria" : {
-      "craft_key" : {
+      "craft_key_mcgann" : {
         "trigger" : "minecraft:inventory_changed",
         "conditions" : {
           "items" : [
