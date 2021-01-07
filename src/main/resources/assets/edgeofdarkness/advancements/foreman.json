@@ -1,0 +1,29 @@
+{
+  "display" : {
+    "icon" : {
+      "item" : "edgeofdarkness:tardis_spawner"
+    },
+    "title" : {
+      "translate" : "advancements.edgeofdarkness.foreman.title"
+    },
+    "description" : {
+      "translate" : "advancements.edgeofdarkness.foreman.description"
+    },
+    "frame": "task",
+    "background": "edgeofdarkness:textures/gui/advancements/backgrounds/roundels.png",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria" : {
+    "foreman" : {
+      "trigger" : "minecraft:enter_block",
+      "conditions" : {
+        "items" : [
+          {
+            "item" : "minecraft:grass_block"
+          }
+        ]
+      }
+    }
+  }
+}

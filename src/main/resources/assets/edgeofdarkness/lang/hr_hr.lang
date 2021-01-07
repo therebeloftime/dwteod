@@ -65,6 +65,7 @@ advancements.edgeofdarkness.craft_key_mcgann.title = Što da ti kažem? TARDIS k
 advancements.edgeofdarkness.craft_sonicscrewdriver_eod.title = Ne lomi se i ulazi
 advancements.edgeofdarkness.enter_tardis.title = Svemir vas čeka
 advancements.edgeofdarkness.craft_tardis_circuit_selector.title = Ovo postaje smiješno!
+advancements.edgeofdarkness.foreman.title=DW: The Edge Of Darkness
 
 //Advancement Descriptions
 advancements.edgeofdarkness.craft_key_mcgann.description = Izradite TARDIS ključ i vaša potraga za vremenskim brodom započinje ovdje
@@ -72,3 +73,4 @@ advancements.edgeofdarkness.craft_sonicscrewdriver_eod.description = Izradite zv
 advancements.edgeofdarkness.enter_tardis.description = Unesite vremenski brod
 advancements.edgeofdarkness.travel_nether.description = Označite svoje prvo putovanje kroz prostor i vrijeme
 advancements.edgeofdarkness.craft_tardis_circuit_selector.description = Izradite TARDIS odabir kruga i možete promijeniti svoj krug kameleona
+advancements.edgeofdarkness.foreman.description=I.M.F.O.R.E.M.A.N.

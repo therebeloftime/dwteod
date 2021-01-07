@@ -8,8 +8,7 @@
     },
     "description" : {
       "translate" : "advancements.edgeofdarkness.craft_tardis_circuit_selector.description"
-    },
-    "frame" : "challenge"
+    }
   },
   "parent" : "edgeofdarkness:enter_tardis",
   "criteria" : {
