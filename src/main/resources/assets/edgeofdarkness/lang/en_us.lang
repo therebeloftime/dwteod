@@ -79,14 +79,14 @@ msg.tardis.landing=Your TARDIS is landing!
 msg.tardis.snap=You have snapped your fingers!
 
 //Advancements
-advancements.edgeofdarkness.main.title=Tell you what? TARDIS Key.
+advancements.edgeofdarkness.craft_key_mcgann.title=Tell you what? TARDIS Key.
 advancements.edgeofdarkness.craft_sonicscrewdriver_eod.title=It's Not Breaking and Entering
 advancements.edgeofdarkness.enter_tardis.title=The Universe Awaits You
 advancements.edgeofdarkness.travel_nether.title=A Trip Of A Lifetime
 advancements.edgeofdarkness.craft_tardis_circuit_selector.title= This is getting ridiculous!
 
 //Advancement Descriptions
-advancements.edgeofdarkness.main.description=Craft a TARDIS Key and your quest for the timeship starts here
+advancements.edgeofdarkness.craft_key_mcgann.description=Craft a TARDIS Key and your quest for the timeship starts here
 advancements.edgeofdarkness.craft_sonicscrewdriver_eod.description=Craft a Sonic Screwdriver
 advancements.edgeofdarkness.enter_tardis.description=Enter the timeship
 advancements.edgeofdarkness.travel_nether.description=Mark your first trip through space and time
