@@ -64,10 +64,11 @@ msg.tardis.snap=Kliknuo si prste!
 advancements.edgeofdarkness.craft_key_mcgann.title = Što da ti kažem? TARDIS ključ.
 advancements.edgeofdarkness.craft_sonicscrewdriver_eod.title = Ne lomi se i ulazi
 advancements.edgeofdarkness.enter_tardis.title = Svemir vas čeka
-advancements.edgeofdarkness.travel_nether.title = Putovanje cijelog života
+advancements.edgeofdarkness.tardis_circuit_selector.title = Ovo postaje smiješno!
 
 //Advancement Descriptions
 advancements.edgeofdarkness.craft_key_mcgann.description = Izradite TARDIS ključ i vaša potraga za vremenskim brodom započinje ovdje
 advancements.edgeofdarkness.craft_sonicscrewdriver_eod.description = Izradite zvučni odvijač
 advancements.edgeofdarkness.enter_tardis.description = Unesite vremenski brod
 advancements.edgeofdarkness.travel_nether.description = Označite svoje prvo putovanje kroz prostor i vrijeme
+advancements.edgeofdarkness.tardis_circuit_selector.description = Izradite TARDIS odabir kruga i možete promijeniti svoj krug kameleona

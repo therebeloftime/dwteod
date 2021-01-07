@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item" : "edgeofdarkness:tardis_handbrake"
+      "item" : "minecraft:clock"
     },
     "title": {
       "translate" : "advancements.edgeofdarkness.travel_nether.title"
