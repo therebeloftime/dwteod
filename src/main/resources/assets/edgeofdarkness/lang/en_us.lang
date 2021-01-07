@@ -68,6 +68,7 @@ tile.spruce_log_brown_core_roundel.name=Core Roundel
 //CreativeTab
 itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
 itemGroup.edgeofdarkness_roundels=DWTEOD Roundels
+itemGroup.edgeofdarkness_tools=DWTEOD Tools/Weapons
 
 //Messages
 msg.tardis.locked=The TARDIS is locked

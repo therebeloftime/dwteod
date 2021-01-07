@@ -15,4 +15,9 @@ public class ModTabs {
         @Override
         public ItemStack createIcon() { return new ItemStack(ModBlocks.oak_planks_purple_full_roundel); }
     };
+
+    public static CreativeTabs edgeoftools = new CreativeTabs("edgeofdarkness_tools") {
+        @Override
+        public ItemStack createIcon() { return new ItemStack(ModItems.emerald_sword); }
+    };
 }
