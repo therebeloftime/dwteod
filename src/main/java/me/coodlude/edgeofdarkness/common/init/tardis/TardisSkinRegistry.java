@@ -14,17 +14,32 @@ import java.util.List;
 public class TardisSkinRegistry {
     public static List<ExteriorCircuit> circuitList = new ArrayList<>();
 
+    public static IFlightAnimation fade = new IFlightAnimation() {
+        @Override
+        public void tickAnimationRemat(int timer, TardisInfo info, ModelTardisBase base) {
+            
+        }
+
+        @Override
+        public void tickAnimationDemat(int timer, TardisInfo info, ModelTardisBase base) {
+
+        }
+    };
+
     public static ExteriorCircuit main;
     public static ExteriorCircuit toyota;
     public static ExteriorCircuit trashCan;
 
     public static void init() {
-        main = addCircuit("Main", new ModelTardisMain(), ModSchematics.MAIN_TARDIS, new Vec3d(2, 5, 5),180);
-        toyota = addCircuit("Toyota", new ModelTardisToyota(), ModSchematics.MAIN_TARDIS, new Vec3d(2, 5, 5), 180);
-        trashCan = addCircuit("Trash Can", new ModelTardisTrashCan(), ModSchematics.MAIN_TARDIS, new Vec3d(2, 5, 5), 180);
+        main = addCircuit("Main", new ModelTardisMain(), ModSchematics.DWTEODD_INT, new Vec3d(4, 6, 11),180, fade);
+        toyota = addCircuit("Toyota", new ModelTardisToyota(), ModSchematics.DWTEODD_INT, new Vec3d(4, 6, 11), 180, fade);
+        trashCan = addCircuit("Trash Can", new ModelTardisTrashCan(), ModSchematics.DWTEODD_INT, new Vec3d(4, 6, 11), 180, fade);
     }
 
-    public static ExteriorCircuit addCircuit(String name, ModelTardisBase base, Schematic schematic, Vec3d offset, float rotation) {
+
+
+
+    public static ExteriorCircuit addCircuit(String name, ModelTardisBase base, Schematic schematic, Vec3d offset, float rotation, IFlightAnimation animation) {
         ExteriorCircuit exteriorCircuit = new ExteriorCircuit();
         exteriorCircuit.setBasemodel(base);
         exteriorCircuit.setName(name);

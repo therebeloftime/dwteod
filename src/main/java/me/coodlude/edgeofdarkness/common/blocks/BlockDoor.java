@@ -48,7 +48,7 @@ public class BlockDoor extends BlockTileBase implements IHaveItem {
             }
         }
 
-        if (worldIn.isRemote) {
+        if (!worldIn.isRemote) {
             TileEntityTardis tileEntityTardis = TardisHandler.getTardisTile(id);
             if (tileEntityTardis != null) {
                 tileEntityTardis.reset();

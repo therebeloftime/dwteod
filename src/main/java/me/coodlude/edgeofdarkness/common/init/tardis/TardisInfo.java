@@ -194,7 +194,7 @@ public class TardisInfo {
                     travelTime = 0;
                 }
             } else {
-                if (travelTime > 160) {
+                if (travelTime > 4) {
                     TardisHandler.immediateLanding(tardisID, extereriorPos, exteriorDim);
                     travelTime = 0;
                     inFlight = false;
@@ -205,15 +205,15 @@ public class TardisInfo {
         save();
     }
 
-    public void flightUpdate() {
+    public void flightUpdate(World world) {
 
         if (inFlight) {
 
             if (travelTime > 0 && !isDrifting()) {
-                travelTime--;
+               if(world.getWorldTime() % 20 == 0) travelTime--;
             }
 
-            if (travelTime == 80) {
+            if (travelTime == 4) {
                 World destination = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(destinationDim);
 
                 TardisHandler.calculateLandingPosition(this, destinationPos, destinationDim);

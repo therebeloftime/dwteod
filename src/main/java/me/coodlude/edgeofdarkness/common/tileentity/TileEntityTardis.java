@@ -123,7 +123,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
 
                             setOpen(false);
                             BlockPos ip = info.getInteriorPos();
-                            TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, ip.getX(), ip.getY(), ip.getZ(), 0, info.interiorSpawnRotation);
+                            TeleportUtils.teleportToDimension(playerIn, ModDimension.TARDISID, ip.getX() + 0.5f, ip.getY(), ip.getZ() + 0.5f, 0, info.interiorSpawnRotation);
                         }
                     }
                 }
@@ -186,6 +186,7 @@ public class TileEntityTardis extends TileEntityBase implements ITickable {
         isRemat = false;
         isDemat = false;
         alpha = 1;
+        sendUpdates();
     }
 
     public boolean isOpen() {

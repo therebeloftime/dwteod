@@ -1,7 +1,6 @@
 package me.coodlude.edgeofdarkness.common.capability;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
-import me.coodlude.edgeofdarkness.common.init.tardis.events.EventLeaveTardis;
 import me.coodlude.edgeofdarkness.common.init.ModDimension;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
@@ -136,7 +135,6 @@ public class CapabilityTardis implements ITardisCapability {
 
         @SubscribeEvent
         public static void onPlayerLeave(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent event) {
-            MinecraftForge.EVENT_BUS.post(new EventLeaveTardis(event.player, get(event.player).getTardisID()));
         }
     }
 
@@ -144,26 +142,18 @@ public class CapabilityTardis implements ITardisCapability {
     @SubscribeEvent
     public static void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event) {
         get(event.player).sync();
-
-        MinecraftForge.EVENT_BUS.post(new EventLeaveTardis(event.player, get(event.player).getTardisID()));
-
     }
 
 
     @SubscribeEvent
     public static void onPlayerChangedDimension(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent event) {
         get(event.player).sync();
-
-        if(event.toDim != ModDimension.TARDISID) {
-            MinecraftForge.EVENT_BUS.post(new EventLeaveTardis(event.player, get(event.player).getTardisID()));
-        }
     }
 
     @SubscribeEvent
     public static void onDeathEvent(LivingDeathEvent e) {
         if (e.getEntityLiving() instanceof EntityPlayer) {
             get((EntityPlayer) e.getEntityLiving()).sync();
-            MinecraftForge.EVENT_BUS.post(new EventLeaveTardis((EntityPlayer) e.getEntityLiving(), get((EntityPlayer) e.getEntityLiving()).getTardisID()));
         }
     }
 
