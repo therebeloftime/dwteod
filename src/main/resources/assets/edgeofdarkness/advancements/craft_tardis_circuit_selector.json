@@ -1,25 +1,26 @@
 {
   "display": {
     "icon": {
-      "item" : "minecraft:tardis_circuit_selector"
+      "item" : "edgeofdarkness:tardis_circuit_selector"
     },
     "title": {
       "translate" : "advancements.edgeofdarkness.craft_tardis_circuit_selector.title"
     },
     "description" : {
       "translate" : "advancements.edgeofdarkness.craft_tardis_circuit_selector.description"
+    },
+    "frame" : "challenge"
   },
   "parent" : "edgeofdarkness:enter_tardis",
-    "criteria" : {
-      "craft_key" : {
-        "trigger" : "minecraft:inventory_changed",
-        "conditions" : {
-          "items" : [
-            {
-              "item" : "edgeofdarkness:tardis_circuit_selector"
-            }
-          ]
-        }
+  "criteria" : {
+    "craft_sonic" : {
+      "trigger" : "minecraft:inventory_changed",
+      "conditions" : {
+        "items" : [
+          {
+            "item" : "edgeofdarkness:tardis_circuit_selector"
+          }
+        ]
       }
     }
   }
