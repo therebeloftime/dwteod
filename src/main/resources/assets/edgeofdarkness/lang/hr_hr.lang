@@ -63,11 +63,11 @@ msg.tardis.snap=Kliknuo si prste!
 //Advancements
 advancements.edgeofdarkness.main.title = Što da ti kažem? TARDIS ključ.
 advancements.edgeofdarkness.craft_sonic.title = Ne lomi se i ulazi
-advancements.edgeofdarkness.craft_tardis.title = Svemir vas čeka
+advancements.edgeofdarkness.enter_tardis.title = Svemir vas čeka
 advancements.edgeofdarkness.travel.title = Putovanje cijelog života
 
 //Advancement Descriptions
 advancements.edgeofdarkness.main.description = Izradite TARDIS ključ i vaša potraga za vremenskim brodom započinje ovdje
 advancements.edgeofdarkness.craft_sonic.description = Izradite zvučni odvijač
-advancements.edgeofdarkness.craft_tardis.description = Unesite vremenski brod
+advancements.edgeofdarkness.enter_tardis.description = Unesite vremenski brod
 advancements.edgeofdarkness.travel.description = Označite svoje prvo putovanje kroz prostor i vrijeme

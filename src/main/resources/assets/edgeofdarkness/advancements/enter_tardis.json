@@ -4,10 +4,10 @@
             "item" : "edgeofdarkness:tardis_spawner"
         },
         "title": {
-            "translate" : "advancements.edgeofdarkness.craft_tardis.title"
+            "translate" : "advancements.edgeofdarkness.enter_tardis.title"
         },
         "description" : {
-            "translate" : "advancements.edgeofdarkness.craft_tardis.description"
+            "translate" : "advancements.edgeofdarkness.enter_tardis.description"
         },
 		"frame" : "challenge"
     },
