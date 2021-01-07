@@ -1,7 +1,7 @@
 {
     "display": {
         "icon": {
-            "item" : "edgeofdarkness:tardis_spawner"
+            "item" : "edgeofdarkness:tardis_door"
         },
         "title": {
             "translate" : "advancements.edgeofdarkness.enter_tardis.title"
@@ -11,7 +11,7 @@
         },
 		"frame" : "challenge"
     },
-    "parent" : "edgeofdarkness:main",
+    "parent" : "edgeofdarkness:craft_key_mcgann",
 		"criteria" : {
 			"craft_tardis" : {
               "trigger": "minecraft:changed_dimension",

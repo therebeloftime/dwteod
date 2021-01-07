@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "edgeofdarkness:tardis_key"
+      "item": "edgeofdarkness:key_mcgann"
     },
     {
       "item": "minecraft:end_crystal"
