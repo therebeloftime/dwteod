@@ -64,7 +64,7 @@ public class ModItems {
         key_mcgann = registerItem(new ItemTardisKey(), "key_mcgann").setCreativeTab(ModTabs.edgeofdarkness);
         jammy_dodgers = registerItem(new ItemFood(1, 0.5f, false), "jammy_dodgers").setCreativeTab(ModTabs.edgeofdarkness);
         sonicscrewdriver_eod = registerItem(new ItemSonicScrewdriver(), "sonicscrewdriver_eod").setCreativeTab(ModTabs.edgeofdarkness);
-        emerald_sword = registerItem(new ItemSword(Item.ToolMaterial.DIAMOND),  "emerald_sword").setCreativeTab(ModTabs.edgeofdarkness);
+        emerald_sword = registerItem(new ItemSword(Item.ToolMaterial.DIAMOND),  "emerald_sword").setCreativeTab(ModTabs.edgeoftools);
         emerald_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.DIAMOND),  "emerald_pickaxe").setCreativeTab(ModTabs.edgeoftools);
         emerald_axe = registerItem(new ItemHatchet(Item.ToolMaterial.DIAMOND), "emerald_axe").setCreativeTab(ModTabs.edgeoftools);
         emerald_shovel = registerItem(new ItemSpade(Item.ToolMaterial.DIAMOND), "emerald_shovel").setCreativeTab(ModTabs.edgeoftools);
