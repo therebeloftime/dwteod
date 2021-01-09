@@ -3,14 +3,15 @@
   "modid": "edgeofdarkness",
   "name": "Doctor Who: The Edge Of Darkness",
   "description": "Info will be revealed soon.",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
   "authorList": ["therebeloftime", "Josia50", "TheGingerDoctor"],
   "credits": "Josia50 - TARDIS System
   TheGingerDoctor - Music, Models and Textures
-  Dalekium - Breaking The Matrix Theme",
+  Dalekium - Breaking The Matrix Theme
+  DT10 - TARDIS Interiors",
   "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": []
