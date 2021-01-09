@@ -46,6 +46,16 @@ tile.spruce_log_brown_half_roundel.name = Pola kružnog zida
 tile.spruce_log_brown_base_roundel.name = Osnovni kružni zid
 tile.spruce_log_brown_top_roundel.name = Gornji kružni zid
 tile.spruce_log_brown_core_roundel.name = Jezgra kružnog zida
+tile.dark_oak_planks_red_full_roundel.name = Pun kružni zid
+tile.dark_oak_planks_red_half_roundel.name = Pola kružnog zida
+tile.dark_oak_planks_red_base_roundel.name = Osnovni kružni zid
+tile.dark_oak_planks_red_top_roundel.name = Gornji kružni zid
+tile.dark_oak_planks_red_core_roundel.name = Jezgra kružnog zida
+tile.acacia_planks_red_full_roundel.name = Pun kružni zid
+tile.acacia_planks_red_half_roundel.name = Pola kružnog zida
+tile.acacia_planks_red_base_roundel.name = Osnovni kružni zid
+tile.acacia_planks_red_top_roundel.name = Gornji kružni zid
+tile.acacia_planks_red_core_roundel.name = Jezgra kružnog zida
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=DW:RM - Predmeti

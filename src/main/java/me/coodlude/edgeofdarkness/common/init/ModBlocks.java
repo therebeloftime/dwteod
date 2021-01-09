@@ -39,6 +39,16 @@ public class ModBlocks {
 	public static Block spruce_log_brown_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block spruce_log_brown_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block spruce_log_brown_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block dark_oak_planks_red_full_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "dark_oak_planks_red_full_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block dark_oak_planks_red_half_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "dark_oak_planks_red_half_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block dark_oak_planks_red_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "dark_oak_planks_red_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block dark_oak_planks_red_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "dark_oak_planks_red_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block dark_oak_planks_red_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "dark_oak_planks_red_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block acacia_blue_full_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_blue_full_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block acacia_blue_half_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_blue_half_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block acacia_blue_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_blue_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block acacia_blue_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_blue_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
+	public static Block acacia_blue_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_blue_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
 
 
     public static Block registerBlock(Block block, String name) {

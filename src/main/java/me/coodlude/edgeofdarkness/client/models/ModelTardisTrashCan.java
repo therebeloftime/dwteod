@@ -17,8 +17,8 @@ public class ModelTardisTrashCan extends ModelTardisBase {
     private ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/trash_can.png");
 
 	public ModelTardisTrashCan() {
-		textureWidth = 64;
-		textureHeight = 64;
+		textureWidth = 128;
+		textureHeight = 128;
 
         TrashCan = new ModelRenderer(this);
         TrashCan.setRotationPoint(0.0F, 24.0F, 0.0F);
