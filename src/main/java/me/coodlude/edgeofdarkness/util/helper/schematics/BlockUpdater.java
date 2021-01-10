@@ -76,9 +76,7 @@ public class BlockUpdater {
                     }
 
                     blockUpdaterList.remove(0);
-                } else {
-                    blockUpdaterList.remove(0);
-                }
+                } else blockUpdaterList.remove(0);
             }
         }
 
