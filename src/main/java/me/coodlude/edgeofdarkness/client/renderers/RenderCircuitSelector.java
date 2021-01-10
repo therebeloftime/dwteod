@@ -31,9 +31,9 @@ public class RenderCircuitSelector extends TileEntitySpecialRenderer<TileEntityC
         GlStateManager.rotate(f, 0, 1, 0);
         GlStateManager.translate(0.0, -1.40, 0.0);
         GlStateManager.scale(0.2f, 0.2f, 0.2);
-        GlStateManager.color(1, 1, 1, 0.7f);
+        float alphatest = te.alpha - 0.3f;
+        GlStateManager.color(1, 1, 10, alphatest < 0 ? 0 : alphatest);
         GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         TardisSkinRegistry.circuitList.get(te.circuitID).renderExterior((1.0f / 45) * te.doorOpen);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
