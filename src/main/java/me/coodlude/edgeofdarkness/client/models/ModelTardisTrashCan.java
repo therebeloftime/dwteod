@@ -39,7 +39,7 @@ public class ModelTardisTrashCan extends ModelTardisBase {
         GlStateManager.pushMatrix();
         Minecraft.getMinecraft().getTextureManager().bindTexture(location);
         GlStateManager.translate(0,0.80,0);
-        GlStateManager.scale(1.2,1.2,1.2);
+        GlStateManager.scale(1,1,1);
         GlStateManager.rotate(180, 1,0,0);
         can.render(f5);
         lid.render(f5);
