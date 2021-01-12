@@ -15,7 +15,7 @@ public class ModelTardisEOD extends ModelTardisBase {
 	private final ModelRenderer MainBox;
 	private final ModelRenderer LeftDoor;
 	private final ModelRenderer RightDoor;
-	private ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/eod_tardis.png");
+	private final ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/eod_tardis.png");
 
 	public ModelTardisEOD() {
 		textureWidth = 256;

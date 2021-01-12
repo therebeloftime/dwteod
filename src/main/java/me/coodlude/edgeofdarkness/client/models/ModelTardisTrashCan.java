@@ -14,7 +14,7 @@ public class ModelTardisTrashCan extends ModelTardisBase {
     private final ModelRenderer TrashCan;
     private final ModelRenderer can;
     private final ModelRenderer lid;
-    private ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/trash_can.png");
+    private final ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/trash_can.png");
 
 	public ModelTardisTrashCan() {
 		textureWidth = 128;

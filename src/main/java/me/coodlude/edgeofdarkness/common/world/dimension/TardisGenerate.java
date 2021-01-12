@@ -14,8 +14,8 @@ import java.util.Random;
 
 public class TardisGenerate implements IChunkGenerator {
 
-    private World world;
-    private Random rand;
+    private final World world;
+    private final Random rand;
 
     public TardisGenerate(World world) {
         super();
