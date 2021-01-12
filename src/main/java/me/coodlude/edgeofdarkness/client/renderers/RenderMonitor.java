@@ -1,9 +1,7 @@
 package me.coodlude.edgeofdarkness.client.renderers;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
-import me.coodlude.edgeofdarkness.client.models.ModelDoor;
 import me.coodlude.edgeofdarkness.client.models.ModelScreen;
-import me.coodlude.edgeofdarkness.common.tileentity.TileEntityDoor;
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityMonitor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

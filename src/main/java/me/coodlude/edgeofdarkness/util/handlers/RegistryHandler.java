@@ -3,7 +3,6 @@ package me.coodlude.edgeofdarkness.util.handlers;
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.common.init.ModBlocks;
 import me.coodlude.edgeofdarkness.common.init.ModItems;
-import me.coodlude.edgeofdarkness.common.init.tardis.TardisSkinRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

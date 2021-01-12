@@ -4,14 +4,10 @@ package me.coodlude.edgeofdarkness.client.models;
 // Exported for Minecraft version 1.12
 // Paste this class into your mod and generate all required imports
 
-import me.coodlude.edgeofdarkness.client.models.ModelTardisBase;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
 
 public class TardisCircuitSelector extends ModelBase {
 	private final ModelRenderer base;

@@ -2,11 +2,9 @@ package me.coodlude.edgeofdarkness.client.models;// Made with Blockbench
 // Paste this code into your mod.
 // Make sure to generate all required imports
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
 public class ModelDematLever extends ModelBase {

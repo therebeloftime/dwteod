@@ -2,7 +2,6 @@ package me.coodlude.edgeofdarkness.common.blocks;
 
 import me.coodlude.edgeofdarkness.common.tileentity.TileEntityBase;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
