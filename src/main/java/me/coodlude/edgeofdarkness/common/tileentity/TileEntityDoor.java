@@ -54,8 +54,6 @@ public class TileEntityDoor extends TileEntityBase implements ITickable {
         }else{
             List<EntityPlayer> entityList = world.getEntitiesWithinAABB(EntityPlayer.class, Block.FULL_BLOCK_AABB.offset(pos).contract(0.5,0,0.5));
 
-            System.out.println(entityList);
-
             if(entityList.size() > 0) {
                 int id = TardisHandler.getIDFromCoords(pos);
                 if (TardisHandler.doesTardisExist(id)) {

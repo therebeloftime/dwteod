@@ -50,6 +50,7 @@ public class ModelDoorEOD extends ModelBase {
 		Minecraft.getMinecraft().getTextureManager().bindTexture(location);
 		MainBody.render(f5);
 
+		RightDoor.rotateAngleY = f;
 		LeftDoor.render(f5);
 		RightDoor.render(f5);
 		GlStateManager.popMatrix();

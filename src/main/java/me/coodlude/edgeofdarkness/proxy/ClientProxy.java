@@ -12,7 +12,6 @@ public class ClientProxy implements IProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTardis.class, new RenderTardis());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDoor.class, new RenderDoor());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDoorEOD.class, new RenderDoorEOD());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDoorToyota.class, new RenderDoorToyota());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMonitor.class, new RenderMonitor());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDematLever.class, new RenderDematLever());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCircuitSelector.class, new RenderCircuitSelector());
