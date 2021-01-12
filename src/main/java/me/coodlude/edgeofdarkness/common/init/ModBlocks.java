@@ -24,6 +24,7 @@ public class ModBlocks {
     public static Block tardis = registerBlock(new BlockTardis(TileEntityTardis::new), "tardis").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_door = registerBlock(new BlockDoor(TileEntityDoor::new), "tardis_door").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_door_eod = registerBlock(new BlockDoorEOD(TileEntityDoorEOD::new), "tardis_door_eod").setCreativeTab(ModTabs.edgeofdarkness);
+	public static Block tardis_door_toyota = registerBlock(new BlockDoorToyota(TileEntityDoorToyota::new), "tardis_door_toyota").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_monitor = registerBlock(new BlockMonitor(TileEntityMonitor::new), "tardis_monitor").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_handbrake = registerBlock(new BlockDematLever(TileEntityDematLever::new), "tardis_handbrake").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_circuit_selector = registerBlock(new BlockCircuitSelector(TileEntityCircuitSelector::new), "tardis_circuit_selector").setCreativeTab(ModTabs.edgeofdarkness);

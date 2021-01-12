@@ -34,6 +34,7 @@ item.record.record_pigstep.desc = Lena Raine - Svinjastep
 tile.tardis.name=TARDIS
 tile.tardis_door.name=TARDIS Vrata
 tile.tardis_door_eod.name=TARDIS Vrata
+tile.tardis_door_toyota.name=TARDIS Vrata
 tile.tardis_handbrake.name = TARDIS ručna kočnica
 tile.tardis_monitor.name = TARDIS monitor
 //Roundels
@@ -61,6 +62,7 @@ tile.acacia_planks_red_core_roundel.name = Jezgra kružnog zida
 //CreativeTab
 itemGroup.edgeofdarkness_items=DW:RM - Predmeti
 itemGroup.edgeofdarkness_roundels=DW:RM  - Krugovni Zidovi
+itemGroup.edgeofdarkness_tools=DW:RM - Alati / Oružje
 
 //Messages
 msg.tardis.locked=TARDIS je zaključan

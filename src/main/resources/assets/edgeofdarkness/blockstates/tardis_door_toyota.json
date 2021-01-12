@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "normal": {
+      "model": "edgeofdarkness:tile_base"
+    },
+    "facing=north": {
+      "model": "edgeofdarkness:tile_base"
+    },
+    "facing=south": {
+      "model": "edgeofdarkness:tile_base"
+    },
+    "facing=west": {
+      "model": "edgeofdarkness:tile_base"
+    },
+    "facing=east": {
+      "model": "edgeofdarkness:tile_base"
+    }
+  }
+}

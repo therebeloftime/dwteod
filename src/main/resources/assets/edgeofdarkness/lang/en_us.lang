@@ -52,6 +52,7 @@ item.record.record_pigstep.desc=Lena Raine - Pigstep
 tile.tardis.name=The TARDIS
 tile.tardis_door.name=TARDIS Door
 tile.tardis_door_eod.name=TARDIS Door
+tile.tardis_door_toyota.name=TARDIS Door
 tile.tardis_handbrake.name=TARDIS Handbrake
 tile.tardis_monitor.name=TARDIS Monitor
 //Roundels
@@ -77,9 +78,9 @@ tile.acacia_planks_blue_top_roundel.name=Top Roundel
 tile.acacia_planks_blue_core_roundel.name=Core Roundel
 
 //CreativeTab
-itemGroup.edgeofdarkness_items=Doctor Who: The Edge Of Darkness
-itemGroup.edgeofdarkness_roundels=DWTEOD Roundels
-itemGroup.edgeofdarkness_tools=DWTEOD Tools/Weapons
+itemGroup.edgeofdarkness_items=DW:TEOD - Items
+itemGroup.edgeofdarkness_roundels=DW:TEOD - Roundels
+itemGroup.edgeofdarkness_tools=DW:TEOD - Tools/Weapons
 
 //Messages
 msg.tardis.locked=The TARDIS is locked
