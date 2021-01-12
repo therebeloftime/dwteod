@@ -3,10 +3,10 @@ package me.coodlude.edgeofdarkness.common.tileentity;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisHandler;
 import me.coodlude.edgeofdarkness.common.init.tardis.TardisInfo;
 import me.coodlude.edgeofdarkness.util.helper.TeleportUtils;
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.List;
@@ -52,7 +52,7 @@ public class TileEntityDoor extends TileEntityBase implements ITickable {
                 }
             }
         }else{
-            List<EntityPlayer> entityList = world.getEntitiesWithinAABB(EntityPlayer.class, Block.FULL_BLOCK_AABB.offset(pos).contract(0.5,0,0.5));
+            List<EntityPlayer> entityList = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(getPos()).contract(0.5, 0, 0.5));
 
             if(entityList.size() > 0) {
                 int id = TardisHandler.getIDFromCoords(pos);
