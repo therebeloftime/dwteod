@@ -3,7 +3,6 @@ package me.coodlude.edgeofdarkness.common.init;
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.util.helper.schematics.Schematic;
 import me.coodlude.edgeofdarkness.util.helper.schematics.SchematicUtil;
-import net.minecraft.util.DamageSource;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,10 +13,12 @@ public class ModSchematics {
 
     public static Schematic MAIN_TARDIS;
     public static Schematic DWTEODD_INT;
+    public static Schematic DT_INT;
 
     public static void init() {
         MAIN_TARDIS = getSchematic("main_interior");
         DWTEODD_INT = getSchematic("dwteodd_int");
+        DT_INT = getSchematic("dt_interior");
     }
 
 

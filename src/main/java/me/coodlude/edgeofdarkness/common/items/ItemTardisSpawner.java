@@ -44,6 +44,7 @@ public class ItemTardisSpawner extends Item {
                     info.setInteriorSpawnRotation(TardisSkinRegistry.main.rotation_int);
                     Vec3d offset = TardisSkinRegistry.main.offset;
                     info.setInteriorPos(centered.add(offset.x, offset.y, offset.z));
+               //     System.out.println(info.getInteriorPos()); // I WISH I COULD AUTOMATE THIS, BUT FOR NOW IT'S THIS
                     info.setExterior(pos.up(), player.dimension);
                     info.setDestination(pos.up(), player.dimension);
                     tileEntityTardis.sendUpdates();
