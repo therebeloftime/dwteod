@@ -33,6 +33,7 @@ item.record.record_pigstep.desc = Lena Raine - Svinjastep
 //Blocks
 tile.tardis.name=TARDIS
 tile.tardis_door.name=TARDIS Vrata
+tile.tardis_door_eod.name=TARDIS Vrata
 tile.tardis_handbrake.name = TARDIS ručna kočnica
 tile.tardis_monitor.name = TARDIS monitor
 //Roundels

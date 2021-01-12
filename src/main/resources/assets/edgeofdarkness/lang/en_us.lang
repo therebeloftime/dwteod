@@ -51,6 +51,7 @@ item.record.record_pigstep.desc=Lena Raine - Pigstep
 //Blocks
 tile.tardis.name=The TARDIS
 tile.tardis_door.name=TARDIS Door
+tile.tardis_door_eod.name=TARDIS Door
 tile.tardis_handbrake.name=TARDIS Handbrake
 tile.tardis_monitor.name=TARDIS Monitor
 //Roundels

@@ -1,9 +1,6 @@
 package me.coodlude.edgeofdarkness.common.init.tardis;
 
-import me.coodlude.edgeofdarkness.client.models.ModelTardisBase;
-import me.coodlude.edgeofdarkness.client.models.ModelTardisMain;
-import me.coodlude.edgeofdarkness.client.models.ModelTardisToyota;
-import me.coodlude.edgeofdarkness.client.models.ModelTardisTrashCan;
+import me.coodlude.edgeofdarkness.client.models.*;
 import me.coodlude.edgeofdarkness.common.init.ModSchematics;
 import me.coodlude.edgeofdarkness.util.helper.schematics.Schematic;
 import net.minecraft.util.math.Vec3d;
@@ -29,11 +26,13 @@ public class TardisSkinRegistry {
     public static ExteriorCircuit main;
     public static ExteriorCircuit toyota;
     public static ExteriorCircuit trashCan;
+    public static ExteriorCircuit eod;
 
     public static void init() {
         main = addCircuit("Main", new ModelTardisMain(), ModSchematics.DWTEODD_INT, new Vec3d(4, 6, 11),180, fade);
         toyota = addCircuit("Toyota", new ModelTardisToyota(), ModSchematics.DWTEODD_INT, new Vec3d(4, 6, 11), 180, fade);
         trashCan = addCircuit("Trash Can", new ModelTardisTrashCan(), ModSchematics.DWTEODD_INT, new Vec3d(4, 6, 11), 180, fade);
+        eod = addCircuit("EOD", new ModelTardisEOD(), ModSchematics.DWTEODD_INT, new Vec3d(4, 6, 11),180, fade);
     }
 
 
