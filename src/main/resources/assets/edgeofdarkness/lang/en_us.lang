@@ -53,8 +53,13 @@ tile.tardis.name=The TARDIS
 tile.tardis_door.name=TARDIS Door
 tile.tardis_door_eod.name=TARDIS Door
 tile.tardis_door_toyota.name=TARDIS Door
+tile.tardis_door_trash_can.name=TARDIS Door
 tile.tardis_handbrake.name=TARDIS Handbrake
 tile.tardis_monitor.name=TARDIS Monitor
+tile.metal_wall.name=Metal Wall Block
+tile.metal_tiles.name=Metal Tiles
+tile.first_wall.name='60s Wall Block
+tile.first_wall_blowup='60s Blowup Wall Block
 //Roundels
 tile.oak_planks_purple_full_roundel.name=Full Roundel
 tile.oak_planks_purple_half_roundel.name=Half Roundel
@@ -76,6 +81,21 @@ tile.acacia_planks_blue_half_roundel.name=Half Roundel
 tile.acacia_planks_blue_base_roundel.name=Base Roundel
 tile.acacia_planks_blue_top_roundel.name=Top Roundel
 tile.acacia_planks_blue_core_roundel.name=Core Roundel
+tile.first_wall_white_full_roundel.name=Full Roundel
+tile.first_wall_white_half_roundel.name=Half Roundel
+tile.first_wall_white_base_roundel.name=Base Roundel
+tile.first_wall_white_top_roundel.name=Top Roundel
+tile.first_wall_white_core_roundel.name=Core Roundel
+tile.first_wall_blowup_white_full_roundel.name=Full Roundel
+tile.first_wall_blowup_white_half_roundel.name=Half Roundel
+tile.first_wall_blowup_white_base_roundel.name=Base Roundel
+tile.first_wall_blowup_white_top_roundel.name=Top Roundel
+tile.first_wall_blowup_white_core_roundel.name=Core Roundel
+tile.black_concrete_white_concrete_full_roundel.name=Full Roundel
+tile.black_concrete_white_concrete_half_roundel.name=Half Roundel
+tile.black_concrete_white_concrete_base_roundel.name=Base Roundel
+tile.black_concrete_white_concrete_top_roundel.name=Top Roundel
+tile.black_concrete_white_concrete_core_roundel.name=Core Roundel
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=DW:TEOD - Items

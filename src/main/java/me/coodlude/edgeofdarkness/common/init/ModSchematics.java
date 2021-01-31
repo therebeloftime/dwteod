@@ -12,12 +12,12 @@ import java.io.InputStreamReader;
 
 public class ModSchematics {
 
-    public static Schematic MAIN_TARDIS;
-    public static Schematic DWTEODD_INT;
+    public static Schematic LEGACY_B_INT;
+    public static Schematic PURPLE_OAK_INT;
 
     public static void init() {
-        MAIN_TARDIS = getSchematic("main_interior");
-        DWTEODD_INT = getSchematic("dwteodd_int");
+        LEGACY_B_INT = getSchematic("legacy_b_int");
+        PURPLE_OAK_INT = getSchematic("purple_oak_int");
     }
 
 

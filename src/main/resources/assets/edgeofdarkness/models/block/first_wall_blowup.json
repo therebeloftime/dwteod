@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "edgeofdarkness:blocks/first_wall_blowup"
+    }
+}
