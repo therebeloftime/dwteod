@@ -34,8 +34,8 @@ public class GuiTardisCoords extends GuiScreen {
     //public static final ResourceLocation TEXTURE = new ResourceLocation(EdgeOfDarkness.MODID, "textures/gui/gui_gauntlet_space.png");
 
 
-    private Minecraft mc;
-    private FontRenderer fr;
+    private final Minecraft mc;
+    private final FontRenderer fr;
 
     public GuiTardisCoords(String... args) {
         mc = Minecraft.getMinecraft();

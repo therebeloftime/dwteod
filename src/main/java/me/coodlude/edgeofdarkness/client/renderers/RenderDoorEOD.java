@@ -25,7 +25,7 @@ public class RenderDoorEOD extends TileEntitySpecialRenderer<TileEntityDoorEOD> 
         //Helper.getAngleFromFacing(state.getValue(BlockDoorEOD.FACING))
         GlStateManager.rotate(te.rotation, 0, 1, 0);
         Minecraft.getMinecraft().getTextureManager().bindTexture(location);
-        door.render(null, 0, 0, 0, 0, 0, 0.0625f);
+        door.render(null, te.rotation_door, 0, 0, 0, 0, 0.0625f);
         GlStateManager.popMatrix();
     }
 }

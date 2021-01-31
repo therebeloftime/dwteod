@@ -2,7 +2,8 @@ package me.coodlude.edgeofdarkness.common.init;
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
 import me.coodlude.edgeofdarkness.common.items.*;
-import me.coodlude.edgeofdarkness.common.items.tools.*;
+import me.coodlude.edgeofdarkness.common.items.tools.ItemHatchet;
+import me.coodlude.edgeofdarkness.common.items.tools.ItemPickAxe;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.*;

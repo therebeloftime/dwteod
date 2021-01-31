@@ -2,13 +2,10 @@ package me.coodlude.edgeofdarkness.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
-import me.coodlude.edgeofdarkness.common.init.ModGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-
-import javax.swing.*;
 
 public class Packet_RequestGui implements IMessage {
     public int gui;

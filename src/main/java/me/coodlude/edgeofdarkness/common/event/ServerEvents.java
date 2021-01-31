@@ -3,7 +3,6 @@ package me.coodlude.edgeofdarkness.common.event;
 import me.coodlude.edgeofdarkness.util.helper.schematics.BlockUpdater;
 import me.coodlude.edgeofdarkness.util.helper.schematics.SchematicChunk;
 import me.coodlude.edgeofdarkness.util.helper.schematics.SchematicUtil;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

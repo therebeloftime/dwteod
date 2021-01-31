@@ -4,21 +4,18 @@ package me.coodlude.edgeofdarkness.client.models;
 // Make sure to generate all required imports
 
 import me.coodlude.edgeofdarkness.EdgeOfDarkness;
-import me.coodlude.edgeofdarkness.common.init.tardis.TardisSkinRegistry;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.input.Keyboard;
 
 public class ModelTardisMain extends ModelTardisBase {
 	private final ModelRenderer MainBox;
 	private final ModelRenderer LeftDoor;
 	private final ModelRenderer RightDoor;
-	private ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/main_tardis.png");
+	private final ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/main_tardis.png");
 
 	public ModelTardisMain() {
 		textureWidth = 256;

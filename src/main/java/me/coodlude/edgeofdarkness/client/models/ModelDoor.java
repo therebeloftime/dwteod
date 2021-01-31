@@ -15,7 +15,7 @@ public class ModelDoor extends ModelBase {
 	private final ModelRenderer MainBody;
 	private final ModelRenderer LeftDoor;
 	private final ModelRenderer RightDoor;
-	private ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/main_tardis.png");
+	private final ResourceLocation location = new ResourceLocation(EdgeOfDarkness.MODID, "textures/blocks/main_tardis.png");
 
 	public ModelDoor() {
 		textureWidth = 256;
@@ -48,8 +48,9 @@ public class ModelDoor extends ModelBase {
 		GlStateManager.scale(0.65, 0.65, 0.65);
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(location);
-		MainBody.render(f5);
 
+		RightDoor.rotateAngleY = f;
+		MainBody.render(f5);
 		LeftDoor.render(f5);
 		RightDoor.render(f5);
 		GlStateManager.popMatrix();

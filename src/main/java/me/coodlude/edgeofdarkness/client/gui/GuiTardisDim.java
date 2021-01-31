@@ -25,8 +25,8 @@ public class GuiTardisDim extends GuiScreen {
     public String[] args;
 
 
-    private Minecraft mc;
-    private FontRenderer fr;
+    private final Minecraft mc;
+    private final FontRenderer fr;
 
     public GuiTardisDim(String... args) {
         mc = Minecraft.getMinecraft();
