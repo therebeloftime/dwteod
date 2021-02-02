@@ -23,7 +23,6 @@ public class ModBlocks {
 
     public static Block tardis = registerBlock(new BlockTardis(TileEntityTardis::new), "tardis").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_door = registerBlock(new BlockDoor(TileEntityDoor::new), "tardis_door").setCreativeTab(ModTabs.edgeofdarkness);
-    public static Block tardis_door_eod = registerBlock(new BlockDoor(TileEntityDoorEOD::new), "tardis_door_eod").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_monitor = registerBlock(new BlockMonitor(TileEntityMonitor::new), "tardis_monitor").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_handbrake = registerBlock(new BlockDematLever(TileEntityDematLever::new), "tardis_handbrake").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_circuit_selector = registerBlock(new BlockCircuitSelector(TileEntityCircuitSelector::new), "tardis_circuit_selector").setCreativeTab(ModTabs.edgeofdarkness);
@@ -49,6 +48,7 @@ public class ModBlocks {
 	public static Block acacia_planks_blue_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_planks_blue_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block acacia_planks_blue_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_planks_blue_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block acacia_planks_blue_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_planks_blue_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
+    public static Block tardis_door_eod = registerBlock(new BlockDoor(TileEntityDoorEOD::new), "tardis_door_eod").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block metal_wall = registerBlock(new BlockEOD(Material.WOOD, MapColor.WOOD), "metal_wall").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block metal_tiles = registerBlock(new BlockEOD(Material.WOOD, MapColor.WOOD), "metal_tiles").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block first_wall = registerBlock(new BlockEOD(Material.WOOD, MapColor.WOOD), "first_wall").setCreativeTab(ModTabs.edgeofdarkness);

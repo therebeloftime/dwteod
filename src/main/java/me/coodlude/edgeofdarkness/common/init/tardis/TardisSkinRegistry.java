@@ -29,10 +29,10 @@ public class TardisSkinRegistry {
     public static ExteriorCircuit eod;
 
     public static void init() {
-        main = addCircuit("Main", new ModelTardisMain(), ModSchematics.DT_INT, new Vec3d(6, 10, 15),180, fade);
-        toyota = addCircuit("Toyota", new ModelTardisToyota(), ModSchematics.DT_INT, new Vec3d(6, 10, 15), 180, fade);
-        trashCan = addCircuit("Trash Can", new ModelTardisTrashCan(), ModSchematics.DT_INT, new Vec3d(6, 10, 15), 180, fade);
-        eod = addCircuit("EOD", new ModelTardisEOD(), ModSchematics.DT_INT, new Vec3d(6, 10, 15),180, fade);
+        main = addCircuit("Main", new ModelTardisMain(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15),180, fade);
+        toyota = addCircuit("Toyota", new ModelTardisToyota(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15), 180, fade);
+        trashCan = addCircuit("Trash Can", new ModelTardisTrashCan(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15), 180, fade);
+        eod = addCircuit("EOD", new ModelTardisEOD(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15),180, fade);
     }
 
 
