@@ -40,7 +40,7 @@ tile.tardis_monitor.name = TARDIS monitor
 tile.metal_wall.name=Metalni zidni blok
 tile.metal_tiles.name=Metalne pločice
 tile.first_wall.name=Zidni blok iz 1960-ih
-tile.first_wall_blowup=Lažni zidni blok iz 1960-ih
+tile.first_wall_blowup.name=Lažni zidni blok iz 1960-ih
 //Roundels
 tile.oak_planks_purple_full_roundel.name = Pun kružni zid
 tile.oak_planks_purple_half_roundel.name = Pola kružnog zida

@@ -37,7 +37,6 @@ public class ModBlocks {
 	public static Block spruce_log_brown_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block spruce_log_brown_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block spruce_log_brown_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "spruce_log_brown_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
-	public static Block tardis_door_toyota = registerBlock(new BlockDoorToyota(TileEntityDoorToyota::new), "tardis_door_toyota").setCreativeTab(ModTabs.edgeofdarkness);
 	public static Block dark_oak_planks_red_full_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "dark_oak_planks_red_full_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block dark_oak_planks_red_half_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "dark_oak_planks_red_half_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block dark_oak_planks_red_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "dark_oak_planks_red_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
@@ -48,6 +47,7 @@ public class ModBlocks {
 	public static Block acacia_planks_blue_base_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_planks_blue_base_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block acacia_planks_blue_top_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_planks_blue_top_roundel").setCreativeTab(ModTabs.edgeofroundels);
 	public static Block acacia_planks_blue_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "acacia_planks_blue_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
+    public static Block tardis_door_toyota = registerBlock(new BlockDoorToyota(TileEntityDoorToyota::new), "tardis_door_toyota").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block tardis_door_eod = registerBlock(new BlockDoor(TileEntityDoorEOD::new), "tardis_door_eod").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block metal_wall = registerBlock(new BlockEOD(Material.WOOD, MapColor.WOOD), "metal_wall").setCreativeTab(ModTabs.edgeofdarkness);
     public static Block metal_tiles = registerBlock(new BlockEOD(Material.WOOD, MapColor.WOOD), "metal_tiles").setCreativeTab(ModTabs.edgeofdarkness);

@@ -59,7 +59,7 @@ tile.tardis_monitor.name=TARDIS Monitor
 tile.metal_wall.name=Metal Wall Block
 tile.metal_tiles.name=Metal Tiles
 tile.first_wall.name='60s Wall Block
-tile.first_wall_blowup='60s Blowup Wall Block
+tile.first_wall_blowup.name='60s Blowup Wall Block
 //Roundels
 tile.oak_planks_purple_full_roundel.name=Full Roundel
 tile.oak_planks_purple_half_roundel.name=Half Roundel
