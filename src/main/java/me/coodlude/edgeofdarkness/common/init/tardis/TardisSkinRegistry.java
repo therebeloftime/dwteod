@@ -24,15 +24,21 @@ public class TardisSkinRegistry {
     };
 
     public static ExteriorCircuit main;
+	public static ExteriorCircuit eod;
     public static ExteriorCircuit toyota;
     public static ExteriorCircuit trashCan;
-    public static ExteriorCircuit eod;
+	public static ExteriorCircuit capaldi;
+    public static ExteriorCircuit fourteenth;
+	public static ExteriorCircuit dt_thirteen;
 
     public static void init() {
         main = addCircuit("Main", new ModelTardisMain(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15),180, fade);
+		eod = addCircuit("EOD", new ModelTardisEOD(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15),180, fade);
         toyota = addCircuit("Toyota", new ModelTardisToyota(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15), 180, fade);
         trashCan = addCircuit("Trash Can", new ModelTardisTrashCan(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15), 180, fade);
-        eod = addCircuit("EOD", new ModelTardisEOD(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15),180, fade);
+		capaldi = addCircuit("Capaldi", new ModelTardisCapaldi(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15),180, fade);
+        fourteenth = addCircuit("Fourteenth", new ModelTardisFourteenth(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15),180, fade);
+		dt_thirteen = addCircuit("DT Thirteen", new ModelTardisDTThirteen(), ModSchematics.MAIN_INT, new Vec3d(3, 10, 15),180, fade);
     }
 
 
