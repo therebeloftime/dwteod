@@ -73,7 +73,7 @@ public class ModBlocks {
 
     public static Block registerBlock(Block block, String name) {
         block.setRegistryName(name);
-        block.setTranslationKey(name);
+        block.setUnlocalizedName(name);
         ModBlocks.BLOCK_LIST.add(block);
 
         if (block instanceof BlockTileBase) {

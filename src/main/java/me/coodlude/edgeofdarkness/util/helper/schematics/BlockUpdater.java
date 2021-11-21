@@ -72,7 +72,7 @@ public class BlockUpdater {
                     World updateWorld = world.getMinecraftServer().getWorld(blockUpdater.dimension);
 
                     for (BlockPos pos : blockUpdater.posList) {
-                        updateWorld.markAndNotifyBlock(pos, updateWorld.getChunk(pos), updateWorld.getBlockState(pos), updateWorld.getBlockState(pos), 1);
+                        updateWorld.markAndNotifyBlock(pos, updateWorld.getChunkFromBlockCoords(pos), updateWorld.getBlockState(pos), updateWorld.getBlockState(pos), 1);
                     }
 
                     blockUpdaterList.remove(0);

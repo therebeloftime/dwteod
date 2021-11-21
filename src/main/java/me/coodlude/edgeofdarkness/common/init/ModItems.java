@@ -98,7 +98,7 @@ public class ModItems {
 
     public static Item registerItem(Item item, String name) {
         item.setRegistryName(name);
-        item.setTranslationKey(name);
+        item.setUnlocalizedName(name);
         ITEM_LIST.add(item);
         return item;
     }

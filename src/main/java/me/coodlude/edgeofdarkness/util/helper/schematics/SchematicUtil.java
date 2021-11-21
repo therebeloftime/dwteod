@@ -156,7 +156,7 @@ public class SchematicUtil {
             blockInfo.getTileTag().setInteger("z", pPos.getZ());
             tileEntity.readFromNBT(blockInfo.getTileTag());
             tileEntity.markDirty();
-            world.markAndNotifyBlock(pPos, world.getChunk(pPos), world.getBlockState(pPos), world.getBlockState(pPos), 1);
+            world.markAndNotifyBlock(pPos, world.getChunkFromBlockCoords(pPos), world.getBlockState(pPos), world.getBlockState(pPos), 1);
         }
     }
 }

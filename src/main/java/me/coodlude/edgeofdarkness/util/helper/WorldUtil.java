@@ -14,7 +14,7 @@ public class WorldUtil {
         } else if (!world.isRemote && world.getWorldInfo().getTerrainType() == WorldType.DEBUG_ALL_BLOCK_STATES) {
             return false;
         } else {
-            Chunk chunk = world.getChunk(pos);
+            Chunk chunk = world.getChunkFromBlockCoords(pos);
 
             pos = pos.toImmutable(); // Forge - prevent mutable BlockPos leaks
             IBlockState iblockstate = chunk.setBlockState(pos, iBlockState);
