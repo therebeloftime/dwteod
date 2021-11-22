@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = "0.0.1"
-group = "me.cooldude" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "me.cooldude.edgeofdarkness" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "EdgeOfDarkness"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -102,6 +102,11 @@ jar {
 jar.finalizedBy('reobfJar') 
 // However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
 //publish.dependsOn('reobfJar')
+
+sourceSets {
+    main { output.resourcesDir = output.classesDir }
+}
+
 
 publishing {
     publications {
