@@ -128,5 +128,15 @@
         "stream": false
       }
     ]
+  },
+  "sonic_screwdriver": {
+    "category:": "master",
+    "subtitle": "edgeofdarkness.sonicscrewdriver",
+    "sounds": [
+      {
+        "name": "edgeofdarkness:sonicscrewdriver",
+        "stream": false
+      }
+    ]
   }
 }
