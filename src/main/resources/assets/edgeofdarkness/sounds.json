@@ -129,12 +129,32 @@
       }
     ]
   },
-  "sonic_screwdriver": {
+  "sonic_screwdriver_ignite": {
     "category:": "master",
-    "subtitle": "edgeofdarkness.sonicscrewdriver",
+    "subtitle": "edgeofdarkness.sonic_screwdriver_ignite",
     "sounds": [
       {
-        "name": "edgeofdarkness:sonicscrewdriver",
+        "name": "edgeofdarkness:sonic_screwdriver_ignite",
+        "stream": false
+      }
+    ]
+  },
+"sonic_screwdriver_door": {
+  "category": "master",
+  "subtitle": "edgeofdarkness.sonic_screwdriver_door",
+  "sounds": [
+    {
+      "name": "edgeofdarkness:sonic_screwdriver_door",
+      "stream": false
+    }
+  ]
+},
+  "sonic_screwdriver_idle": {
+    "category": "master",
+    "subtitle": "edgeofdarkness.sonic_screwdriver_idle",
+    "sounds": [
+      {
+        "name": "edgeofdarkness:sonic_screwdriver_idle",
         "stream": false
       }
     ]

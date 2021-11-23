@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModSounds {
 
-    public static SoundEvent SHORT_REMAT, DEMAT, FLY, CLOISTER, DENIED_TAKEOFF,SONIC_SCREWDRIVER, SIXTEENTH_THEME, FIFTEENTH_THEME, FOURTEENTH_THEME, EDGEOFDARKNESS_THEME, SIXTEENTH_PARALLEL_THEME, A_GOOD_MAN, SJA, MEGALOVANIA, MEGALOVANIA_JAZZ, PIGSTEP;
+    public static SoundEvent SHORT_REMAT, DEMAT, FLY, CLOISTER, DENIED_TAKEOFF,SONIC_SCREWDRIVER_IGNITE, SONIC_SCREWDRIVER_DOOR, SONIC_SCREWDRIVER_IDLE, SIXTEENTH_THEME, FIFTEENTH_THEME, FOURTEENTH_THEME, EDGEOFDARKNESS_THEME, SIXTEENTH_PARALLEL_THEME, A_GOOD_MAN, SJA, MEGALOVANIA, MEGALOVANIA_JAZZ, PIGSTEP;
 
     public static void registerSounds() {
         SHORT_REMAT = registerSound("basiclanding");
@@ -21,7 +21,9 @@ public class ModSounds {
         FLY = registerSound("fly");
         CLOISTER = registerSound("cloister");
         DENIED_TAKEOFF = registerSound("denied");
-        SONIC_SCREWDRIVER = registerSound("sonic_screwdriver");
+        SONIC_SCREWDRIVER_IGNITE = registerSound("sonic_screwdriver_ignite");
+        SONIC_SCREWDRIVER_DOOR = registerSound("sonic_screwdriver_door");
+        SONIC_SCREWDRIVER_IDLE = registerSound("sonic_screwdriver_idle");
 
         //Music
         SIXTEENTH_THEME = registerSound("sixteenth_theme");
