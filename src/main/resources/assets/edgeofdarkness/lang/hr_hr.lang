@@ -1,6 +1,7 @@
 // Items
 item.key_mcgann.name=TARDIS Ključ
 item.sonicscrewdriver_eod.name=Sonic Odvijač
+item.sonicscrewdriver_smith.name=Sonic Odvijač od 11. Doktora
 item.jammy_dodgers.name=Džamijski Iznutrice
 item.emerald_sword.name= Smaragdni Mač
 item.emerald_pickaxe.name= Smaragdni Pijuk
@@ -96,6 +97,7 @@ msg.tardis.snap=Kliknuo si prste!
 advancements.edgeofdarkness.craft_key_mcgann.title = Što da ti kažem? TARDIS ključ.
 advancements.edgeofdarkness.craft_sonicscrewdriver_eod.title = Ne lomi se i ulazi
 advancements.edgeofdarkness.enter_tardis.title = Svemir vas čeka
+advancements.edgeofdarkness.travel.title = Put vremena
 advancements.edgeofdarkness.craft_tardis_circuit_selector.title = Ovo postaje smiješno!
 advancements.edgeofdarkness.foreman.title=DW: The Edge Of Darkness
 
@@ -103,6 +105,6 @@ advancements.edgeofdarkness.foreman.title=DW: The Edge Of Darkness
 advancements.edgeofdarkness.craft_key_mcgann.description = Izradite TARDIS ključ i vaša potraga za vremenskim brodom započinje ovdje
 advancements.edgeofdarkness.craft_sonicscrewdriver_eod.description = Izradite zvučni odvijač
 advancements.edgeofdarkness.enter_tardis.description = Unesite vremenski brod
-advancements.edgeofdarkness.travel_nether.description = Označite svoje prvo putovanje kroz prostor i vrijeme
+advancements.edgeofdarkness.travel.description = Označite svoje prvo putovanje kroz prostor i vrijeme
 advancements.edgeofdarkness.craft_tardis_circuit_selector.description = Izradite TARDIS odabir kruga i možete promijeniti svoj krug kameleona
 advancements.edgeofdarkness.foreman.description=I.M.F.O.R.E.M.A.N.

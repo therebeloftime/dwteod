@@ -4,10 +4,10 @@
       "item" : "minecraft:clock"
     },
     "title": {
-      "translate" : "advancements.edgeofdarkness.travel_nether.title"
+      "translate" : "advancements.edgeofdarkness.travel.title"
     },
     "description" : {
-      "translate" : "advancements.edgeofdarkness.travel_nether.description"
+      "translate" : "advancements.edgeofdarkness.travel.description"
     },
     "frame" : "challenge"
   },
@@ -17,11 +17,12 @@
       "trigger": "minecraft:changed_dimension",
       "conditions": {
         "from": "tardis",
-        "to": "the_nether"
+        "to": "the_nether",
+        "to": "the_end"
       }
     }
   },
   "rewards": {
-    "experience": 20
+    "experience": 25
   }
 }

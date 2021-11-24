@@ -24,6 +24,7 @@ public class ModItems {
    // Doctor Who
     public static Item key_mcgann;
     public static Item sonicscrewdriver_eod;
+    public static Item sonicscrewdriver_smith;
     public static Item doomsdaydevicepiece;
     public static Item metebelis_crystal;
 
@@ -65,6 +66,7 @@ public class ModItems {
         key_mcgann = registerItem(new ItemTardisKey(), "key_mcgann").setCreativeTab(ModTabs.edgeofdarkness);
         jammy_dodgers = registerItem(new ItemFood(1, 0.5f, false), "jammy_dodgers").setCreativeTab(ModTabs.edgeofdarkness);
         sonicscrewdriver_eod = registerItem(new ItemSonicScrewdriver(), "sonicscrewdriver_eod").setCreativeTab(ModTabs.edgeofdarkness);
+        sonicscrewdriver_smith = registerItem(new ItemSonicScrewdriver(),"sonicscrewdriver_smith").setCreativeTab(ModTabs.edgeofdarkness);
         emerald_sword = registerItem(new ItemSword(Item.ToolMaterial.DIAMOND),  "emerald_sword").setCreativeTab(ModTabs.edgeoftools);
         emerald_pickaxe = registerItem(new ItemPickAxe(Item.ToolMaterial.DIAMOND),  "emerald_pickaxe").setCreativeTab(ModTabs.edgeoftools);
         emerald_axe = registerItem(new ItemHatchet(Item.ToolMaterial.DIAMOND), "emerald_axe").setCreativeTab(ModTabs.edgeoftools);

@@ -18,7 +18,8 @@
       "conditions" : {
         "items" : [
           {
-            "item" : "edgeofdarkness:sonicscrewdriver_eod"
+            "item" : "edgeofdarkness:sonicscrewdriver_eod",
+            "item" : "edgeofdarkness:sonicscrewdriver_smith"
           }
         ]
       }
