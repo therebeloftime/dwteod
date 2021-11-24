@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item" : "edgeofdarkness:sonicscrewdriver_smith"
+    },
+    "title": {
+      "translate" : "advancements.edgeofdarkness.craft_sonicscrewdriver_smith.title"
+    },
+    "description" : {
+      "translate" : "advancements.edgeofdarkness.craft_sonicscrewdriver_smith.description"
+    }
+  },
+  "parent" : "edgeofdarkness:craft_sonicscrewdriver_eod",
+  "criteria" : {
+    "craft_sonicscrewdriver_smith" : {
+      "trigger" : "minecraft:inventory_changed",
+      "conditions" : {
+        "items" : [
+          {
+            "item" : "edgeofdarkness:sonicscrewdriver_smith"
+          }
+        ]
+      }
+    }
+  }
+}
