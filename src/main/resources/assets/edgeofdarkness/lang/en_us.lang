@@ -97,6 +97,8 @@ tile.black_concrete_white_concrete_half_roundel.name=Half Roundel
 tile.black_concrete_white_concrete_base_roundel.name=Base Roundel
 tile.black_concrete_white_concrete_top_roundel.name=Top Roundel
 tile.black_concrete_white_concrete_core_roundel.name=Core Roundel
+tile.inverted_redstone_lamp.name=Inverted Redstone Lamp
+tile.lit_inverted_redstone_lamp.name=Lit Inverted Redstone Lamp
 
 //CreativeTab
 itemGroup.edgeofdarkness_items=DW:TEOD - Items

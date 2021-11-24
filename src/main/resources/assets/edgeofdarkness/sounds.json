@@ -139,12 +139,12 @@
       }
     ]
   },
-"sonic_screwdriver_door": {
+"sonic_screwdriver_power": {
   "category": "master",
-  "subtitle": "edgeofdarkness.sonic_screwdriver_door",
+  "subtitle": "edgeofdarkness.sonic_screwdriver_power",
   "sounds": [
     {
-      "name": "edgeofdarkness:sonic_screwdriver_door",
+      "name": "edgeofdarkness:sonic_screwdriver_power",
       "stream": false
     }
   ]

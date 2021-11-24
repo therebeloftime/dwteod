@@ -70,6 +70,8 @@ public class ModBlocks {
 	public static Block black_concrete_white_concrete_core_roundel = registerBlock(new BlockGlowRoundel(Material.WOOD, MapColor.WOOD), "black_concrete_white_concrete_core_roundel").setCreativeTab(ModTabs.edgeofroundels);
     public static Block tardis_door_trash_can = registerBlock(new BlockDoorTrashCan(TileEntityDoorTrashCan::new), "tardis_door_trash_can").setCreativeTab(ModTabs.edgeofdarkness);
 	public static Block tardis_door_capaldi = registerBlock(new BlockDoorCapaldi(TileEntityDoorCapaldi::new), "tardis_door_capaldi").setCreativeTab(ModTabs.edgeofdarkness);
+    public static Block inverted_redstone_lamp = registerBlock(new BlockInvertedRedstoneLamp(true), "inverted_redstone_lamp");
+    public static Block lit_inverted_redstone_lamp = registerBlock(new BlockInvertedRedstoneLamp(false), "lit_inverted_redstone_lamp");
 
     public static Block registerBlock(Block block, String name) {
         block.setRegistryName(name);

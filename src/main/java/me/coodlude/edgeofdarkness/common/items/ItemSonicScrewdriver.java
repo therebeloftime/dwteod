@@ -1,5 +1,6 @@
 package me.coodlude.edgeofdarkness.common.items;
 
+import me.coodlude.edgeofdarkness.common.init.ModBlocks;
 import me.coodlude.edgeofdarkness.common.init.ModSounds;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
@@ -46,7 +47,7 @@ public class ItemSonicScrewdriver extends Item {
                 if (worldIn.getBlockState(pos.add(0, -1, 0)).getBlock() == Blocks.IRON_DOOR) {
                     open = worldIn.getBlockState(pos.add(0, -1, 0)).getValue(BlockDoor.OPEN);
                     door.toggleDoor(worldIn, pos.add(0, -1, 0), !open);
-                    worldIn.playSound(null, pos, ModSounds.SONIC_SCREWDRIVER_DOOR, SoundCategory.BLOCKS, 1, 1);
+                    worldIn.playSound(null, pos, ModSounds.SONIC_SCREWDRIVER_POWER, SoundCategory.BLOCKS, 1, 1);
                     worldIn.setBlockState(pos, block.withProperty(BlockDoor.OPEN, Boolean.valueOf(!open)), 2);
                     worldIn.markBlockRangeForRenderUpdate(pos.add(0,-1,0), pos.add(0,-1,0));
                     worldIn.notifyBlockUpdate(pos.add(0,-1,0), worldIn.getBlockState(pos), worldIn.getBlockState(pos), 3);
@@ -57,6 +58,26 @@ public class ItemSonicScrewdriver extends Item {
                 worldIn.markBlockRangeForRenderUpdate(pos, pos);
             }
 
+            if (block.getBlock() == Blocks.REDSTONE_LAMP) {
+                worldIn.setBlockState(pos, ModBlocks.lit_inverted_redstone_lamp.getDefaultState(), 2);
+                worldIn.playSound(null, pos, ModSounds.SONIC_SCREWDRIVER_POWER, SoundCategory.BLOCKS, 1, 1);
+                actionPerformed = true;
+            }
+            else if (block.getBlock() == Blocks.LIT_REDSTONE_LAMP) {
+                worldIn.setBlockState(pos, ModBlocks.inverted_redstone_lamp.getDefaultState(), 2);
+                worldIn.playSound(null, pos, ModSounds.SONIC_SCREWDRIVER_POWER, SoundCategory.BLOCKS, 1, 1);
+                actionPerformed = true;
+            }
+            else if (block.getBlock() == ModBlocks.inverted_redstone_lamp) {
+                worldIn.setBlockState(pos, Blocks.LIT_REDSTONE_LAMP.getDefaultState(), 2);
+                worldIn.playSound(null, pos, ModSounds.SONIC_SCREWDRIVER_POWER, SoundCategory.BLOCKS, 1, 1);
+                actionPerformed = true;
+            }
+            else if (block.getBlock() == ModBlocks.lit_inverted_redstone_lamp) {
+                worldIn.setBlockState(pos, Blocks.REDSTONE_LAMP.getDefaultState(), 2);
+                worldIn.playSound(null, pos, ModSounds.SONIC_SCREWDRIVER_POWER, SoundCategory.BLOCKS, 1, 1);
+                actionPerformed = true;
+            }
             if (actionPerformed == false) {
                 worldIn.playSound(null, pos, ModSounds.SONIC_SCREWDRIVER_IDLE, SoundCategory.BLOCKS, 1, 1);
             }
