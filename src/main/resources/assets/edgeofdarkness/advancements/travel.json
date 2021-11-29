@@ -17,8 +17,7 @@
       "trigger": "minecraft:changed_dimension",
       "conditions": {
         "from": "tardis",
-        "to": "the_nether",
-        "to": "the_end"
+        "to": "the_nether"
       }
     }
   },
