@@ -13,7 +13,7 @@
   },
   "parent" : "edgeofdarkness:enter_tardis",
   "criteria" : {
-    "travel_nether" : {
+    "travel" : {
       "trigger": "minecraft:changed_dimension",
       "conditions": {
         "from": "tardis",

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item" : "minecraft:end_crystal"
+    },
+    "title": {
+      "translate" : "advancements.edgeofdarkness.fixed_point_in_time.title"
+    },
+    "description" : {
+      "translate" : "advancements.edgeofdarkness.fixed_point_in_time.description"
+    }
+  },
+  "parent" : "edgeofdarkness:travel",
+  "criteria" : {
+    "travel" : {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "from": "tardis",
+        "to": "the_end"
+      }
+    }
+  },
+  "rewards": {
+    "experience": 15
+  }
+}
